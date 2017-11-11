@@ -72,3 +72,32 @@ Dans les autres cas, on considère une des droites, d'expression $lx+my=0$. $f$ 
 
 Par changement de coordonées, on est donc ramené à l'un des cas: $(Lx+My)(x^2-y^2)$ ou $(Lx+My)x^2$ ou $(Lx+My)(x^2+y^2)$. Le premier de ces cas nous ramène soit aux trois droites, soit au second cas (selon si $(Lx+My)$ est multiple de $(x-y)$ ou $(x+y)$ ou non). Le second cas mène soit à $x^3$ (si $M=0$) ou $xy^2$. Le troisième est $(x^2+y^2)y$ (soit $LM=0$, ou on procède à une *rotation des axes*).
 
+## Fonctions inverses et implicites
+
+### Développement limités
+
+On introduit la notion de *k-jet*, la fonction polynomiale formée par les $k$ premiers termes du développement de Taylor d'une fonction en un point $y$, noté: $$(j^k_y f)(y+x) = f(y) + xf'(y)+...+\frac{x^n f^{(n)}(y)}{n!} + o(x^n)$$.
+
+Pour une fonction à $n$ variables, on définit son dévelopmmeent de Taylor et son *k-jet* par: $$(j^k_y f)(y+x) = f(y) + df_y(x)+...+\frac{(df^{(k)}_y)(x)(x)...(x)}{k!} + o(x^k)$$
+
+On peut réecrire le terme d'ordre $k$ sous la forme $$\frac{1}{k!}\sum_{i_1,...,i_k} \frac{\partial^k f}{\partial x_{i_1}...x_{i_k}} x_{i_1}...x_{i_k}$$
+
+### Théorème des fonctions inverses
+
+Si $f\in\mathcal{C}^{\infty}(U,\mathbb{R}^m)$, et que $df_x$ est bijective (ou de déterminant non nul), alors f est un **difféomorphisme local** (ou localement bijective).
+
+### Théorème des fonctions implicites
+
+Si $f\in\mathcal{C}^{\infty}(\mathbb{R}^n\times\mathbb{R}^m,\mathbb{R}^p)$, et que le noyau de $df_{(x,y)}$ est localement le graphe d'une fonction $y=g(x)$, alors le noyau de $f$ est localement le graphe d'une application $y=h(x)$.
+
+Plus formellement, si l'on note $f_2(y) = f(x_0, y)$, et que $df_{2,y_0}$ est difféomorphisme local (donc $f_2$ est localement inversible), alors on a une application $\phi$ telle que $f(x,\phi(x))=c$ sur un voisinage de $(x_0,y_0)$, et ce pour tout $c$ au voisinage de $f(x_0,y_0)$.
+
+Cela signifie que $c$ admet un unique antécédant par $y\mapsto f(x,y)$ pour $x$ suffisament proche de $x_0$.
+
+\bigskip
+
+On notera que ces deux théorèmes restent valables sous des hypothèses moins fortes de régularité, et que ces hypothèses sont héritées par $\phi$ dans ce cas. De plus, le lien entre ceux-ci est fort: l'un peut se déduire de l'autre.
+
+## Points critiques
+
+Un point critique est dit non dégénéré si $d^2f(a)$ est une forme quadratique bijective (donc $rg(d^2f)=n$).
