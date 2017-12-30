@@ -20,7 +20,7 @@ Par changement de base, on peut donc écrire $f(X) = X\cdot D\cdot X^T$ avec $D$
 
 $$f(x_1,...,x_n)=x_1^2+x_2^2+...+x_k^2-x_{k+1}^2-...-x_s^2$$
 
-On constate par ailleurs que $s=rg(\Lambda)=rg(f)$ et $sgn(\Lambda)=k-(s-k)=2k-s$.
+On constate par ailleurs que $s=rg(\Lambda)=rg(f)$ et $sgn(\Lambda)=k-(s-k)=2k-s$. En général, il faut $\frac{n(n+1)}{2}$ coefficients pour décrire une telle forme, mais on se ramène ici à $n$ nombres (1, -1 ou 0) modulo une base.
 
 ### Cas de $n=2$
 
@@ -51,7 +51,7 @@ En cherchant l'intersection de ces droites avec $x=1$ (en prenant garde à la dr
 
 Ceci découle du fait que si la droite $x=0$ est dans le noyau, alors $\delta=0$ et on se retrouve avec un polynôme du second degré en $y$, et donc bien au plus trois droites.
 
-Ces catégories en sont bien, car aucun changement de base ne fera varier le `nombre de droites du noyau' (à voir en termes de déformation du plan, les droites coïncidantes coïncident toujours et celles distinctes restent distinctes).
+Ces catégories en sont bien, car aucun changement de coordonnées ne fera varier le `nombre de droites du noyau' (à voir en termes de déformation du plan, les droites coïncidantes coïncident toujours et celles distinctes restent distinctes).
 
 ### Equivalence des classes
 
@@ -79,9 +79,9 @@ Pour une fonction à $n$ variables, on définit son dévelopmmeent de Taylor et 
 
 On peut réecrire le terme d'ordre $k$ sous la forme $$\frac{1}{k!}\sum_{i_1,...,i_k} \frac{\partial^k f}{\partial x_{i_1}...x_{i_k}} x_{i_1}...x_{i_k}$$
 
-### Théorème des fonctions inverses
+### Théorème d'inversion locale
 
-Si $f\in\mathcal{C}^{\infty}(U,\mathbb{R}^m)$, et que $df_x$ est bijective (ou de déterminant non nul), alors f est un **difféomorphisme local** (ou localement bijective).
+Si $f\in\mathcal{C}^{\infty}(U,\mathbb{R}^m)$, et que $df_a$ est bijective (ou de déterminant non nul), alors f est un **difféomorphisme local** (ou localement bijective).
 
 \bigskip
 
@@ -101,40 +101,78 @@ Cela signifie que $c$ admet un unique antécédent par $y\mapsto f(x,y)$ pour $x
 
 \bigskip
 
-On notera que ces deux théorèmes restent valables sous des hypothèses moins fortes de régularité, et que ces hypothèses sont héritées par $\phi$ dans ce cas. De plus, le lien entre ceux-ci est fort: l'un peut se déduire de l'autre.
+On notera que ces deux théorèmes restent valables sous des hypothèses moins fortes de régularité, et que ces hypothèses sont héritées par $\phi$ et $f^{-1}$ dans ce cas. De plus, le lien entre ceux-ci est fort: l'un peut se déduire de l'autre.
 
 ## Points critiques
 
-Un point critique est dit non dégénéré si $\forall x, rg(d^2f_a(x))=n$ (c'est à dire que $x\mapsto(y\mapsto d^2f_a(x,y))$ est isomorphisme), ou de manière équivalente si le déterminant Hessien de $f$ est non nul.
+Un point critique $a$ est dit non dégénéré si $\forall x, rg(d^2f_a(x))=n$ (c'est à dire que $x\mapsto(y\mapsto d^2f_a(x,y))$ est isomorphisme), ou de manière équivalente si le déterminant Hessien de $f$ est non nul.
 
-### Lemme d'Hadamard
+### Lemme d'\textsc{Hadamard}
 
-Si $f(0)=0$ et $f$ est de infiniment différentiable, alors il existe un voisinage de 0 sur lequel $f$ peut s'écrire: $f(x)=g_1(x)x_1+...+g_n(x)x_n$ avec $g_i(0) = \frac{\partial f}{\partial x_i}(0)$.
+Si $f(0)=0$ et $f$ est infiniment différentiable, alors il existe un voisinage de 0 sur lequel $f$ peut s'écrire: $f(x)=g_1(x)x_1+...+g_n(x)x_n$ avec $g_i(0) = \frac{\partial f}{\partial x_i}(0)$.
 
 Si 0 est point critique, on peut même écrire (toujours sur un voisinage de 0): $$f(x)=\sum_{i,j} x_ix_jh_{ij}(x)$$
 
-### Lemme de Morse
+### Lemme de \textsc{Morse}
 
-Si $f\in\mathcal{C}^\infty(\mathbb{R}^n,\mathbb{R})$ admet un point critique non dégénéré en $u$, alors il existe un voisinage de $u$ et un $\mathcal{C}^\infty$-difféomorphisme (donc un changement de base) $y=(y_1,...,y_n)$ tel que: $$f=f(u)+y_1^2+...+y_l^2-y_{l+1}^2-...-y_n^2$$
+Si $f\in\mathcal{C}^\infty(\mathbb{R}^n,\mathbb{R})$ admet un point critique non dégénéré en $u$, alors il existe un voisinage de $u$ et un $\mathcal{C}^\infty$-difféomorphisme (donc un changement de coordonnées) $y=(y_1,...,y_n)$ tel que: $$f=f(u)+y_1^2+...+y_l^2-y_{l+1}^2-...-y_n^2$$
 
 \bigskip
 
 *Preuve*: On montre par récurrence sur $r$ que $f$ s'écrit $$f(x)=\pm u_1^2 \pm...\pm u_{r-1}^2 + \sum_{i,j\geq r} u_iu_jH_{ij}(u)$$
 
-Le rang 0 se déduit du *lemme d'Hamard*. On peut de plus rendre $H_{ij}$ symétrique en $i$ et $j$. On pose alors $$u_r' =\sqrt{\mid H_{rr}\mid}\big(u_r+\sum_{i>r}u_i\frac{H_{ir}}{H_{rr}}\big)$$
+Le rang 0 se déduit du *lemme d'\textsc{Hadamard}*. On peut de plus rendre $H_{ij}$ symétrique en $i$ et $j$. On pose alors $$u_r' =\sqrt{\mid H_{rr}\mid}\big(u_r+\sum_{i>r}u_i\frac{H_{ir}}{H_{rr}}\big)$$
 
-On peut supposer $H_{rr}\neq 0$ par un changement de coordonées comme vu en *1.1*. Il s'agit bien d'un difféomorphisme selon le *théorème des fonctions inverses*, et donc il s'agit bien d'un changement de base. On réécrit alors $f$ comme précédemment mais en allant jusqua'au rang $v_r$ au lieu de $u_{r-1}$ (attention, $(u_r')^2$ donne un reste à ajouter pour former de nouveaux $H_{ij}$).
+On peut supposer $H_{rr}\neq 0$ par un changement de coordonées comme vu en *1.1*. Il s'agit bien d'un difféomorphisme selon le *théorème d'inversion locale*, et donc il s'agit bien d'un changement de coordonnées. On réécrit alors $f$ comme précédemment mais en allant jusqua'au rang $v_r$ au lieu de $u_{r-1}$ (attention, $(u_r')^2$ donne un reste à ajouter pour former de nouveaux $H_{ij}$).
 
 \bigskip
 
-Une application du type $a+y_1^2+...+y_k^2-y_{k+1}^2-...-y_n^2$ est appelée *l-saddle de Morse*. De plus, on note que si $f$ est *0-saddle* alors $u$ est minimum local, et si $f$ est *n-saddle*, alors $u$ est maximum local.
+Une application du type $a+y_1^2+...+y_k^2-y_{k+1}^2-...-y_n^2$ est appelée *k-saddle de \textsc{Morse}*. De plus, on note que si $f$ est *0-saddle* alors $u$ est minimum local, et si $f$ est *n-saddle*, alors $u$ est maximum local.
 
-$u$ est alors un point critique isolé (il existe un voisinage sans autre points critiques), et puisque le changement de coordonées conserve l'isolation, on en déduit que tout point critique non dégénéré est isolé. De plus, $l$ est invariant de base.
+$u$ est alors un point critique isolé (il existe un voisinage sans autre points critiques), et puisque le changement de coordonées conserve l'isolation, on en déduit que tout point critique non dégénéré est isolé. De plus, $l$ est invariant par changement de coordonnées (donc par difféomorphisme, c'est une propriété topologique intrinsèque à $f$).
 
 ### Cas de $n=1$
 
 Si $f(0)=f'(0)=...=f^{(k-1)}=0$ et $f^{(k)}(0)\neq 0$ alors, il existe un voisinage de 0 et un changement de coordonées pour lesquels $f(x)=\pm x^k$ (qui est un $+$ si $k$ est impair).
 
-On définit la relation d'équivalence *en 0* sur $\mathcal{C}^\infty$ où $f \mathcal{R}g$ si et seulement si $g=f\circ y + \gamma$ sur un voisinage de 0, avec $y$ $\mathcal{C}^\infty$-difféomorphisme et $\gamma$ une constante pour pallier aux éventuelles différences de valeur en 0.
+On définit la relation d'équivalence *en 0* sur $\mathcal{C}^\infty$ où $f \mathcal{R} g$ si et seulement si $g=f\circ y + \gamma$ sur un voisinage de 0, avec $y$ $\mathcal{C}^\infty$-difféomorphisme et $\gamma$ une constante pour pallier aux éventuelles différences de valeur en 0.
 
-Deux fonctions sont en relation si et seulement si leurs écritures en ces coordonées $\pm x^k$ et $\pm x^l$ sont de même signes et $k=l$. Ceci fournit une classification des points critiques en dimension 1, en fonction de leurs différentielles successives.
+Deux fonctions sont en relation si et seulement si leurs écritures en ces coordonnées $\pm x^k$ et $\pm x^l$ ont le même signes et $k=l$. Ceci fournit une classification des points critiques en dimension 1, en fonction de leurs dérivées successives.
+
+### Cas de $n\geq 2$
+
+En dimension supérieure ce n'est pas forcément le cas: deux fonction ayant les mêmes $k$-jet ne sont pas forcément équivalentes. Une fonction est dite *déterminée* si un de ses $k$-jets permet de dire si toute autre fonction lui est équivalente ou non. Ce $k$-jet est alors dit *suffisant*.
+
+### Théorème de décomposition
+
+Si f admet 0 pour point critique et $H(f)_0$ est de rang $r$, alors $f$ est équivalente (au sens défini ci-dessus) au voisinage de 0 à une fonction de la forme $$g(x)=\pm x_1^2\pm x_2^2\pm ... \pm x_r^2 + h(x_{r+1},...,x_n)$$
+
+*Preuve (en dimension deux)*: On suppose $H(f)_0$ de rang 1. Via un changement de base, on peut supposer $\frac{\partial f}{\partial x}(0,0) \neq 0$. On applique alors le *théorème des fonctions implicites* à $\frac{\partial f}{\partial x}$ pour obtenir $\varphi$ telle que $\frac{\partial f}{\partial x}(\varphi(y), y)=0$ pour tout $y$ proche de 0.
+
+Le difféomorphisme local $\Phi: (x,y) \mapsto (x+\varphi(y), y)$ permet de poser $F(u,v) = f\circ\Phi(u,v)$ vérifiant $\frac{\partial F}{\partial u}=\frac{\partial f}{\partial x}$ et $\frac{\partial F}{\partial u}=0 \iff u=0$.
+
+Le *lemme d'\textsc{Hadamard}* nous permet alors d'écrire $F(u,v)=\alpha(v)+u^2\beta(u, v)$ (car ?)
+
+\bigskip
+
+*Preuve*: On travaille dans $\mathcal{C}^\infty$. Alors $H(f)_0$ peut être mise sous la forme d'un bloc diagonal de 1 et de -1 de format $r\times r$ par un changement de base (selon le *lemme de Morse*) et des 0 partout ailleurs. On applique le *théorème des fonctions implicites* en (0,0) (d'image 0) à $$(x_1,...,x_r),(x_{r+1},...,x_n)\mapsto \big(\frac{\partial f}{\partial x_1}(x), ..., \frac{\partial f}{\partial x_r}(x)\big)$$
+
+On obtient alors $g$ telle que $(g(x_{r+1},...,x_n),x_{r+1},...,x_{r})$ soit l'ensemble des points pour lesquels l'image de la fonction précendente soit nulle. Notons alors $F: x\mapsto ((x_1,...,x_r)+g(x_{r+1},...,x_n),x_{r+1},...,x_{r})$ qui correspond à $f$ à un changement de coordonées près, puisque
+
+Tout a était fait afin que F
+
+### Stabilité structurelle
+
+Une application $f$ est dit structurellement stable si pour toute application $p$ suffisament proche de 0 (et infiniment continue), $f+p$ a le même type de point critique que $f$ à translation près (c'est à dire qu'elles sont équivalentes). Un point critique est en fait structurellement stable si et seulement si il est non dégénéré.
+
+## Variétés
+
+Une **variété** est un ensemble de $\mathbb{R}^n$ qui est localement homéomorphe à $\mathbb{R}^m$ qui a un unique plan tangent en tout point, où $m\leq n$ est appelé la *dimension de la variété*. On parle alors d'un *système de coordonées locales* lorsqu'on considère une application de la variété vers $\mathbb{R}^m$
+
+### Transversalité
+
+Deux sous-espaces vectoriels de $\mathbb{R}^n$ sont dit **transverses** s'ils s'intersectent en un espace de dimension minimale. En l'occurence, $U$ et $V$ sont transverses si et seulement si $dim(U\cap V)=max(0;dim(U)+dim(V)-n)$. Cette formulation est équivalente à $dim(U+V)=min(dim(U)+dim(V); n)$.
+
+Cette notion se généralise aux espaces affines, qui sont transverses si l'intersection est vide ou si $dim(U)+dim(V)\geq n$ et $dim(U\cap V)=dim(U)+dim(V)-n$. On constate que si la somme des dimensions est inférieure à $n$, les espaces ne peuvent se rencontrer.
+
+On généralise enfin la définition à deux variétés: elles sont transverses *en un point* si elles ne s'intersectent pas ou leurs plans tangents sont transverses.
