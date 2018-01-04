@@ -175,4 +175,6 @@ Deux sous-espaces vectoriels de $\mathbb{R}^n$ sont dit **transverses** s'ils s'
 
 Cette notion se généralise aux espaces affines, qui sont transverses si l'intersection est vide ou si $dim(U)+dim(V)\geq n$ et $dim(U\cap V)=dim(U)+dim(V)-n$. On constate que si la somme des dimensions est inférieure à $n$, les espaces ne peuvent se rencontrer.
 
-On généralise enfin la définition à deux variétés: elles sont transverses *en un point* si elles ne s'intersectent pas ou leurs plans tangents sont transverses.
+On généralise ensuite la définition à deux variétés: elles sont transverses *en un point* si elles ne s'intersectent pas ou leurs plans tangents sont transverses.
+
+Enfin, on généralise la définition aux applications: $f$ est transverse avec $U$ si
