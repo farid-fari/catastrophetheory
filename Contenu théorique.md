@@ -163,11 +163,16 @@ Tout a était fait afin que F
 
 ### Stabilité structurelle
 
-Une application $f$ est dit structurellement stable si pour toute application $p$ suffisament proche de 0 (et infiniment continue), $f+p$ a le même type de point critique que $f$ à translation près (c'est à dire qu'elles sont équivalentes). Un point critique est en fait structurellement stable si et seulement si il est non dégénéré.
+Une application $f$ est dit **structurellement stable** si pour toute application $p$ suffisament proche de 0 (et infiniment continue), $f+p$ a le même type de point critique que $f$ à translation près (c'est à dire qu'elles sont équivalentes). Un point critique est en fait structurellement stable si et seulement si il est non dégénéré.
+La **stabilité structurelle** signifie plus généralement que le comportement qualitatif ne change pas malgré une perturbation suffisament petite.
 
 ## Variétés
 
-Une **variété** est un ensemble de $\mathbb{R}^n$ qui est localement homéomorphe à $\mathbb{R}^m$ qui a un unique plan tangent en tout point, où $m\leq n$ est appelé la *dimension de la variété*. On parle alors d'un *système de coordonées locales* lorsqu'on considère une application de la variété vers $\mathbb{R}^m$
+Une **variété** est un ensemble de $\mathbb{R}^n$ qui est localement homéomorphe à $\mathbb{R}^m$ et qui a un unique plan tangent en tout point, où $m\leq n$ est appelé la *dimension de la variété*. On parle alors d'un *système de coordonées locales* lorsqu'on considère une application de la variété vers $\mathbb{R}^m$.
+
+### Typicalité
+
+
 
 ### Transversalité
 
@@ -177,4 +182,28 @@ Cette notion se généralise aux espaces affines, qui sont transverses si l'inte
 
 On généralise ensuite la définition à deux variétés: elles sont transverses *en un point* si elles ne s'intersectent pas ou leurs plans tangents sont transverses.
 
-Enfin, on généralise la définition aux applications: $f$ est transverse avec $U$ si
+Enfin, on généralise la définition aux applications: $f:\mathbb{R}^m\mapsto\mathbb{R}^n$ est transverse avec $g$ si leurs graphes sont transverses dans $\mathbb{R}^m\times\mathbb{R}^n$.
+Ceci équivaut à dire que l'image des espaces tangents à l'antécédent de chaque point d'intersection génèrent l'espace ambient.
+
+### Théorème d'isotopie de \textsc{Thom}
+
+**Theorème d'isotopie (admis)**: Les intersections transverses sont structurellement stables.
+
+### Variétés et théorème des fonctions implicites
+
+On a vu que si $f:\mathbb{R}^m\mapsto\mathbb{R}^n$ est de rang $m$ en un de ses zéros, alors son noyau peut être paramétré de manière continue.
+La réciproque est en fait vraie: toute variété suffisament continue dans $\mathbb{R}^n$ de dimension $m$ peut localement être vue comme $f^{-1}(0)$ avec $f:\mathbb{R}^m\mapsto\mathbb{R}^n$.
+
+Ceci crée donc une équivalence entre les variétés de dimension $(n-m)$ et les ensembles définis par $m$ équations (le noyau de chaque composante de $f$).
+
+### Théorème de transversalité de \textsc{Thom}
+
+Il y a deux versions (*choisir une?*).
+
+**1. Théorème de transversalité(très admis)**: Deux variétés `aléatoirement choisies' ont infiniment peu de `chances' de se rencontrer de manière non transverse: c'est atypique.
+De plus, les dérivées d'une application $f$ rencontrent typiquement transversement une certaine variété transversement.
+
+**2. Théorème de transversalité (très admis)**: Une application peut être déformée de manière arbitrairement fine en une application transverse à toute variété donnée.
+
+La transversalité est donc un `positionnement générique', car courant.
+Deux variétés

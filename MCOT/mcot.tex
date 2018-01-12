@@ -4,10 +4,11 @@
 \usepackage[french]{babel}
 \usepackage{amsfonts}
 \usepackage{cite}
+\usepackage{url}
 
 \begin{document}
 
-\title{Singularités des applications différentiables}
+\title{Théorie des catastrophes: singularités des applications différentiables}
 \author{Farid Arthaud}
 \maketitle
 
@@ -21,7 +22,7 @@
     \item Théorie des catastrophes
     \item Calcul différentiel
     \item Stabilité
-    \item Variations
+    \item Simulations
 \end{enumerate}
 
 \textbf{Keywords}:
@@ -31,7 +32,7 @@
     \item Singularities
     \item Smoothness
     \item Stability
-    \item Variations
+    \item Simulations
 \end{enumerate}
 
 \section{Bibliographie commentée}
@@ -39,14 +40,27 @@
 \textbf{Thom} commence son ouvrage \textit{Stabilité structurelle et morphogenèse} par une citation sur la forme des vagues et des dunes, avant de questionner le sens de la vie \cite{thom}.
 Ceci illustre l'importance que la théorie des catastrophes a eu lors de sa genèse.
 
-Elle découle intuitivement de questionnements physiques, notamment du comportement de certains jouets \cite{bbcvid} mais aussi de problèmes concrects comme le roulis d'un navire \cite{Poston}.
+Elle découle intuitivement de questionnements physiques, notamment du comportement de certains jouets \cite{bbcvid} mais aussi de problèmes concrects comme le roulis d'un navire \cite{poston}.
 
 La théorie des catastrophes est née dans les années 70, quasiment entièrement du travail de \textbf{René Thom}.
-Dans son livre \textit{Stabilité structurelle et morphogenèse} \cite{thom},
+Dans son livre \textit{Stabilité structurelle et morphogenèse} \cite{thom}, le théorème de classification de \textsc{Thom} est établi: sous certaines hypothèses (telles que la \textit{stabilité structurelle}), les singularités des familles d'au plus cinq applications peuvent être classifiées en \textbf{sept catégories}.
+Il s'agit du pli, de la fronce, la queue d'arone, la vague, le poil, le papillon et le champignon \cite{wikipedia}.
+Malgré les noms fantaisistes, il s'agit de catégories précises qui comprennent l'arité des fonctions et leur forme au voisinage de la singularité.
+
+
+
+Une de ses applications principales sont les simulations: de phénomènes physiques mais aussi sociaux (comportements durant des révoltes, ...) et économiques \cite{bbcvid} \cite{poston}.
+Son utilité pour la physique découle de ce que \textbf{Demazure} appelle `la philosophie de la théorie des catastrophes' \cite{demazure}: étudier ces variétés $\mathcal{C}^\infty$ peut être vu comme l'étude d'une fonction potentiel définie sur l'espace des états possibles d'un système physique.
+Alors, l'étude d'une singularité devient celle d'un équilibre, et leur classification est précieuse pour le physicien.
+Cependant, nombre de ses applications sont controversées, notamment celles qui essaient d'expliquer un comportement humain par des mathématiques, pour des raisons éthiques \cite{wikipedia}.
+
+\bigskip
+
+\small{255 mots / 650 max}
 
 \section{Problématique retenue}
 
-Comment un problème si large se résume en si peu, et quel sont le sens et le comportement de ces catégories établies par \textbf{Thom}?
+Comment un problème si large se découpe en si peu de cas, et quel sont le sens et le comportement de ces catégories établies par \textbf{Thom}?
 
 \section{Objectifs du TIPE}
 
@@ -55,6 +69,6 @@ Saisir les grandes lignes de l classification des singularités des applications
 \section{Liste des références bibliographiques}
 
 \bibliography{sources}
-\bibliographystyle{acm}
+\bibliographystyle{unsrt}
 
 \end{document}
