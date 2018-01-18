@@ -81,15 +81,21 @@ On peut réecrire le terme d'ordre $k$ sous la forme $$\frac{1}{k!}\sum_{i_1,...
 
 ### Théorème d'inversion locale
 
-Si $f\in\mathcal{C}^{\infty}(U,\mathbb{R}^m)$, et que $df_a$ est bijective (ou de déterminant non nul), alors f est un **difféomorphisme local** (ou localement bijective).
+Si $f\in\mathcal{C}^{\infty}(U,\mathbb{R}^m)$, et que $df_a$ est bijective (ou de déterminant non nul), alors f est un **difféomorphisme local** (ou localement bijective de réciproque $\mathcal{C}^{\infty}$).
 
 \bigskip
 
-*Preuve*: On se ramène à un voisinage de 0 où $df_0=Id_E$ (et donc $F=E$) en prenant pour fonction $df_a^{-1}(f(a+x)-f(a))$. Sur $B_r$, on a $\Vert df_x-Id_E \Vert < \frac{1}{2}$. On peut alors écrire $df_x=Id_E-u$ et donc avoir $df_x^{-1}=Id_E+u+u^2+...$ (voir chapitre sur les *suites de fonctions*).
+*Preuve*: On se ramène à un voisinage de 0 où $df_0=Id_E$ (et donc $F=E$) en prenant pour fonction $df_a^{-1}(f(a+x)-f(a))$ que l'on notera $f$. Sur $B_r$, on a $\Vert df_x-Id_E \Vert \leq \frac{1}{2}$. On peut alors écrire $df_x=Id_E-u$ et donc avoir $df_x^{-1}=Id_E+u+u^2+...$ (ça converge puisque la norme est subordonnée).
 
-On pose, pour y fixé de $B_{\frac{r}{2}}$, $h:x\mapsto x+y-f(x)$. On a par les acroissements finis sur $B_r, \Vert h(x) - h(x')\Vert\leq\frac{\Vert x-x' \Vert}{2}$, donc h contractante. Elle est de plus à images dans $B_r$ et y admet un unique point fixe: $y$ admet un antécédent unique par $f$ dans $B_r$. $f$ est donc bijective $f^{-1}(B_\frac{r}{2}) \cap B_r \to B_{\frac{r}{2}}$.
+On pose, pour $y$ fixé de $B_{\frac{r}{2}}$, $h:x\mapsto x+y-f(x)$. On a par les acroissements finis sur $B_r, \Vert h(x) - h(x')\Vert\leq\frac{\Vert x-x' \Vert}{2}$, donc h contractante. Elle est de plus à images dans $B_r$ donc y admet un unique point fixe: $y$ admet un antécédent unique par $f$ dans $B_r$. $f$ est donc bijective $f^{-1}(B_\frac{r}{2}) \cap B_r \to B_{\frac{r}{2}}$.
 
-Quant à la continuité de la réciproque, on pose $h:x\mapsto x-f(x)$. On a $\Vert x-x' \Vert\leq 2\Vert f(x) - f(x')\Vert$ et donc en appliquant à $f^{-1}(y)$ et $f^{-1}(y')$ on obtient $g$ 2-lipschitzienne.
+Quant à la continuité de la réciproque, on pose $g:x\mapsto x-f(x)$. *L'inégalité des accroissements finis* donne $\Vert x-x' \Vert\leq 2\Vert f(x) - f(x')\Vert$ et donc en appliquant à $f^{-1}(y)$ et $f^{-1}(y')$ on obtient $f^{-1}$ 2-lipschitzienne.
+
+Enfin, pour la différentiabilité, on choisit $k$ proche de 0 et on montre $\Vert f^{-1}(y+k)-f^{-1}(y)-(df_x)^{-1}(k) \Vert=o(k)$ en posant $h=f^{-1}(y+k)-f^{-1}(y)$ puis en constatant $f(x+h)=y+k$ et $h=o(k)$.
+
+\bigskip
+
+*Corollaire classique*: si $f\in\mathcal{C}^{\infty}$ est injective et $df_a$ est inversible, alors il existe un voisinage de $a$ dont l'image par $f$ est un ouvert, et $f$ est un difféomorphisme local.
 
 ### Théorème des fonctions implicites
 
@@ -198,9 +204,9 @@ Ceci crée donc une équivalence entre les variétés de dimension $(n-m)$ et le
 
 ### Théorème de transversalité de \textsc{Thom}
 
-Il y a deux versions (*choisir une?*).
+Il y a deux versions (*en choisir une?*).
 
-**1. Théorème de transversalité(très admis)**: Deux variétés `aléatoirement choisies' ont infiniment peu de `chances' de se rencontrer de manière non transverse: c'est atypique.
+**1. Théorème de transversalité (très admis)**: Deux variétés `aléatoirement choisies' ont infiniment peu de `chances' de se rencontrer de manière non transverse: c'est atypique.
 De plus, les dérivées d'une application $f$ rencontrent typiquement transversement une certaine variété transversement.
 
 **2. Théorème de transversalité (très admis)**: Une application peut être déformée de manière arbitrairement fine en une application transverse à toute variété donnée.
