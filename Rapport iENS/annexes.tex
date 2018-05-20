@@ -1,0 +1,152 @@
+\documentclass[a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{cite}
+\usepackage{url}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amsthm}
+
+\renewcommand{\thesection}{\Roman{section}}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+
+\begin{document}
+\title{Annexe}
+\author{Farid Arthaud}
+\maketitle
+\tableofcontents
+
+\section{Classification des formes quadratiques}
+
+\subsection{Généralités}
+
+Est appelée forme quadratique toute forme $f:\mathbb{R}^n\to\mathbb{R}$ de type $$f(x_1,...,x_n)=\sum_{1\leq i,j\leq n}\lambda_{ij}x_ix_j$$
+
+On associe alors à $f$ une matrice diagonale symmétrique $\Lambda$. Or toute matrice symétrique est diagonalisable en une matrice orthogonale: $\exists M \in \mathcal{O}(\mathbb{R}) / \Lambda = M^T\cdot D\cdot M$. Ceci permet donc d'écrire $f(X) = (M\cdot X)^T\cdot D\cdot (M^{-1}\cdot X)$.
+
+\textit{Preuve}: On se ramène au cas où $\lambda_{11} \neq 0$ soit par échange de lignes si un autre terme diagonal est non nul, soit en posant $y_i=\frac{1}{2}(x_i+x_j)$ et $y_j=\frac{1}{2}(x_i-x_j)$ si $\lambda_{ij}\neq 0$. On factorise ensuite l'expression de $f$ par $\lambda_{11}$, et on constate que si l'on note $\mu_{ij}=\frac{\lambda_{ij}}{\lambda_{11}}$, alors les termes en $x_1$ sont exactement:
+
+$$x_1^2+2\sum_{j=2}^n \mu_{1j}x_1x_j=\big(x_1+\sum_{j=2}^n \mu_{1j}x_j\big)^2-\big(\sum_{j=2}^n \mu_{1j}x_j\big)^2$$
+
+En posant $y_1$ égal au premier terme de cette différence, on a une expression du type $f(y)=\lambda_{11}y_1+$ un reste quadratique en $n-1$ variables. Par récurrence, on obtient bien une matrice diagonale.
+
+Par changement de base, on peut donc écrire $f(X) = X\cdot D\cdot X^T$ avec $D$ diagonale. En normalisant, on peut considérer $D$ diagonale à coefficients dans $\{-1,0,1\}$. Enfin, en changeant l'ordre des vecteurs de la base on se ramène au cas où f est de la forme:
+
+$$f(x_1,...,x_n)=x_1^2+x_2^2+...+x_k^2-x_{k+1}^2-...-x_s^2$$
+
+On constate par ailleurs que $s=rg(\Lambda)=rg(f)$ et $sgn(\Lambda)=k-(s-k)=2k-s$. En général, il faut $\frac{n(n+1)}{2}$ coefficients pour décrire une telle forme, mais on se ramène ici à $n$ nombres (1, -1 ou 0) modulo une base.
+
+\subsection{Cas de $n=2$}
+
+On a alors $f(x,y)=ax^2+2bxy+cy^2$, et $0\leq rg(f)\leq 2$ ainsi que $0\leq k\leq rg(f)$. Comme vu ci-dessus, deux formes quadratiques de rang et signature égaux sont équivalentes à changement de base près. On peut donc catégoriser en $1+2+3=6$ classes les formes quadratiques:
+
+
+\begin{itemize}
+\item  $Q_{2,2}$: $x^2+y^2$
+\item  $Q_{2,0}$: $x^2-y^2$
+\item  $Q_{2,-2}$: $-x^2-y^2$
+\item  $Q_{1,1}$: $x^2$
+\item  $Q_{1,-1}$: $-x^2$
+\item  $Q_{0,0}$: $0$
+
+\end{itemize}
+
+\section{Classification des formes cubiques ($n=2$)}
+
+\subsection{Noyaux de formes cubiques}
+
+Une forme cubique de deux variables est une application $$f: (x,y) \mapsto \alpha x^3+\beta x^2y+\gamma xy^2+\delta y^3$$
+
+Ces applications se divisent en cinq catégories en fonction de $(\alpha,\beta,\gamma,\delta)$. Cherchons une classification à partir du noyau de $f$. Ce noyau est stable par $\cdot$ la loi de composition externe, et peut donc être vu comme un ensemble de droites passant par l'origine dans $\mathbb{R}^2$.
+
+En cherchant l'intersection de ces droites avec $x=1$ (en prenant garde à la droite $x=0$), on cherche à résoudre $\alpha+\beta y+\gamma y^3=0$. Si au moins un coefficient est non nul, cette équation admet au plus 3 solutions réelles (et un nombre pair de racines complexes), donc on distingue cinq catégories de noyaux:
+
+
+\begin{itemize}
+\item  $C_{3,0}$: Trois droites distinctes
+\item  $C_{1,0}$: Une droite unique
+\item  $C_{3,2}$: Trois droites dont deux coïncidantes (racine double)
+\item  $C_{3,3}$: Trois droites coïncidantes (racine triple)
+\item  $C_{\infty,0}$: Le plan en entier (cas où $(\alpha,\beta,\gamma,\delta)=(0,0,0,0)$)
+
+\end{itemize}
+
+Ceci découle du fait que si la droite $x=0$ est dans le noyau, alors $\delta=0$ et on se retrouve avec un polynôme du second degré en $y$, et donc bien au plus trois droites.
+
+Ces catégories en sont bien, car aucun changement de coordonnées ne fera varier le `nombre de droites du noyau' (à voir en termes de déformation du plan, les droites coïncidantes coïncident toujours et celles distinctes restent distinctes).
+
+\subsection{Equivalence des classes}
+
+Deux fonctions appartenant à la même catégorie de noyau ont la même expression à changement de coordonées linéaire près. Une analyse de chaque cas donne:
+
+
+\begin{itemize}
+\item  $C_{3,0}$: $f(x,y)=x^2y-y^3$
+\item  $C_{1,0}$: $f(x,y)=x^2y+y^3$
+\item  $C_{3,2}$: $f(x,y)=x^2y$
+\item  $C_{3,3}$: $f(x,y)=x^3$
+\item  $C_{\infty,0}$: $f=0$
+
+\end{itemize}
+
+\textit{Preuve}: Un changement de base dans le premier cas permet de déformer le plan de manière à obtenir un carré: les trois droites correspondent aux abscisses, ordonées et l'identité. Alors, $f$ est divisible par $xy(x-y)$, et à changement de base supplémentaire ($(x',y')=\frac{1}{2}((x+y),(x-y))$) on obtient $f(x,y)=x^2y-y^3$.
+
+Dans les autres cas, on considère une des droites, d'expression $lx+my=0$. $f$ peut être factorisée par cette expression, et l'on obtient une de trois catégories de formes quadratiques: $Q_{1,1}$ et $Q_{1,-1}$ ainsi que $Q_{2,2}$ et $Q_{2,-2}$ peuvent être fusionées, car le signe peut être compensé par le changement $(x,y)=-(x,y)$.
+
+Par changement de coordonées, on est donc ramené à l'un des cas: $(Lx+My)(x^2-y^2)$ ou $(Lx+My)x^2$ ou $(Lx+My)(x^2+y^2)$. Le premier de ces cas nous ramène soit aux trois droites, soit au second cas (selon si $(Lx+My)$ est multiple de $(x-y)$ ou $(x+y)$ ou non). Le second cas mène soit à $x^3$ (si $M=0$) ou $xy^2$. Le troisième est $(x^2+y^2)y$ (soit $LM=0$, ou on procède à une \textit{rotation des axes} $(x',y')=\frac{1}{\sqrt{L^2+M^2}}(Ly-Mx,Lx+My)$).
+
+\section{Théorème des fonctions implicites}
+
+\textit{Preuve}: On se ramène à un voisinage de 0 où $df_0=Id_E$ (et donc $F=E$) en prenant pour fonction $df_a^{-1}(f(a+x)-f(a))$ que l'on notera $f$. Sur $B_r$, on a $\Vert df_x-Id_E \Vert \leq \frac{1}{2}$. On peut alors écrire $df_x=Id_E-u$ et donc avoir $df_x^{-1}=Id_E+u+u^2+...$ (ça converge puisque la norme est subordonnée).
+
+On pose, pour $y$ fixé de $B_{\frac{r}{2}}$, $h:x\mapsto x+y-f(x)$. On a par les acroissements finis sur $B_r, \Vert h(x) - h(x')\Vert\leq\frac{\Vert x-x' \Vert}{2}$, donc h contractante. Elle est de plus à images dans $B_r$ donc y admet un unique point fixe: $y$ admet un antécédent unique par $f$ dans $B_r$. $f$ est donc bijective $f^{-1}(B_\frac{r}{2}) \cap B_r \to B_{\frac{r}{2}}$.
+
+Quant à la continuité de la réciproque, on pose $g:x\mapsto x-f(x)$. \textit{L'inégalité des accroissements finis} donne $\Vert x-x' \Vert\leq 2\Vert f(x) - f(x')\Vert$ et donc en appliquant à $f^{-1}(y)$ et $f^{-1}(y')$ on obtient $f^{-1}$ 2-lipschitzienne.
+
+Enfin, pour la différentiabilité, on choisit $k$ proche de 0 et on montre $\Vert f^{-1}(y+k)-f^{-1}(y)-(df_x)^{-1}(k) \Vert=o(k)$ en posant $h=f^{-1}(y+k)-f^{-1}(y)$ puis en constatant $f(x+h)=y+k$ et $h=o(k)$.
+
+\bigskip
+
+\textit{Corollaire classique}: si $f\in\mathcal{C}^{\infty}$ est injective et $df_a$ est inversible, alors il existe un voisinage de $a$ dont l'image par $f$ est un ouvert, et $f$ est un difféomorphisme local.
+
+\subsection{Théorème des fonctions implicites}
+
+Si $f\in\mathcal{C}^{\infty}(\mathbb{R}^n\times\mathbb{R}^m,\mathbb{R}^p)$, et que le noyau de $df_{(x,y)}$ est localement le graphe d'une fonction $y=g(x)$, alors le noyau de $f$ est localement le graphe d'une application $y=h(x)$.
+
+Plus formellement, si l'on note $f_2(y) = f(x_0, y)$, et que $df_{2,y_0}$ est difféomorphisme local (donc $f_2$ est localement inversible), alors on a une application $\phi$ telle que $f(x,\phi(x))=c$ sur un voisinage de $(x_0,y_0)$, et ce pour tout $c$ au voisinage de $f(x_0,y_0)$.
+
+Cela signifie que $c$ admet un unique antécédent par $y\mapsto f(x,y)$ pour $x$ suffisament proche de $x_0$.
+
+\bigskip
+
+On notera que ces deux théorèmes restent valables sous des hypothèses moins fortes de régularité, et que ces hypothèses sont héritées par $\phi$ et $f^{-1}$ dans ce cas. De plus, le lien entre ceux-ci est fort: l'un peut se déduire de l'autre.
+
+\section{Lemme de \textsc{Morse}}
+
+\begin{proof}
+On montre par récurrence sur $r$ que $f$ s'écrit $$f(x)=\pm u_1^2 \pm...\pm u_{r-1}^2 + \sum_{i,j\geq r} u_iu_jH_{ij}(u)$$
+
+Le rang 0 se déduit du \textit{lemme d'\textsc{Hadamard}}. On peut de plus rendre $H_{ij}$ symétrique en $i$ et $j$. On pose alors $$u_r' =\sqrt{\mid H_{rr}\mid}\big(u_r+\sum_{i>r}u_i\frac{H_{ir}}{H_{rr}}\big)$$
+
+On peut supposer $H_{rr}\neq 0$ par un changement de coordonées comme vu en \textit{1.1}. Il s'agit bien d'un difféomorphisme selon le \textit{théorème d'inversion locale}, et donc il s'agit bien d'un changement de coordonnées. On réécrit alors $f$ comme précédemment mais en allant jusqua'au rang $v_r$ au lieu de $u_{r-1}$ (attention, $(u_r')^2$ donne un reste à ajouter pour former de nouveaux $H_{ij}$).
+\end{proof}
+
+\subsection{Théorème de décomposition}
+\begin{proof}
+On suppose $H(f)_0$ de rang 1. Via un changement de base, on peut supposer $\frac{\partial f}{\partial x}(0,0) \neq 0$. On applique alors le \textit{théorème des fonctions implicites} à $\frac{\partial f}{\partial x}$ pour obtenir $\varphi$ telle que $\frac{\partial f}{\partial x}(\varphi(y), y)=0$ pour tout $y$ proche de 0.
+
+Le difféomorphisme local $\Phi: (x,y) \mapsto (x+\varphi(y), y)$ permet de poser $F(u,v) = f\circ\Phi(u,v)$ vérifiant $\frac{\partial F}{\partial u}=\frac{\partial f}{\partial x}$ et $\frac{\partial F}{\partial u}=0 \iff u=0$.
+
+Le \textit{lemme d'\textsc{Hadamard}} nous permet alors d'écrire $F(u,v)=\alpha(v)+u^2\beta(u, v)$ (car ?)
+\end{proof}
+
+\begin{proof}
+On travaille dans $\mathcal{C}^\infty$. Alors $H(f)_0$ peut être mise sous la forme d'un bloc diagonal de 1 et de -1 de format $r\times r$ par un changement de base (selon le \textit{lemme de Morse}) et des 0 partout ailleurs. On applique le \textit{théorème des fonctions implicites} en (0,0) (d'image 0) à $$(x_1,...,x_r),(x_{r+1},...,x_n)\mapsto \big(\frac{\partial f}{\partial x_1}(x), ..., \frac{\partial f}{\partial x_r}(x)\big)$$
+
+On obtient alors $g$ telle que $(g(x_{r+1},...,x_n),x_{r+1},...,x_{r})$ soit l'ensemble des points pour lesquels l'image de la fonction précendente soit nulle. Notons alors $F: x\mapsto ((x_1,...,x_r)+g(x_{r+1},...,x_n),x_{r+1},...,x_{r})$ qui correspond à $f$ à un changement de coordonées près, puisque
+
+Tout a était fait afin que F
+\end{proof}
+
+\end{document}
