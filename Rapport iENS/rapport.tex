@@ -49,6 +49,12 @@ Une \textbf{variété} est un ensemble de $\mathbb{R}^n$ qui est localement hom�
 Un homéomorphisme de  la variété vers $\mathbb{R}^m$ est appelé un \textit{système de coordonées locales}.
 \end{defn}
 
+...
+
+Un point critique $a$ est dit non dégénéré si $\forall x, rg(d^2f_a(x))=n$ (c'est à dire que $x\mapsto(y\mapsto d^2f_a(x,y))$ est isomorphisme), ou de manière équivalente si le déterminant Hessien de $f$ est non nul.
+
+\subsection{Transversalité et stabilité structurelle}
+
 \begin{defn}
 Deux sous-espaces vectoriels de $\mathbb{R}^n$ sont dit \textbf{transverses} s'ils s'intersectent en un espace de dimension minimale, ou de manière équivalente si leur somme est égale à $\mathbb{R}^n$.
 
@@ -65,12 +71,6 @@ Puisque les espaces tangents de la variété sont de même dimension que la vari
 
 On peut donc redéfinir une variété comme l'intersection locale transverse d'hypersurfaces, qui correspondent aux noyaux des coordonnées locales.
 
-...
-
-Un point critique $a$ est dit non dégénéré si $\forall x, rg(d^2f_a(x))=n$ (c'est à dire que $x\mapsto(y\mapsto d^2f_a(x,y))$ est isomorphisme), ou de manière équivalente si le déterminant Hessien de $f$ est non nul.
-
-\subsection{Transversalité et stabilité structurelle}
-
 \begin{defn}
 Une application $f$ est dit \textbf{structurellement stable} si pour toute application $p$ suffisament proche de 0 (et infiniment continue), $f+p$ a le même type de point critique que $f$ à translation près.
 \end{defn}
@@ -78,7 +78,7 @@ Une application $f$ est dit \textbf{structurellement stable} si pour toute appli
 Un point critique est en fait structurellement stable si et seulement si il est non dégénéré.
 La \textbf{stabilité structurelle} signifie plus généralement que le comportement qualitatif ne change pas malgré une perturbation suffisament petite.
 
-Le \textbf{rhéorème d'isotopie de \textsc{Thom}} établit un premier lien entre ces deux notions-clés:
+Le \textbf{théorème d'isotopie de \textsc{Thom}} établit un premier lien entre ces deux notions-clés:
 
 \begin{thm}
 Les intersections transverses sont structurellement stables.
