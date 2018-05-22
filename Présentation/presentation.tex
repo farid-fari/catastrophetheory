@@ -1,9 +1,15 @@
-\documentclass[red]{beamer}
-\usepackage{beamerthemebars}
+\documentclass{beamer}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \usepackage[french]{babel}
+%\usepackage{amsfonts}
+%\usepackage{amsmath}
+%\usepackage{amsthm}
+
+\useinnertheme{default}
+\useoutertheme{miniframes}
+\usecolortheme{seahorse}
 
 \author{Farid Arthaud}
 \title{Théorie des Catastrophes}
@@ -13,8 +19,45 @@
 \frame{\titlepage}
 
 \frame{\tableofcontents}
-\section{Introduction}
-\subsection{Overview of the Beamer Class}
-\subsection{Overview of Similar Classes}
+
+\section*{Introduction}
+\begin{frame}{Exemple: le baigneur}
+    \begin{itemize}
+        \item Contrôle absolu sur la précision
+        \item `Virage' soudain et incontournable lors du réglage du paramètre
+        \pause
+        \item \textbf{Explication}: disparition d'un équilibre d'un système caché
+    \end{itemize}
+\end{frame}
+\begin{frame}{Contexte historique}
+    \begin{itemize}[<+->]
+        \item René \textsc{Thom}: \textit{Stabilité structurelle et morphogenèse} (1972)
+        \item Cristopher \textsc{Zeeman}:
+        \item Popularisation (années 70) et applications diverses (biologie, sociologie, ...)
+        \item Controverse, remise en question de la pertinence des applications
+    \end{itemize}
+    \begin{quote}<4>
+        Les choses qui changent soudainement, par à-coups, ont longtemps résisté à toute analyse mathématique.
+        Une méthode dérivée de la topologie décrit ces phénomènes comme des exemples de sept `catastrophes élémentaires'.
+    \end{quote}
+\end{frame}
+
+\section{Catastrophes}
+\subsection{Variétés et points critiques}
+\subsection{Transversalité et stabilité structurelle}
+\subsection{Réecriture au voisinage d'un point critique}
+\subsection{Germes et jets}
+
 \section{Théorème de classification}
+\subsection{Le théorème de Whitney}
+\subsection{Le pli et la fronce}
+\subsection{Les autres catastrophes}
+
+\section{Applications physiques}
+\subsection{Equilibre thermodynamique}
+\subsection{Roulis d'un navire}
+
+\section*{Conclusion}
+\frame{}
+
 \end{document}
