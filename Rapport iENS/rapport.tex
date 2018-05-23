@@ -12,6 +12,11 @@
 \renewcommand{\thesection}{\Roman{section}}
 \renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
 
+\newcommand{\cont}{\mathcal{C}^0}
+\newcommand{\cun}{\mathcal{C}^1}
+\newcommand{\cinf}{\mathcal{C}^\infty}
+\newcommand{\R}{\mathbb{R}}
+
 \newtheorem{defn}{Définition}
 \newtheorem{thm}{Théorème}
 \newtheorem{lemm}{Lemme}
@@ -35,7 +40,7 @@ Il s'agit du pli, de la fronce, la queue d'aronde, la vague, le poil, le papillo
 Malgré les noms fantaisistes, il s'agit de catégories précises qui comprennent l'arité des fonctions et leur forme qualitative au voisinage de la singularité.
 
 Une des applications principales de cette théorie sont les simulations: de phénomènes physiques mais aussi sociaux (comportements durant des révoltes, ...) et économiques \cite{bbcvid} \cite{poston}.
-Son utilité pour la physique découle de ce que \textbf{Demazure} appelle `la philosophie de la théorie des catastrophes' \cite{demazure}: étudier ces variétés $\mathcal{C}^\infty$ peut être vu comme l'étude d'une fonction potentiel définie sur l'espace des états possibles d'un système physique.
+Son utilité pour la physique découle de ce que \textbf{Demazure} appelle `la philosophie de la théorie des catastrophes' \cite{demazure}: étudier ces variétés $\cinf$ peut être vu comme l'étude d'une fonction potentiel définie sur l'espace des états possibles d'un système physique.
 La théorie des catastrophes s'intéresse en fait aux états d'équilibre de solutions d'équations différentielles en fonction de la variation des paramètres.
 
 Alors, l'étude d'une singularité devient celle d'un équilibre, et leur classification est précieuse pour le physicien.
@@ -46,18 +51,25 @@ Cependant, nombre de ses applications sont controversées, notamment celles qui 
 \subsection{Points critiques, variétés}
 
 \begin{defn}
-Une \textbf{variété} est un ensemble de $\mathbb{R}^n$ qui est localement homéomorphe à $\mathbb{R}^m$ et qui a un unique plan tangent en tout point, où $m\leq n$ est appelé la \textit{dimension de la variété}.
-Un homéomorphisme de  la variété vers $\mathbb{R}^m$ est appelé un \textit{système de coordonées locales}.
+	point critique, dégénrescence
+Un point critique $a$ est dit non dégénéré si $\forall x, rg(d^2f_a(x))=n$ (c'est à dire que $x\mapsto(y\mapsto d^2f_a(x,y))$ est isomorphisme), ou de manière équivalente si le déterminant Hessien de $f$ est non nul.
+\end{defn}
+\begin{defn}
+	immersion submersion
+\end{defn}
+\begin{defn}
+	plongement
 \end{defn}
 
-...
-
-Un point critique $a$ est dit non dégénéré si $\forall x, rg(d^2f_a(x))=n$ (c'est à dire que $x\mapsto(y\mapsto d^2f_a(x,y))$ est isomorphisme), ou de manière équivalente si le déterminant Hessien de $f$ est non nul.
+\begin{defn}
+	Une \textbf{variété} est un ensemble de $\R^n$ qui est localement homéomorphe à $\R^m$ et qui a un unique plan tangent en tout point, où $m\leq n$ est appelé la \textit{dimension de la variété}.
+	Un homéomorphisme de  la variété vers $\R^m$ est appelé un \textit{système de coordonées locales}.
+\end{defn}
 
 \subsection{Transversalité et stabilité structurelle}
 
 \begin{defn}
-Deux sous-espaces vectoriels de $\mathbb{R}^n$ sont dit \textbf{transverses} s'ils s'intersectent en un espace de dimension minimale, ou de manière équivalente si leur somme est égale à $\mathbb{R}^n$.
+Deux sous-espaces vectoriels de $\R^n$ $F$ et $G$ sont dit \textbf{transverses} s'ils s'intersectent en un espace de dimension minimale, ou de manière équivalente si $F+G=\R^n$.
 
 On étend la définition aux familles finies par $codim(T_1\cap...\cap T_m)=codim(T_1)+...+codim(T_m)$.
 \end{defn}
@@ -71,6 +83,8 @@ On généralise ensuite la définition à deux variétés: elles sont transverse
 Puisque les espaces tangents de la variété sont de même dimension que la variété, la somme des dimensions des variétés doit être au moins $n$ pour qu'elles soient transverses (si elles s'intersectent).
 
 On peut donc redéfinir une variété comme l'intersection locale transverse d'hypersurfaces, qui correspondent aux noyaux des coordonnées locales.
+
+Une application est transverse à une hypersurface ssi ...
 
 \begin{defn}
 Une application $f$ est dit \textbf{structurellement stable} si pour toute application $p$ suffisament proche de 0 (et infiniment continue), $f+p$ a le même type de point critique que $f$ à translation près.
@@ -92,6 +106,12 @@ La transversalité est donc un `positionnement générique', dans le sens de la 
 Une application peut être déformée de manière arbitrairement fine en une application transverse à toute variété donnée.
 \end{thm}
 
+La version faible du théorème de transversalité s'énonce à partir d'une fonction $f: V\times\Lambda\to F$, où $\Lambda\in G$ est un ouvert servant à `indicer' une famille de fonctions.
+
+\begin{thm}
+	Si $f$ est transverse à $W$, une sous-variété de $F$, alors l'ensemble des $\lambda\in\Lambda$ tels que $x\mapsto f(x,\lambda)$ soit transverse à $W$ est dense de $\Lambda$ en tant qu'intersection dénombrable d'ouverts dense.
+\end{thm}
+
 \subsection{Réecriture au voisinage d'un point critique}
 
 La classification des points critiques demande une forme d'`équivalence' permettant de les mettre sous une forme canonique les rendant comparables.
@@ -100,13 +120,13 @@ On a pour cela à notre disposition un certain nombre de lemmes et théorèmes p
 Tout d'abord vient le fameux \textbf{théorème d'inversion locale}, qui permet de ...
 
 \begin{thm}
-Si $f\in\mathcal{C}^{\infty}(U,\mathbb{R}^m)$, et que $df_a$ est bijective (ou de déterminant non nul), alors f est un \textbf{difféomorphisme local} (ou localement bijective de réciproque $\mathcal{C}^{\infty}$).
+Si $f\in\cinf(U,\R^m)$, et que $df_a$ est bijective (ou de déterminant non nul), alors f est un \textbf{difféomorphisme local} (ou localement bijective de réciproque $\cinf$).
 \end{thm}
 
 \textit{Preuve}: voir annexe
 
-Ceci indique en particulier que si $f:\mathbb{R}^m\mapsto\mathbb{R}^n$ est de rang $m$ en un de ses zéros, alors son noyau peut être paramétré de manière continue.
-La réciproque est en fait vraie: toute variété suffisament continue dans $\mathbb{R}^n$ de dimension $m$ peut localement être vue comme $f^{-1}(0)$ avec $f:\mathbb{R}^m\mapsto\mathbb{R}^n$.
+Ceci indique en particulier que si $f:\R^m\mapsto\R^n$ est de rang $m$ en un de ses zéros, alors son noyau peut être paramétré de manière continue.
+La réciproque est en fait vraie: toute variété suffisament continue dans $\R^n$ de dimension $m$ peut localement être vue comme $f^{-1}(0)$ avec $f:\R^m\mapsto\R^n$.
 
 Ceci crée donc une équivalence entre les variétés de dimension $(n-m)$ et les ensembles définis par $m$ équations (le noyau de chaque composante de $f$).
 
@@ -121,7 +141,7 @@ Si 0 est point critique, on peut réitérer cela et écrire (toujours sur un voi
 Ce dernier lemme permet de démontrer le \textbf{lemme de \textsc{Morse}}, qui donne une expression nettement plus simple au voisinage de $0$.
 
 \begin{lemm}
-Si $f\in\mathcal{C}^\infty(\mathbb{R}^n,\mathbb{R})$ admet un point critique non dégénéré en $u$, alors il existe un voisinage de $u$ et un $\mathcal{C}^\infty$-difféomorphisme (donc un changement de coordonnées) $y=(y_1,...,y_n)$ tel que: $$f=f(u)+y_1^2+...+y_l^2-y_{l+1}^2-...-y_n^2$$
+Si $f\in\cinf(\R^n,\R)$ admet un point critique non dégénéré en $u$, alors il existe un voisinage de $u$ et un $\cinf$-difféomorphisme (donc un changement de coordonnées) $y=(y_1,...,y_n)$ tel que: $$f=f(u)+y_1^2+...+y_l^2-y_{l+1}^2-...-y_n^2$$
 \end{lemm}
 
 \textit{Preuve}: voir annexe
@@ -135,7 +155,7 @@ $u$ est alors un point critique isolé (il existe un voisinage sans autre points
 
 Dans le cas $n=1$, si $f(0)=f'(0)=...=f^{(k-1)}=0$ et $f^{(k)}(0)\neq 0$ alors, il existe un voisinage de 0 et un changement de coordonées pour lesquels $f(x)=\pm x^k$ (qui est un $+$ si $k$ est impair).
 
-On définit la relation d'équivalence \textit{en 0} sur $\mathcal{C}^\infty$ où $f \mathcal{R} g$ si et seulement si $g=f\circ y + \gamma$ sur un voisinage de 0, avec $y$ $\mathcal{C}^\infty$-difféomorphisme et $\gamma$ une constante pour pallier aux éventuelles différences de valeur en 0.
+On définit la relation d'équivalence \textit{en 0} sur $\cinf$ où $f \mathcal{R} g$ si et seulement si $g=f\circ y + \gamma$ sur un voisinage de 0, avec $y$ $\cinf$-difféomorphisme et $\gamma$ une constante pour pallier aux éventuelles différences de valeur en 0.
 
 Deux fonctions sont en relation si et seulement si leurs écritures en ces coordonnées $\pm x^k$ et $\pm x^l$ ont le même signes et $k=l$. Ceci fournit une classification des points critiques en dimension 1, en fonction de leurs dérivées successives.
 
@@ -157,7 +177,23 @@ Pour une fonction à $n$ variables, on définit son dévelopmmeent de Taylor et 
 On peut réecrire le terme d'ordre $k$ sous la forme $$\frac{1}{k!}\sum_{i_1,...,i_k} \frac{\partial^k f}{\partial x_{i_1}...x_{i_k}} x_{i_1}...x_{i_k}$$
 
 \section{Classification des catastrophes}
-\subsection{Théorème de Whitney}
+\subsection{Théorèmes de Sard et de Whitney}
+Ces deux théorèmes, dont les énoncés généraux sont admis, permettent de ...
+
+\begin{thm}
+	Si $V$ est une variété compacte de dimension $n$, il existe un plongement de $V$ dans $\R^{2n+1}$.
+\end{thm}
+
+\begin{thm}
+	Si $f: U\to F$ où $U$ est un ouvert de $E$ est de classe $\cinf$ alors l'ensemble des images de ses points critiques est négligeable dans $F$.
+\end{thm}
+
+\begin{proof}
+	\textit{Voir annexe pour $E=F=\R$}.
+\end{proof}
+
+Sous sa forme géométrique, ce théorème dit que
+
 \subsection{Le pli et la fronce}
 \subsection{Les autres catastrophes}
 
