@@ -15,6 +15,7 @@
 \newcommand{\cun}{\mathcal{C}^1}
 \newcommand{\cinf}{\mathcal{C}^\infty}
 \newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
 
 \begin{document}
 \title{Annexes}
@@ -103,7 +104,9 @@ Deux fonctions appartenant à la même catégorie de noyau ont la même expressi
 	Par changement de coordonées, on est donc ramené à l'un des cas: $(Lx+My)(x^2-y^2)$ ou $(Lx+My)x^2$ ou $(Lx+My)(x^2+y^2)$. Le premier de ces cas nous ramène soit aux trois droites, soit au second cas (selon si $(Lx+My)$ est multiple de $(x-y)$ ou $(x+y)$ ou non). Le second cas mène soit à $x^3$ (si $M=0$) ou $xy^2$. Le troisième est $(x^2+y^2)y$ (soit $LM=0$, ou on procède à une \textit{rotation des axes} $(x',y')=\frac{1}{\sqrt{L^2+M^2}}(Ly-Mx,Lx+My)$).
 \end{proof}
 
-\section{Théorème des fonctions implicites}
+\section{Inversion locale, fonctions implicites}
+
+\subsection{Théorème d'inversion locale}
 
 \begin{proof}
 	On se ramène à un voisinage de 0 où $df_0=Id_E$ (et donc $F=E$) en prenant pour fonction $df_a^{-1}(f(a+x)-f(a))$ que l'on notera $f$.
@@ -117,8 +120,6 @@ Deux fonctions appartenant à la même catégorie de noyau ont la même expressi
 	Enfin, pour la différentiabilité, on choisit $k$ proche de 0 et on montre $\Vert f^{-1}(y+k)-f^{-1}(y)-(df_x)^{-1}(k) \Vert=o(k)$ en posant $h=f^{-1}(y+k)-f^{-1}(y)$ puis en constatant $f(x+h)=y+k$ et $h=o(k)$.
 
 \end{proof}
-
-\bigskip
 
 \textit{Corollaire classique}: si $f\in\cinf$ est injective et $df_a$ est inversible, alors il existe un voisinage de $a$ dont l'image par $f$ est un ouvert, et $f$ est un difféomorphisme local.
 
@@ -144,9 +145,11 @@ Le rang 0 se déduit du \textit{lemme d'\textsc{Hadamard}}. On peut de plus rend
 On peut supposer $H_{rr}\neq 0$ par un changement de coordonées comme vu en \textit{1.1}. Il s'agit bien d'un difféomorphisme selon le \textit{théorème d'inversion locale}, et donc il s'agit bien d'un changement de coordonnées. On réécrit alors $f$ comme précédemment mais en allant jusqua'au rang $v_r$ au lieu de $u_{r-1}$ (attention, $(u_r')^2$ donne un reste à ajouter pour former de nouveaux $H_{ij}$).
 \end{proof}
 
-\subsection{Théorème de décomposition}
+\section{Théorème de décomposition}
+
 \begin{proof}
-On suppose $H(f)_0$ de rang 1. Via un changement de base, on peut supposer $\frac{\partial f}{\partial x}(0,0) \neq 0$. On applique alors le \textit{théorème des fonctions implicites} à $\frac{\partial f}{\partial x}$ pour obtenir $\varphi$ telle que $\frac{\partial f}{\partial x}(\varphi(y), y)=0$ pour tout $y$ proche de 0.
+On suppose $H(f)_0$ de rang 1.
+Via un changement de base, on peut supposer $\frac{\partial f}{\partial x}(0,0) \neq 0$. On applique alors le \textit{théorème des fonctions implicites} à $\frac{\partial f}{\partial x}$ pour obtenir $\varphi$ telle que $\frac{\partial f}{\partial x}(\varphi(y), y)=0$ pour tout $y$ proche de 0.
 
 Le difféomorphisme local $\Phi: (x,y) \mapsto (x+\varphi(y), y)$ permet de poser $F(u,v) = f\circ\Phi(u,v)$ vérifiant $\frac{\partial F}{\partial u}=\frac{\partial f}{\partial x}$ et $\frac{\partial F}{\partial u}=0 \iff u=0$.
 
@@ -154,11 +157,17 @@ Le \textit{lemme d'\textsc{Hadamard}} nous permet alors d'écrire $F(u,v)=\alpha
 \end{proof}
 
 \begin{proof}
-On travaille dans $\cinf$. Alors $H(f)_0$ peut être mise sous la forme d'un bloc diagonal de 1 et de -1 de format $r\times r$ par un changement de base (selon le \textit{lemme de Morse}) et des 0 partout ailleurs. On applique le \textit{théorème des fonctions implicites} en (0,0) (d'image 0) à $$(x_1,...,x_r),(x_{r+1},...,x_n)\mapsto \big(\frac{\partial f}{\partial x_1}(x), ..., \frac{\partial f}{\partial x_r}(x)\big)$$
+	On travaille dans $\cinf$.
+	Alors $H(f)_0$ peut être mise sous la forme d'un bloc diagonal de 1 et de -1 de format $r\times r$ par un changement de base (selon le \textit{lemme de Morse}) et des 0 partout ailleurs.
+	On applique le \textit{théorème des fonctions implicites} en (0,0) (d'image 0) à
+	$$(x_1,...,x_r),(x_{r+1},...,x_n)\mapsto \big(\frac{\partial f}{\partial x_1}(x), ..., \frac{\partial f}{\partial x_r}(x)\big)$$
 
-On obtient alors $g$ telle que $(g(x_{r+1},...,x_n),x_{r+1},...,x_{r})$ soit l'ensemble des points pour lesquels l'image de la fonction précendente soit nulle. Notons alors $F: x\mapsto ((x_1,...,x_r)+g(x_{r+1},...,x_n),x_{r+1},...,x_{r})$ qui correspond à $f$ à un changement de coordonées près, puisque
+	On obtient alors $g$ telle que $(g(x_{r+1},...,x_n),x_{r+1},...,x_{r})$ soit l'ensemble des points pour lesquels l'image de la fonction précendente soit nulle. Notons alors $F: x\mapsto ((x_1,...,x_r)+g(x_{r+1},...,x_n),x_{r+1},...,x_{r})$ qui correspond à $f$ à un changement de coordonées près, puisque
 
-Tout a était fait afin que F
+	Tout a était fait afin que F
 \end{proof}
+
+\section{Densité, négligeablité}
+\section{Théorème de Baire}
 
 \end{document}

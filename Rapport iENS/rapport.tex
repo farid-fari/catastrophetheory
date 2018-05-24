@@ -8,7 +8,7 @@
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage{amsthm}
-\usepackage{pdfpages}
+%\usepackage{pdfpages}
 
 \renewcommand{\thesection}{\Roman{section}}
 \renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
@@ -19,15 +19,14 @@
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\N}{\mathbb{N}}
 
-\theoremstyle{definition}
-\newtheorem{defn}{Définition}
-\theoremstyle{plain}
 \newtheorem{thm}{Théorème}
 \newtheorem{lemm}{Lemme}
+\theoremstyle{definition}
+\newtheorem{defn}{Définition}
 
 \begin{document}
 
-\includepdf{pagedegarde.pdf}
+%\includepdf{pagedegarde.pdf}
 
 \setcounter{page}{1}
 
@@ -60,32 +59,44 @@ Cependant, nombre de ses applications sont controversées, notamment celles qui 
 Soit $f:E\to F$, de classe $\cun$.
 \begin{defn}
 	Un point critique pour $f$ est un point $a$ tel que $df_a$ ne soit pas surjective.
+
 	Un point critique $a$ est dit non dégénéré si $\forall x, d^2f_a(x)$ est un isomorphisme, ou de manière équivalente si le déterminant Hessien de $f$ est non nul. (??)
 \end{defn}
 
+La théorie des catastrophes s'intéresse aux points critiques d'une fonction -- mais pas n'importe laquelle.
+Il s'agit de travailler avec des fonctions définies sur des \textbf{sous-variétés}, qui sont la généralisation de `courbes' et `surfaces' aux dimensions supérieures.
+
 \begin{defn}
-	Une \textbf{sous-variété} $V$ est un ensemble de $\R^n$ qui est localement descriptible par un \textbf{système non dégénéré d'équations locales}.
-	Cela signifie qu'il existe pour tout point $a\in V$ $\Phi_1,...,\Phi_m$ telles que pour un voisinage $U$ de $a$, $U\cap\ker(\Phi_1,...,\Phi_m)=V\cap U$; et que $d\Phi_1,...,d\Phi_m$ forment un système libre de formes linéaires.
+	Une \textbf{sous-variété} $V$ de $\R^n$ est un ensemble qui est localement descriptible par un \textbf{système non dégénéré d'équations locales}.
+	Cela signifie qu'il existe pour tout point $a\in V$, $\Phi_1,...,\Phi_m$ telles que pour un voisinage $U$ de $a$, $U\cap\ker(\Phi_1,...,\Phi_m)=U\cap V$; et que $d\Phi_1,...,d\Phi_m$ forment un système libre de formes linéaires.
+
 	$m$ s'appelle la codimension de la sous-variété, que l'on suppose être la même en tout point de $V$ par la suite (on peut supposer la variété connexe par exemple).
 \end{defn}
 
-\begin{defn}
-	Si $f\in\cinf(V,F)$, elle est une \textbf{immersion} si $df_x$ est injective pour tout $x$ et est une \textbf{submersion} si $df_x$ est surjective pour tout $x$.
-\end{defn}
+\begin{thm}
+	Une variété de dimension $p$ admet en tout point un espace tangent de dimension $p$.
+	C'est en fait l'intersection des noyaux du système d'équations locales définissant $V$ en ce point.
+\end{thm}
+
+Une application est de classe $\cinf$ sur son ensemble de définition si elle peut être prolongée en une fonction $\cinf$ sur un ouvert contenant cet ensemble.
 
 \begin{defn}
-	plongement
+	Soit $f\in\cinf(V,F)$, elle est une \textbf{immersion} si $df_x$ est injective pour tout $x$ et est une \textbf{submersion} si $df_x$ est surjective pour tout $x$.
+
+	$f$ est un \textbf{plongement} si $f(V)$ est une sous-variété de $F$ et $f$ induit un difféomorphisme $V\to f(V)$.
 \end{defn}
 
-\subsection{Transversalité et stabilité structurelle}
+Ces notions nous permettent d'établir un cadre à l'étude de fonctions entre variétés.
+
+\subsection{Transversalité, généricité et stabilité structurelle}
+
+La \textbf{transversalité} est une hypothèse sur l'intersection de deux objets permettant d'affirmer qu'elle est `non particulière' -- c'est ce que l'on pourrait abusivement appeller une ``intersection générale'', ce que l'on verra à travers les \textit{théorèmes de transversalité}.
 
 \begin{defn}
-Deux sous-espaces vectoriels de $\R^n$ $F$ et $G$ sont dit \textbf{transverses} s'ils s'intersectent en un espace de dimension minimale, ou de manière équivalente si $F+G=\R^n$.
+	Deux sous-espaces vectoriels de $\R^n$ $F$ et $G$ sont dit \textbf{transverses} s'ils s'intersectent en un espace de dimension minimale, ou de manière équivalente si $F+G=\R^n$.
 
-On étend la définition aux familles finies par $codim(T_1\cap...\cap T_m)=codim(T_1)+...+codim(T_m)$.
+	On étend la définition aux familles finies par $codim(T_1\cap...\cap T_m)=codim(T_1)+...+codim(T_m)$.
 \end{defn}
-
-On trouve en annexe des exemples d'intersections transverses et non transverses.
 
 Une première condition de transversalité est: $U$ et $V$ sont transverses si et seulement si $dim(U\cap V)=dim(U)+dim(V)-n$.
 On constate que si la somme des dimensions est inférieure à $n$, les espaces ne peuvent être transverses: la transversalité dépend fortement de l'espace dans lequel on travaille.
@@ -97,33 +108,28 @@ Puisque les espaces tangents de la variété sont de même dimension que la vari
 
 On peut donc redéfinir une variété comme l'intersection locale transverse d'hypersurfaces, qui correspondent aux noyaux des équations locales non dégénérées.
 
-Une application est transverse à une hypersurface ssi ...
+%%%%%%%% WIP
+Une application est transverse à une variété ssi ...
+
+On trouve en annexe des exemples d'intersections transverses et non transverses.
 
 \begin{defn}
-Une application $f$ est dit \textbf{structurellement stable} si pour toute application $p$ suffisament proche de 0 (et infiniment continue), $f+p$ a le même type de point critique que $f$ à translation près.
+	Une application $f$ est dite \textbf{structurellement stable} si pour toute application $p$ suffisament proche de 0 (et infiniment continue), $f+p$ a le même type de point critique que $f$ à translation près.
 \end{defn}
 
 Un point critique est en fait structurellement stable si et seulement si il est non dégénéré.
 La \textbf{stabilité structurelle} signifie plus généralement que le comportement qualitatif ne change pas malgré une perturbation suffisament petite.
+%%%%%% WIPend
 
-Le \textbf{théorème d'isotopie de \textsc{Thom}} établit un premier lien entre ces deux notions-clés:
-
-\begin{thm}
-Les intersections transverses sont structurellement stables.
-\end{thm}
-
-Le \textbf{théorème de transversalité de \textsc{Thom}} nous informe enfin sur la généricité des applications transverses à une variété donnée.
 La transversalité est donc un `positionnement générique', dans le sens de la densité.
 
-\begin{thm}
-Une application peut être déformée de manière arbitrairement fine en une application transverse à toute variété donnée.
-\end{thm}
+La version faible du théorème de transversalité s'énonce à partir d'une fonction $f: V\times\Lambda\to F$ de classe $\cinf$, où $\Lambda\in G$ est un ouvert d'un espace normé servant à `indicer' une famille de fonctions $V\to F$.
 
-La version faible du théorème de transversalité s'énonce à partir d'une fonction $f: V\times\Lambda\to F$, où $\Lambda\in G$ est un ouvert servant à `indicer' une famille de fonctions.
-
-\begin{thm}
+\begin{thm}[Théorème de transversalité faible]
 	Si $f$ est transverse à $W$, une sous-variété de $F$, alors l'ensemble des $\lambda\in\Lambda$ tels que $x\mapsto f(x,\lambda)$ soit transverse à $W$ est dense de $\Lambda$ en tant qu'intersection dénombrable d'ouverts dense.
 \end{thm}
+
+Ainsi, étant donnée une famille de fonctions $f_\lambda: V\to F$ avec des hypothèses de régularité sur la dépendance en $V$ et en $\Lambda$, on peut affirmer que l'on peut approximer un $f_\lambda$ arbitrairement bien par des applications $f_{\lambda'}$ transverses à $W$.
 
 \subsection{Réecriture au voisinage d'un point critique}
 
@@ -154,7 +160,7 @@ Si 0 est point critique, on peut réitérer cela et écrire (toujours sur un voi
 Ce dernier lemme permet de démontrer le \textbf{lemme de \textsc{Morse}}, qui donne une expression nettement plus simple au voisinage de $0$.
 
 \begin{lemm}
-Si $f\in\cinf(\R^n,\R)$ admet un point critique non dégénéré en $u$, alors il existe un voisinage de $u$ et un $\cinf$-difféomorphisme (donc un changement de coordonnées) $y=(y_1,...,y_n)$ tel que: $$f=f(u)+y_1^2+...+y_l^2-y_{l+1}^2-...-y_n^2$$
+	Si $f\in\cinf(\R^n,\R)$ admet un point critique non dégénéré en $u$, alors il existe un voisinage de $u$ et un $\cinf$-difféomorphisme (donc un changement de coordonnées) $y=(y_1,...,y_n)$ tel que: $$f=f(u)+y_1^2+...+y_l^2-y_{l+1}^2-...-y_n^2$$
 \end{lemm}
 
 \textit{Preuve}: voir annexe
@@ -184,26 +190,43 @@ Si f admet 0 pour point critique et $H(f)_0$ est de rang $r$, alors $f$ est équ
 \subsection{Germes, jets}
 
 \begin{defn}
-Le \textit{n-jet} de $f$ en $y$ est la fonction polynomiale formée par les $k$ premiers termes du développement de Taylor de $f$ en $y$, noté:
+	Le \textit{k-jet} de $f$ en $y$ est la fonction polynomiale formée par les $k$ premiers termes du développement de Taylor de $f$ en $y$, noté:
 
-$$(j^n_y f)(x) = f(y) + xf'(y)+...+\frac{x^n f^{(n)}(y)}{n!}$$
+	$$(j^k_y f)(x) = f(y) + xf'(y)+...+\frac{x^k f^{(k)}(y)}{k!}$$
 
-Le germe de $f$ en un point associé à $r\in\N$ est le couple $(x,j^r_x f)$.
+	Le germe de $f$ en un point associé à $k\in\N^*$ est le couple $(x,j^k_x f)$.
+
+	On note $J^r(U,F)$ l'espace des germes, correspondant à $U\times \R_r[x]$.
 \end{defn}
 
-Pour une fonction à $n$ variables, on définit son dévelopmmeent de Taylor et son \textit{k-jet} par: $$(j^k_y f)(y+x) = f(y) + df_y(x)+...+\frac{(df^{(k)}_y)(x)(x)...(x)}{k!}$$
+\begin{thm}{de \textsc{Thom}}
+	L'ensemble des fonctions polynomiales $p:E\to F$ telles que $j^r(f+p)$ soit transverse à une variété donnée de l'espace des germes est résiduelle dense.
+\end{thm}
 
-On peut réecrire le terme d'ordre $k$ sous la forme $$\frac{1}{k!}\sum_{i_1,...,i_k} \frac{\partial^k f}{\partial x_{i_1}...x_{i_k}} x_{i_1}...x_{i_k}$$
+\begin{thm}{de transversalité de \textsc{Thom}}
+	L'ensemble des $f\in\cinf(U,F)$ telles que $j^rf$ soit transverse à une sous-variété donnée de l'espace des germes est une partie résiduelle dense.
+\end{thm}
+
+%%%%%% WIP
+Pour une fonction à $n$ variables, on définit son dévelopemment de Taylor et son \textit{k-jet} par:
+
+$$(j^k_y f)(y+x) = f(y) + df_y(x)+...+\frac{(df^{(k)}_y)(x)(x)...(x)}{k!}$$
+
+On peut réecrire le terme d'ordre $k$ sous la forme
+
+$$\frac{1}{k!}\sum_{i_1,...,i_k} \frac{\partial^k f}{\partial x_{i_1}...x_{i_k}} x_{i_1}...x_{i_k}$$
+%%%%% WIPend
 
 \section{Classification des catastrophes}
 \subsection{Théorèmes de Sard et de Whitney}
+
 Ces deux théorèmes, dont les énoncés généraux sont admis, permettent de ...
 
-\begin{thm}
+\begin{thm}[de \textsc{Whitney}]
 	Si $V$ est une variété compacte de dimension $n$, il existe un plongement de $V$ dans $\R^{2n+1}$.
 \end{thm}
 
-\begin{thm}
+\begin{thm}[de \textsc{Sard}]
 	Si $f: U\to F$ où $U$ est un ouvert de $E$ est de classe $\cinf$ alors l'ensemble des images de ses points critiques est négligeable dans $F$.
 \end{thm}
 
@@ -211,7 +234,7 @@ Ces deux théorèmes, dont les énoncés généraux sont admis, permettent de ..
 	\textit{Voir annexe pour $E=F=\R$}.
 \end{proof}
 
-Sous sa forme géométrique, ce théorème dit que
+Sous sa forme géométrique, ce théorème dit que ...
 
 \subsection{Le pli et la fronce}
 \subsection{Les autres catastrophes}
