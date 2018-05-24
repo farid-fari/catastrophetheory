@@ -8,6 +8,7 @@
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage{amsthm}
+\usepackage{pdfpages}
 
 \renewcommand{\thesection}{\Roman{section}}
 \renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
@@ -16,14 +17,21 @@
 \newcommand{\cun}{\mathcal{C}^1}
 \newcommand{\cinf}{\mathcal{C}^\infty}
 \newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
 
+\theoremstyle{definition}
 \newtheorem{defn}{Définition}
+\theoremstyle{plain}
 \newtheorem{thm}{Théorème}
 \newtheorem{lemm}{Lemme}
 
 \begin{document}
 
-\title{La théorie des catastrophes}
+\includepdf{pagedegarde.pdf}
+
+\setcounter{page}{1}
+
+\title{Théorie des catastrophes}
 \author{Farid Arthaud}
 
 \maketitle
@@ -41,29 +49,32 @@ Malgré les noms fantaisistes, il s'agit de catégories précises qui comprennen
 
 Une des applications principales de cette théorie sont les simulations: de phénomènes physiques mais aussi sociaux (comportements durant des révoltes, ...) et économiques \cite{bbcvid} \cite{poston}.
 Son utilité pour la physique découle de ce que \textbf{Demazure} appelle `la philosophie de la théorie des catastrophes' \cite{demazure}: étudier ces variétés $\cinf$ peut être vu comme l'étude d'une fonction potentiel définie sur l'espace des états possibles d'un système physique.
-La théorie des catastrophes s'intéresse en fait aux états d'équilibre de solutions d'équations différentielles en fonction de la variation des paramètres.
 
 Alors, l'étude d'une singularité devient celle d'un équilibre, et leur classification est précieuse pour le physicien.
-Cependant, nombre de ses applications sont controversées, notamment celles qui essaient d'expliquer un comportement humain par des mathématiques, pour des raisons éthiques \cite{wikipedia}.
+Cependant, nombre de ses applications sont controversées, notamment celles qui essaient d'expliquer un comportement humain par des mathématiques, pour des raisons éthiques et des questionnements de pertinence \cite{wikipedia}.
 
 \section{Catastrophes}
 
 \subsection{Points critiques, variétés}
 
+Soit $f:E\to F$, de classe $\cun$.
 \begin{defn}
-	point critique, dégénrescence
-Un point critique $a$ est dit non dégénéré si $\forall x, rg(d^2f_a(x))=n$ (c'est à dire que $x\mapsto(y\mapsto d^2f_a(x,y))$ est isomorphisme), ou de manière équivalente si le déterminant Hessien de $f$ est non nul.
-\end{defn}
-\begin{defn}
-	immersion submersion
-\end{defn}
-\begin{defn}
-	plongement
+	Un point critique pour $f$ est un point $a$ tel que $df_a$ ne soit pas surjective.
+	Un point critique $a$ est dit non dégénéré si $\forall x, d^2f_a(x)$ est un isomorphisme, ou de manière équivalente si le déterminant Hessien de $f$ est non nul. (??)
 \end{defn}
 
 \begin{defn}
-	Une \textbf{variété} est un ensemble de $\R^n$ qui est localement homéomorphe à $\R^m$ et qui a un unique plan tangent en tout point, où $m\leq n$ est appelé la \textit{dimension de la variété}.
-	Un homéomorphisme de  la variété vers $\R^m$ est appelé un \textit{système de coordonées locales}.
+	Une \textbf{sous-variété} $V$ est un ensemble de $\R^n$ qui est localement descriptible par un \textbf{système non dégénéré d'équations locales}.
+	Cela signifie qu'il existe pour tout point $a\in V$ $\Phi_1,...,\Phi_m$ telles que pour un voisinage $U$ de $a$, $U\cap\ker(\Phi_1,...,\Phi_m)=V\cap U$; et que $d\Phi_1,...,d\Phi_m$ forment un système libre de formes linéaires.
+	$m$ s'appelle la codimension de la sous-variété, que l'on suppose être la même en tout point de $V$ par la suite (on peut supposer la variété connexe par exemple).
+\end{defn}
+
+\begin{defn}
+	Si $f\in\cinf(V,F)$, elle est une \textbf{immersion} si $df_x$ est injective pour tout $x$ et est une \textbf{submersion} si $df_x$ est surjective pour tout $x$.
+\end{defn}
+
+\begin{defn}
+	plongement
 \end{defn}
 
 \subsection{Transversalité et stabilité structurelle}
@@ -74,15 +85,17 @@ Deux sous-espaces vectoriels de $\R^n$ $F$ et $G$ sont dit \textbf{transverses} 
 On étend la définition aux familles finies par $codim(T_1\cap...\cap T_m)=codim(T_1)+...+codim(T_m)$.
 \end{defn}
 
+On trouve en annexe des exemples d'intersections transverses et non transverses.
+
 Une première condition de transversalité est: $U$ et $V$ sont transverses si et seulement si $dim(U\cap V)=dim(U)+dim(V)-n$.
 On constate que si la somme des dimensions est inférieure à $n$, les espaces ne peuvent être transverses: la transversalité dépend fortement de l'espace dans lequel on travaille.
 
 Une autre condition de transversalité, cette fois-ci géométrique, est que pour toute famille d'espaces affines respectivement dirigés selon $T_1,...,T_m$, leur intersection ne doit pas être vide.
 
 On généralise ensuite la définition à deux variétés: elles sont transverses si leurs plans tangents sont transverses en tout point de leur intersection.
-Puisque les espaces tangents de la variété sont de même dimension que la variété, la somme des dimensions des variétés doit être au moins $n$ pour qu'elles soient transverses (si elles s'intersectent).
+Puisque les espaces tangents de la variété sont de même dimension que la variété, la somme des dimensions des variétés doit valoir au moins $n$ pour qu'elles soient transverses (là où elles s'intersectent).
 
-On peut donc redéfinir une variété comme l'intersection locale transverse d'hypersurfaces, qui correspondent aux noyaux des coordonnées locales.
+On peut donc redéfinir une variété comme l'intersection locale transverse d'hypersurfaces, qui correspondent aux noyaux des équations locales non dégénérées.
 
 Une application est transverse à une hypersurface ssi ...
 
@@ -170,7 +183,13 @@ Si f admet 0 pour point critique et $H(f)_0$ est de rang $r$, alors $f$ est équ
 
 \subsection{Germes, jets}
 
-On introduit la notion de \textit{k-jet}, la fonction polynomiale formée par les $k$ premiers termes du développement de Taylor d'une fonction en un point $y$, noté: $$(j^k_y f)(y+x) = f(y) + xf'(y)+...+\frac{x^n f^{(n)}(y)}{n!}$$
+\begin{defn}
+Le \textit{n-jet} de $f$ en $y$ est la fonction polynomiale formée par les $k$ premiers termes du développement de Taylor de $f$ en $y$, noté:
+
+$$(j^n_y f)(x) = f(y) + xf'(y)+...+\frac{x^n f^{(n)}(y)}{n!}$$
+
+Le germe de $f$ en un point associé à $r\in\N$ est le couple $(x,j^r_x f)$.
+\end{defn}
 
 Pour une fonction à $n$ variables, on définit son dévelopmmeent de Taylor et son \textit{k-jet} par: $$(j^k_y f)(y+x) = f(y) + df_y(x)+...+\frac{(df^{(k)}_y)(x)(x)...(x)}{k!}$$
 
