@@ -1,4 +1,4 @@
-\documentclass{beamer}
+\documentclass[compress]{beamer}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
@@ -75,7 +75,7 @@
 
         $m$ s'appelle la codimension de la sous-variété, que l'on suppose être la même en tout point de $V$ par la suite (on peut supposer la variété connexe par exemple).
     \end{defn}
-    \pause
+    \pause[3]
     \begin{thm}
         Une variété de dimension $p$ admet en tout point un espace tangent de dimension $p$.
         C'est en fait l'intersection des noyaux du système d'équations locales définissant $V$ en ce point.
@@ -83,17 +83,49 @@
 \end{frame}
 
 \subsection{Transversalité et stabilité structurelle}
+\begin{frame}{Intersections transverses}
+    \begin{defn}
+        Deux sous-espaces $F$ et $G$ sont dits d'intersection transverse si $F+G=E$.
+    \end{defn}
+    \pause
+    Caractérisations:
+    \begin{enumerate}[<+->]
+        \item Intersection minimale
+        \item Sous-espaces affines parallèles (géométrique)
+        \item $dim(F\cap G)=dim(F)+dim(G)-dim(E)$
+        \item $codim(F\cap G)=codim(F)+codim(G)-dim(E)$
+    \end{enumerate}
+    \pause[6]
+    Pour une famille, $codim(T_1\cap...\cap T_m)=codim(T_1)+...+codim(T_m)$
+\end{frame}
+
+\begin{frame}{Théorèmes de transversalité}
+\end{frame}
+
 \subsection{Réecriture au voisinage d'un point critique}
+\begin{frame}{Lemme de \textsc{Morse}}
+\end{frame}
+\begin{frame}{Fonctions implicites, inversion locale}
+\end{frame}
 \subsection{Germes et jets}
+\begin{frame}{Espace des germes}
+\end{frame}
+\begin{frame}{Le théorème de transversalité de \textsc{Thom}}
+\end{frame}
 
 \section{Théorème de classification}
-\subsection{Le théorème de Whitney}
+\subsection{Théorèmes de \textsc{Whitney} et de \textsc{Sard}}
+\begin{frame}{Théorème de \textsc{Whitney}}
+\end{frame}
+\begin{frame}{Théorème de \textsc{Sard}}
+\end{frame}
+
 \subsection{Le pli et la fronce}
 \subsection{Les autres catastrophes}
 
 \section{Applications physiques}
-\subsection{Equilibre thermodynamique}
-\subsection{Roulis d'un navire}
+\frame{Equilibre thermodynamique}
+\frame{Roulis d'un navire}
 
 \section*{Conclusion}
 \frame{}
