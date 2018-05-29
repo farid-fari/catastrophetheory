@@ -9,7 +9,8 @@
 
 \useinnertheme{default}
 \useoutertheme{miniframes}
-\usecolortheme{seahorse}
+\usecolortheme{beaver}
+\setbeamercovered{transparent}
 
 \newcommand{\cont}{\mathcal{C}^0}
 \newcommand{\cun}{\mathcal{C}^1}
@@ -33,12 +34,14 @@
 
 \section*{Introduction}
 \begin{frame}{Exemple: le baigneur}
-    \begin{itemize}
+    \begin{itemize}[<+->]
         \item Contrôle absolu sur la précision
         \item `Virage' soudain et incontournable lors du réglage du paramètre
-        \pause
     \end{itemize}
-    \textbf{Explication}: disparition d'un équilibre d'un système caché
+    \begin{description}[<+->]
+        \item[Explication:] Disparition d'un équilibre d'un système physique caché, catastrophe de type `pli'
+        \item[Objectif:] Saisir la classification des catastrophes établie par \textsc{Thom} en faibles dimensions, et ses applications
+    \end{description}
 \end{frame}
 
 \begin{frame}{Contexte historique}
@@ -57,27 +60,32 @@
 \section{Catastrophes}
 \subsection{Variétés et points critiques}
 \begin{frame}{Points critiques}
-    $f: E \to F, \cinf$
+    Soit $f: E \to F, \cinf$
     \begin{defn}
         Un point critique pour $f$ est un point $a$ tel que $df_a$ ne soit pas surjective.
 
-	    Un point critique $a$ est dit non dégénéré si $\forall x, d^2f_a(x)$ est un isomorphisme, ou de manière équivalente si le déterminant Hessien de $f$ est non nul. (??)
+	    Un point critique $a$ est dit non dégénéré si $\forall x, d^2f_a(x)$ est un isomorphisme, ou de manière équivalente si le déterminant Hessien de $f$ est non nul.
     \end{defn}
+    \pause
+    En \textbf{dimension 1}: $a$ point critique $\iff f'(a) = 0$
+
+    $a$ point critique dégénéré $\iff f'(a) =f''(a) = 0$
 \end{frame}
 
 \begin{frame}{Sous-variétés}
     \begin{defn}
-        Une \textbf{sous-variété} $V$ de $\R^n$ est un ensemble qui est localement descriptible par un \textbf{système non dégénéré d'équations locales},il existe pour tout point $a\in V$, $\Phi_1,...,\Phi_m$ telles que:
+        Une \textbf{sous-variété} $V$ de $\R^n$ est un ensemble qui est localement descriptible par un \textbf{système non dégénéré d'équations locales}, soit $m$ équations indépendantes.
         \begin{enumerate}[<+->]
             \item pour un voisinage $U$ de $a$, $U\cap\ker(\Phi_1,...,\Phi_m)=U\cap V$
             \item $d\Phi_1,...,d\Phi_m$ forment un système libre de formes linéaires.
         \end{enumerate}
-
+        \pause[3]
         $m$ s'appelle la codimension de la sous-variété, que l'on suppose être la même en tout point de $V$ par la suite (on peut supposer la variété connexe par exemple).
     \end{defn}
-    \pause[3]
+    \pause[4]
     \begin{thm}
         Une variété de dimension $p$ admet en tout point un espace tangent de dimension $p$.
+
         C'est en fait l'intersection des noyaux du système d'équations locales définissant $V$ en ce point.
     \end{thm}
 \end{frame}
@@ -89,45 +97,90 @@
     \end{defn}
     \pause
     Caractérisations:
-    \begin{enumerate}[<+->]
-        \item Intersection minimale
-        \item Sous-espaces affines parallèles (géométrique)
-        \item $dim(F\cap G)=dim(F)+dim(G)-dim(E)$
-        \item $codim(F\cap G)=codim(F)+codim(G)-dim(E)$
+    \begin{enumerate}
+        \item<2-5> Intersection minimale
+        \item<2-5> Sous-espaces affines parallèles (géométrique) s'intersectent
+        \item<3-5> $dim(F\cap G)=dim(F)+dim(G)-dim(E)$
+        \item<3-5> $codim(F\cap G)=codim(F)+codim(G)$
     \end{enumerate}
-    \pause[6]
+    \pause[4]
     Pour une famille, $codim(T_1\cap...\cap T_m)=codim(T_1)+...+codim(T_m)$
+    \pause[5]
+    Pour des variétés, espaces tangents transverses en tout point de l'intersection
 \end{frame}
 
 \begin{frame}{Théorèmes de transversalité}
+    \begin{thm}
+        Une intersection transverse de sous-variétés est une sous-variété.
+    \end{thm}
+    \pause
+    Soit $g:V\to W, \cinf$
+    \begin{thm}
+        Si $a\in g^{-1}(W)$ et $g$ transverse à $W$ en $a$, alors $g^{-1}(W)$ est sous-variété en $a$ de dimension $dim_a(V)-codim_{g(a)}(W)$.
+    \end{thm}
 \end{frame}
 
-\subsection{Réecriture au voisinage d'un point critique}
-\begin{frame}{Lemme de \textsc{Morse}}
-\end{frame}
-\begin{frame}{Fonctions implicites, inversion locale}
-\end{frame}
 \subsection{Germes et jets}
 \begin{frame}{Espace des germes}
-\end{frame}
-\begin{frame}{Le théorème de transversalité de \textsc{Thom}}
+    \begin{defn}
+        L'espaces des germes s'identifie à un point et aux premiers termes du développement de Taylor d'une fonction.
+
+        $$(j^k_x f)(h) = f(x) + df_x(h)+...+\frac{df^k_x(h)(h)...(h)}{k!}$$
+    \end{defn}
+    \pause
+    Permet d'exprimer des équations différentielles comme des variétés:
+
+    $$f'(x)=f(x) \iff (x,j^1_xf) \in \{(a,b,c) \mid b=c \} \subseteq J^1(\R,\R)$$
 \end{frame}
 
 \section{Théorème de classification}
-\subsection{Théorèmes de \textsc{Whitney} et de \textsc{Sard}}
-\begin{frame}{Théorème de \textsc{Whitney}}
-\end{frame}
-\begin{frame}{Théorème de \textsc{Sard}}
+\subsection{Théorème de transversalité \textsc{Thom}}
+\begin{frame}{Le théorème de transversalité de \textsc{Thom}}
+    \begin{thm}{(de transversalité de \textsc{Thom})}
+        Pour une sous-variété de l'espace des germes donnée, une fonction choisie ``au hasard'' (par densité) lui est transverse.
+    \end{thm}
+    \pause
+    \textbf{Exemple}: $\{(a,b,c) \mid b=c \}$ est une sous-variété de dimension $2$ de $J^1(\R,\R) \simeq \R^3$ décrivant $f'=f$
+
+    Espace tangent en $(a,b,b)$: $\left((1,0,0), (0,1,1)\right)$
+
+    Espace tangent de $j^1f$ en $j^1_xf$: $(1,f'(x),f''(x))\notin\left((1,0,0), (0,1,1)\right)$
+
+    Une fonction $f$ choisie ``au hasard'' en chaque point soit: ne vérifie pas $f'(x)=f(x)$, soit la vérifie en des points isolés.
 \end{frame}
 
 \subsection{Le pli et la fronce}
+\begin{frame}{Contour d'une surface}
+\end{frame}
+\begin{frame}{Théorème de \textsc{Whitney}}
+\end{frame}
+
 \subsection{Les autres catastrophes}
 
 \section{Applications physiques}
-\frame{Equilibre thermodynamique}
-\frame{Roulis d'un navire}
-
-\section*{Conclusion}
-\frame{}
+\subsection{La machine de Zeeman}
+\frame{Expérience}
+\frame{Analyse théorique}
 
 \end{document}
+
+\subsection{Réecriture au voisinage d'un point critique}
+\begin{frame}{Lemmes d'\textsc{Hadamard}, de \textsc{Morse}, inversion locale}
+    \begin{thm}{(inversion locale)}
+        Si $a$ n'est pas un point critique, il existe des coordonnées locales telles que $f(x)=f(a)+x$.
+    \end{thm}
+    \begin{lemm}{(de \textsc{Hadamard})}
+        Il existe un voisinage de $0$ sur lequel $f$ peut s'écrire: $f(x)=x_1g_1(x)+...+x_ng_n(x)$ avec $g_i(0) = \frac{\partial f}{\partial x_i}(0)$.
+
+        Si $df_0=0$, on peut réitérer cela et écrire (toujours sur un voisinage de $0$):
+
+        $$f(x)=\sum_{1\leq i,j \leq n} x_ix_jh_{ij}(x)$$
+    \end{lemm}
+    \begin{lemm}{(de \textsc{Morse})}
+        Si $f$ admet un point critique non dégénéré en $u$, alors il existe un voisinage de $u$ et des coordonnées centrées en $u$ $y=(y_1,...,y_n)$ tels que:
+
+        $$f=f(u)+y_1^2+...+y_l^2-y_{l+1}^2-...-y_n^2$$
+
+        $l$ ne dépend pas des coordonnées choisies.
+    \end{lemm}
+\end{frame}
