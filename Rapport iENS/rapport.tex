@@ -8,7 +8,11 @@
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage{amsthm}
+\usepackage{titling}
 %\usepackage{pdfpages}
+
+\setlength{\droptitle}{-11em}
+
 
 \renewcommand{\thesection}{\Roman{section}}
 \renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
@@ -130,8 +134,8 @@ La \textbf{stabilité structurelle} signifie plus généralement que le comporte
 
 La version faible du théorème de transversalité s'énonce à partir d'une fonction $f: V\times\Lambda\to F$ de classe $\cinf$, où $\Lambda\in G$ est un ouvert d'un espace normé servant à `indicer' une famille de fonctions $V\to F$.
 
-\begin{thm}[Théorème de transversalité faible]
-	Si $f$ est transverse à $W$, une sous-variété de $F$, alors l'ensemble des $\lambda\in\Lambda$ tels que $x\mapsto f(x,\lambda)$ soit transverse à $W$ est dense dans $\Lambda$ en tant qu'intersection dénombrable d'ouverts dense.
+\begin{thm}[(de transversalité faible)]
+	Si $f$ est transverse à $W$, une sous-variété de $F$, alors l'ensemble des $\lambda\in\Lambda$ tels que $x\mapsto f(x,\lambda)$ soit transverse à $W$ est dense dans $\Lambda$ en tant que réunion dénombrable d'ouverts dense.
 \end{thm}
 
 Ainsi, étant donnée une famille de fonctions $f_\lambda: V\to F$ avec des hypothèses de régularité sur la dépendance en $V$ et en $\Lambda$, on peut affirmer que l'on peut approximer un $f_\lambda$ arbitrairement bien par des applications $f_{\lambda'}$ transverses à $W$.
@@ -244,7 +248,12 @@ On traite ici les deux cas $\R^2\to\R$ et $\R\to\R^3$ de manière plus détaill�
 	Une application générique $\R^2\to\R^2$ a ses points critiques formant une courbe composée de plis et de fronces, et les fronces sont des points isolés de cette courbe.
 \end{thm}
 
+...
+
+\iffalse
+%%%% WIP
 On note qu'une variété de dimension $1$ est négligeable dans un espace de dimension deux: on en déduit le théorème de \textsc{Sard} dans ce cas particulier.
+\fi
 
 \subsection{Les autres catastrophes}
 
