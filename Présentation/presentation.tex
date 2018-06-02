@@ -58,13 +58,13 @@
             \end{itemize}
 
             \pause[3]
-            \alert{Explication}: Disparition d'un équilibre d'un système physique caché dont la température est une projection
+            \alert{Explication}: Disparition d'un équilibre d'un système physique
 
-            \pause[4]
-            \alert{Objectif}: Saisir la classification des catastrophes établie par \textsc{Thom} en faibles dimensions, et ses applications
+            \pause
+            \alert{Objectif}: Saisir la classification des catastrophes établie par \textsc{Thom} en faibles dimensions et quelques applications
         \end{column}
         \begin{column}{5cm}
-            \includegraphics[width=\linewidth,height=0.8\textheight,keepaspectratio]{images/cusp_temp.png}
+            \includegraphics[width=1.05\linewidth,height=1.05\textheight,keepaspectratio]{images/cusp_temp.png}
         \end{column}
     \end{columns}
 \end{frame}
@@ -79,64 +79,64 @@
 \end{frame}
 
 \begin{frame}{Analyse théorique}
-    \begin{onlyenv}<1>
+    \begin{onlyenv}<1-2>
+        \includegraphics<1-2>[width=\linewidth,height=0.8\textheight,keepaspectratio]{images/zeeman_sketch.jpg}
+
         On change de coordonnées, $x=\theta+c$, un calcul donne:
 
-        $$E_p(x)  = \frac{1}{4}x^4+\frac{a}{2}x^2+bx$$
-
+        $$E_p(a, b, x)  = \frac{1}{4}x^4+\frac{a}{2}x^2+bx$$
 
         \alert{Points critiques} ou positions d'équilibre:
 
         $$x^3+ax+b=0$$
+
+        \pause
+        \textit{Remarques}: $1$ ou $3$ positions d'équilibre pour chaque $(a,b)$
     \end{onlyenv}
 
-    \includegraphics<2>[width=\linewidth,height=0.8\textheight,keepaspectratio]{images/cusp_zeeman.png}
-    \includegraphics<3>[width=\linewidth,height=0.8\textheight,keepaspectratio]{images/cusp_side.png}
+    \includegraphics<3>[width=\linewidth,height=0.8\textheight,keepaspectratio]{images/cusp_zeeman.png}
+    \includegraphics<4>[width=\linewidth,height=0.8\textheight,keepaspectratio]{images/cusp_zeeman_top.png}
 \end{frame}
 
 \subsection{Surface en trois dimensions}
 \begin{frame}{Points-pli et points-fronce}
-    On s'intéresse à $f:\R^3\to\R, \cinf$ et à la surface $V=ker(f)\subseteq \R^3$
+    On considère $f:\R^3\to\R, \cinf$ et on s'intéresse à la surface $V=\{x\mid f(x)=0\}\subseteq \R^3$
 
     \begin{columns}[T]
         \begin{column}{5cm}
             \alert{Point-pli}
 
             $a$ est point-pli s'il existe des coordonnées dans lesquelles
+            $$\pm f(x, y, z) = z^2 - y$$
 
-            $$\pm f = z^2 - y$$
-
-            \uncover<3>{
+            \uncover<3-4>{
                 \alert{Point-fronce}
 
                 $a$ est point-fronce s'il existe des coordonnées dans lesquelles
-
-                $$\pm f = z^3 - xz - y$$}
+                $$f(x,y,z) = z^3 - xz - y$$}
         \end{column}
         \begin{column}{5cm}
             \includegraphics<1>[width=5cm,keepaspectratio]{images/fold_front.png}
-            \includegraphics<2>[width=5cm,keepaspectratio]{images/fold_side.png}
+            \includegraphics<2>[width=5cm,keepaspectratio]{images/fold_top.png}
             \includegraphics<3>[width=5cm,keepaspectratio]{images/cusp_front.png}
+            \includegraphics<4>[width=5cm,keepaspectratio]{images/cusp_side.png}
         \end{column}
     \end{columns}
 \end{frame}
 
 \begin{frame}{Contour d'une surface}
-    On projette sur $\R^2$, le contour apparent est l'ensemble des points de la surface où $\frac{\partial f}{\partial z}=0$
+    On va regarder ce qu'il se passe lorsqu'on projette cette surface sur le plan $\{(x,y)\} = \R^2$
+
+    Le contour apparent est l'ensemble des points de la surface où $\frac{\partial f}{\partial z} = 0$
 
     \begin{thm}
-        Si $f$ est générique, alors:
+        Si $f$ est choisie ``au hasard'', alors:
         \begin{enumerate}[<+->]
-            \item $ker(f)$ est une sous-variété de dimension deux (\alert{surface})
-            \item Son contour apparent $ker(f)\cap ker(\frac{\partial f}{\partial z})$ est une sous-variété de dimension un (\alert{courbe})
-            \item Tous les points sont des points-plis ou points-fronces, les points-fronces sont isolés
+            \item $\{f=0\}$ est une sous-variété de dimension deux (\alert{surface})
+            \item Son contour apparent $\{f=0\}\cap \{\frac{\partial f}{\partial z}=0\}$ est une sous-variété de dimension un (\alert{courbe})
+            \item Tous les points ``particuliers'' sont des points-plis ou points-fronces, les points-fronces sont isolés
         \end{enumerate}
     \end{thm}
-
-    \pause[4]
-    \begin{proof}
-        Appliquer le théorème de transversalité à $j^1f: \R^3 \to J^2(\R^3,\R) \simeq \R^{13}$
-    \end{proof}
 \end{frame}
 
 \section{Catastrophes}
@@ -151,62 +151,72 @@
     \end{defn}
 
     \pause
-    En \textbf{dimension 1}: $a$ point critique $\iff f'(a) = 0$
+    \begin{columns}[T]
+        \begin{column}{5cm}
+            En \textbf{dimension 1}: $a$ point critique $\iff f'(a) = 0$
 
-    $a$ point critique dégénéré $\iff f'(a) =f''(a) = 0$
+            $a$ point critique dégénéré $\iff f'(a) =f''(a) = 0$
+        \end{column}
+        \begin{column}{5cm}
+            \includegraphics<2>[width=5cm,keepaspectratio]{images/x_deux.png}
+            \includegraphics<3>[width=5cm,keepaspectratio]{images/x_trois.png}
+        \end{column}
+    \end{columns}
 \end{frame}
 
 \begin{frame}{Sous-variétés}
     \begin{defn}
         Une \textbf{sous-variété} $V$ de $\R^n$ est un ensemble qui est localement descriptible par un \alert{système non dégénéré d'équations locales}, soit $m$ équations indépendantes.
         \begin{enumerate}[<+->]
-            \item pour un voisinage $U$ de $a$, $U\cap\ker(\Phi_1,...,\Phi_m)=U\cap V$
-            \item $d\Phi_1,...,d\Phi_m$ forment un système libre de formes linéaires.
+            \item pour un voisinage $U$ de $a$, $U\cap\{x\mid\Phi_1(x)=...=\Phi_m(x)=0\}=U\cap V$
+            \item $d\Phi_{1,a},...,d\Phi_{m,a}$ forment un système libre de formes linéaires.
         \end{enumerate}
         \pause[3]
         $m$ s'appelle la \textbf{codimension} de la sous-variété, que l'on suppose être la même en tout point de $V$ par la suite (on peut supposer la variété connexe par exemple).
     \end{defn}
 
-    \pause[4]
+    \pause
     \begin{thm}
         Une variété de dimension $p$ admet en tout point un \alert{espace tangent} de dimension $p$.
 
-        C'est en fait l'intersection transverse des $d\phi_1,...,d\phi_m$.
+        C'est en fait l'intersection \alert{transverse} des $Im(d\phi_{1,a}),...,Im(d\phi_{m,a})$.
     \end{thm}
 \end{frame}
 
 \subsection{Transversalité et généricité}
 \begin{frame}{Intersections transverses}
-    \begin{defn}
-        Deux sous-espaces $F$ et $G$ sont dits d'\textbf{intersection transverse} si $F+G=E$.
-    \end{defn}
+    \begin{onlyenv}<1-3,7>
+        \uncover<1-3>{
+            \begin{defn}
+                Deux sous-espaces $F$ et $G$ sont dits d'\textbf{intersection transverse} si $F+G=E$.
+            \end{defn}
 
-    \pause
-    Caractérisations:
-    \begin{enumerate}
-        \item<2-> Intersection minimale
-        \item<2-> Tous sous-espaces affines parallèles s'intersectent
-        \item<3-> $dim(F\cap G)=dim(F)+dim(G)-dim(E)$
-        \item<3-> $codim(F\cap G)=codim(F)+codim(G)$
-    \end{enumerate}
+            \pause
+            Caractérisations:
+            \begin{enumerate}
+                \item<2-> Intersection minimale
+                \item<2-> Tous sous-espaces affines parallèles s'intersectent
+                \item<3-> $dim(F\cap G)=dim(F)+dim(G)-dim(E)$
+                \item<3-> $codim(F\cap G)=codim(F)+codim(G)$
+            \end{enumerate}}
 
-    \pause[4]
-    Pour des variétés et des fonctions, transversalité si les espaces tangents transverses en tout point de l'intersection
+        \uncover<7>{Pour des \textbf{variétés et des fonctions}, transversalité si les \alert{espaces tangents} sont transverses en tout point de l'intersection}
+    \end{onlyenv}
+
+    \includegraphics<4>[width=\linewidth,height=0.8\textheight,keepaspectratio]{images/2DTransverse.png}
+    \includegraphics<5>[width=\linewidth,height=0.8\textheight,keepaspectratio]{images/3D_trans.png}
+    \includegraphics<6>[width=\linewidth,height=0.8\textheight,keepaspectratio]{images/3D_non_trans.png}
 \end{frame}
 
 \begin{frame}{Théorèmes de transversalité}
     \begin{thm}
         Une intersection transverse de sous-variétés est une sous-variété.
     \end{thm}
-    \pause
-    Soit $g:V\to W, \cinf$
-    \begin{thm}
-        Si $a\in g^{-1}(W)$ et $g$ transverse à $W$ en $a$, alors $g^{-1}(W)$ est sous-variété en $a$ de dimension $dim_a(V)-codim_{g(a)}(W)$.
-    \end{thm}
 
     \pause
-    Choix ``au hasard'': par densité.
-    Notion de \alert{généricité}.
+    \begin{defn}
+        Une propriété sur un ensemble $E$ est dite \textbf{générique} si elle est vraie sur une réunion d'ouverts denses.
+    \end{defn}
 
     \pause
     \begin{thm}{(de transversalité faible)}
@@ -214,32 +224,18 @@
     \end{thm}
 \end{frame}
 
-\subsection{Germes et jets}
-\begin{frame}{Espace des germes}
-    \begin{defn}
-        Un \textbf{$k$-jet} de $f$ en $x$ correspond aux premiers termes du développement de Taylor d'une fonction.
-
-        $$(j^k_x f)(h) = f(x) + df_x(h)+...+\frac{df^k_x(h)(h)...(h)}{k!}$$
-
-        L'\textbf{espace des germes} correspond aux couples $(a, j_af)$
-    \end{defn}
-
-    \pause
-    Permet d'exprimer des \textit{équations différentielles} comme des variétés:
-
-    $$f'(x)=f(x) \iff (x,j^1_xf) \in \{(a,b,c) \mid b=c \} \subseteq J^1(\R,\R) \simeq \R^3$$
-\end{frame}
-
-\section{Théorème de classification}
+\section{Théorèmes de classification}
 
 \subsection{Théorème de transversalité de \textsc{Thom}}
 \begin{frame}{Le théorème de transversalité de \textsc{Thom}}
     \begin{thm}{(de transversalité de \textsc{Thom})}
-        Pour une sous-variété $W$ d'un espace des germes $J^r(E,F)$ donnée, une fonction $f$ choisie ``au hasard'' (par densité) aura $j^rf$ transverse à $W$.
+        Pour une sous-variété $W$ d'un espace des germes $J^r(E,F)$ donnée, une fonction $f$ choisie ``au hasard'' (générique) aura $j^rf$ transverse à $W$.
     \end{thm}
 
-    \pause
-    \textbf{Exemple}: $\{(a,b,c) \mid b=c \}$ est une sous-variété de dimension $2$ de $J^1(\R,\R)$ décrivant $f'=f$
+    \uncover<2>{\textbf{Exemple 1}: $\{\frac{\partial f}{\partial z}=0\}$ est une variété de codimension $1$ de $J^1(\R,\R)$}
+
+    \pause[3]
+    \textbf{Exemple 2}: $\{(a,b,c) \mid b=c \}$ est une sous-variété de dimension $2$ de $J^1(\R,\R)$ décrivant $f'=f$
 
     \pause
     Espace tangent en $(a,b,b)$: $\left((1,0,0), (0,1,1)\right)$
@@ -247,12 +243,15 @@
     Espace tangent de $j^1f$ en $j^1_xf$: $(1,f'(x),f''(x))\notin\left((1,0,0), (0,1,1)\right)$
 
     \pause
-    Une fonction $f$ choisie ``au hasard'' en chaque point soit: ne vérifie pas $f'(x)=f(x)$, soit la vérifie en un point isolé
+    Une fonction $f$ choisie ``au hasard'' en chaque point soit: ne vérifie pas $f'(x)=f(x)$, soit le vérifie en un point isolé
 \end{frame}
 
-\subsection{Le pli et la fronce}
-\begin{frame}{Théorème de \textsc{Whitney}}
-    On s'intéresse cette fois-ci aux fonctions $f: \R^2 \to \R^2$ (son graphe est une hypersurface de $\R^4$)
+\subsection{Théorème de \textsc{Whitney}}
+\begin{frame}{Points ordinaires, plis et fronces}
+    On s'intéresse cette fois-ci aux points critiques de $f: \R^2 \to \R^2$
+
+    \pause
+    \alert{Point ordinaire} (non critique): il existe des coordonnées $(x',y')$ en $f(a)$ dans lesquelles $x' = x, y' = y$ (\alert{inversion locale})
 
     \pause
     \alert{Point-pli}: il existe des coordonnées $(x',y')$ en $f(a)$ dans lesquelles $x' = x, y' = y^2$
@@ -260,7 +259,12 @@
     \pause
     \alert{Point-fronce}: il existe des coordonnées $(x',y')$ en $f(a)$ dans lesquelles $x' = x, y' = y^3 - xy$
 
-    \pause
+    \includegraphics<2>[width=8cm,keepaspectratio]{images/4_ordinary.jpg}
+    \includegraphics<3>[width=8cm,keepaspectratio]{images/4_fold.jpg}
+    \includegraphics<4>[width=8cm,keepaspectratio]{images/4_cusp.jpg}
+\end{frame}
+
+\begin{frame}{Classfication des points}
     \begin{thm}{(de \textsc{Whitney})}
         Si $f$ est choisie ``au hasard'', alors:
         \begin{enumerate}[<+->]
@@ -269,25 +273,6 @@
             \item Les fronces sont isolées
         \end{enumerate}
     \end{thm}
-\end{frame}
-
-\subsection{Les autres catastrophes}
-\begin{frame}{Le théorème de classification}
-    Si $f:\R^n\to\R$, il existe des coordonnées au voisinage d'un point critique telles que:
-
-    $$\begin{cases}f  - f(a) = \pm x_1^{r+1} + \sum \pm x_i^2 & \text{pour } 1\leq r\leq 5 \\
-    f - f(a) =  x_1^2x_2 \pm x_2^{r-1} + \sum \pm x_i^2 & \text{pour } r=4,5 \end{cases}$$
-
-    \pause
-    \begin{description}[Ombilic hyperbolique]
-        \item[Pli] $x^3$
-        \item[Fronce] $\pm x^4$
-        \item[Queue d'aronde] $x^5$
-        \item[Papillon] $x^6$
-        \item[Ombilic hyperbolique] $x^2y+y^3$
-        \item[Ombilic elliptique] $x^2y-y^3$
-        \item[Ombilic parabolique] $x^2y \pm y^4$
-    \end{description}
 \end{frame}
 
 \end{document}
@@ -314,3 +299,41 @@
 \end{frame}
 
 \includegraphics[width=5cm,keepaspectratio]{images/others.jpg}
+
+Soit $g:V\to W, \cinf$
+    \begin{thm}
+        Si $a\in g^{-1}(W)$ et $g$ transverse à $W$ en $a$, alors $g^{-1}(W)$ est sous-variété en $a$ de dimension $dim_a(V)-codim_{g(a)}(W)$.
+    \end{thm}
+
+\subsection{Germes et jets}
+\begin{frame}{Espace des germes}
+    \begin{defn}
+        Un \textbf{$k$-jet} de $f$ en $x$ correspond aux premiers termes du développement de Taylor d'une fonction:
+        $$j^k_x f = \left(f(x), df_x,...,df^k_x\right)$$
+
+        L'\textbf{espace des germes} $J^r(E,F)$ correspond aux couples $(a, j^r_af)$
+    \end{defn}
+
+    \pause
+    Permet d'exprimer des \textit{équations différentielles} comme des variétés:
+    $$f'(x)=f(x) \iff (x,j^1_xf) \in \{(a,b,c) \mid b=c \} \subseteq J^1(\R,\R) \simeq \R^3$$
+\end{frame}
+
+\subsection{Les autres catastrophes}
+\begin{frame}{Le théorème de classification}
+    Si $f:\R^n\to\R$, il existe des coordonnées au voisinage d'un point critique telles que:
+
+    $$\begin{cases}f  - f(a) = \pm x_1^{r+1} + \sum \pm x_i^2 & \text{pour } 1\leq r\leq 5 \\
+    f - f(a) =  x_1^2x_2 \pm x_2^{r-1} + \sum \pm x_i^2 & \text{pour } r=4,5 \end{cases}$$
+
+    \pause
+    \begin{description}[Ombilic hyperbolique]
+        \item[Pli] $x^3$
+        \item[Fronce] $\pm x^4$
+        \item[Queue d'aronde] $x^5$
+        \item[Papillon] $x^6$
+        \item[Ombilic hyperbolique] $x^2y+y^3$
+        \item[Ombilic elliptique] $x^2y-y^3$
+        \item[Ombilic parabolique] $x^2y \pm y^4$
+    \end{description}
+\end{frame}
