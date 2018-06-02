@@ -35,17 +35,6 @@
 
 \frame{\tableofcontents}
 
-\begin{frame}{Exemple: le baigneur}
-    \begin{itemize}[<+->]
-        \item Contrôle absolu sur la précision
-        \item `Virage' soudain et incontournable lors du réglage du paramètre
-    \end{itemize}
-    \begin{description}[<+->]
-        \item[Explication:] Disparition d'un équilibre d'un système physique caché dont la température est une projection
-        \item[Objectif:] Saisir la classification des catastrophes établie par \textsc{Thom} en faibles dimensions, et ses applications
-    \end{description}
-\end{frame}
-
 \begin{frame}{Contexte historique}
     \begin{itemize}
         \item Hassler \textsc{Whitney}: classification pour les dimensions inférieures à deux (1955)
@@ -58,6 +47,96 @@
         ``Les choses qui changent soudainement, par à-coups, ont longtemps résisté à toute analyse mathématique.
         Une méthode dérivée de la topologie décrit ces phénomènes comme des exemples de sept `catastrophes élémentaires'.'' - C. \textsc{Zeeman}
     \end{quote}
+\end{frame}
+
+\begin{frame}{Exemple: le baigneur}
+    \begin{columns}[T]
+        \begin{column}{5cm}
+            \begin{itemize}[<+->]
+                \item Contrôle absolu sur la précision
+                \item `Virage' soudain et incontournable lors du réglage du paramètre
+            \end{itemize}
+
+            \pause[3]
+            \alert{Explication}: Disparition d'un équilibre d'un système physique caché dont la température est une projection
+
+            \pause[4]
+            \alert{Objectif}: Saisir la classification des catastrophes établie par \textsc{Thom} en faibles dimensions, et ses applications
+        \end{column}
+        \begin{column}{5cm}
+            \includegraphics[width=\linewidth,height=0.8\textheight,keepaspectratio]{images/cusp_temp.png}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\section{Premiers exemples}
+
+\subsection{La machine de \textsc{Zeeman}}
+\begin{frame}{Expérience}
+    \includegraphics<1>[width=\linewidth,height=\textheight,keepaspectratio]{images/montage_loq.jpg}
+    \includegraphics<2>[width=\linewidth,height=\textheight,keepaspectratio]{images/eq_haut_loq.jpg}
+    \includegraphics<3>[width=\linewidth,height=\textheight,keepaspectratio]{images/eq_bas_loq.jpg}
+\end{frame}
+
+\begin{frame}{Analyse théorique}
+    \begin{onlyenv}<1>
+        On change de coordonnées, $x=\theta+c$, un calcul donne:
+
+        $$E_p(x)  = \frac{1}{4}x^4+\frac{a}{2}x^2+bx$$
+
+
+        \alert{Points critiques} ou positions d'équilibre:
+
+        $$x^3+ax+b=0$$
+    \end{onlyenv}
+
+    \includegraphics<2>[width=\linewidth,height=0.8\textheight,keepaspectratio]{images/cusp_zeeman.png}
+    \includegraphics<3>[width=\linewidth,height=0.8\textheight,keepaspectratio]{images/cusp_side.png}
+\end{frame}
+
+\subsection{Surface en trois dimensions}
+\begin{frame}{Points-pli et points-fronce}
+    On s'intéresse à $f:\R^3\to\R, \cinf$ et à la surface $V=ker(f)\subseteq \R^3$
+
+    \begin{columns}[T]
+        \begin{column}{5cm}
+            \alert{Point-pli}
+
+            $a$ est point-pli s'il existe des coordonnées dans lesquelles
+
+            $$\pm f = z^2 - y$$
+
+            \uncover<3>{
+                \alert{Point-fronce}
+
+                $a$ est point-fronce s'il existe des coordonnées dans lesquelles
+
+                $$\pm f = z^3 - xz - y$$}
+        \end{column}
+        \begin{column}{5cm}
+            \includegraphics<1>[width=5cm,keepaspectratio]{images/fold_front.png}
+            \includegraphics<2>[width=5cm,keepaspectratio]{images/fold_side.png}
+            \includegraphics<3>[width=5cm,keepaspectratio]{images/cusp_front.png}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Contour d'une surface}
+    On projette sur $\R^2$, le contour apparent est l'ensemble des points de la surface où $\frac{\partial f}{\partial z}=0$
+
+    \begin{thm}
+        Si $f$ est générique, alors:
+        \begin{enumerate}[<+->]
+            \item $ker(f)$ est une sous-variété de dimension deux (\alert{surface})
+            \item Son contour apparent $ker(f)\cap ker(\frac{\partial f}{\partial z})$ est une sous-variété de dimension un (\alert{courbe})
+            \item Tous les points sont des points-plis ou points-fronces, les points-fronces sont isolés
+        \end{enumerate}
+    \end{thm}
+
+    \pause[4]
+    \begin{proof}
+        Appliquer le théorème de transversalité à $j^1f: \R^3 \to J^2(\R^3,\R) \simeq \R^{13}$
+    \end{proof}
 \end{frame}
 
 \section{Catastrophes}
@@ -172,50 +251,6 @@
 \end{frame}
 
 \subsection{Le pli et la fronce}
-\begin{frame}{Points-pli et points-fronce}
-    On s'intéresse à $f:\R^3\to\R, \cinf$ et à la surface $V=ker(f)\subseteq \R^3$
-
-    \begin{columns}[T]
-        \begin{column}{5cm}
-            \alert{Point-pli}
-
-            $a$ est point-pli s'il existe des coordonnées dans lesquelles
-
-            $$\pm f = z^2 - y$$
-
-            \uncover<3>{
-                \alert{Point-fronce}
-
-                $a$ est point-fronce s'il existe des coordonnées dans lesquelles
-
-                $$\pm f = z^3 - xz - y$$}
-        \end{column}
-        \begin{column}{5cm}
-            \includegraphics<1>[width=5cm,keepaspectratio]{images/fold_front.png}
-            \includegraphics<2>[width=5cm,keepaspectratio]{images/fold_side.png}
-            \includegraphics<3>[width=5cm,keepaspectratio]{images/cusp_front.png}
-        \end{column}
-    \end{columns}
-\end{frame}
-
-\begin{frame}{Contour d'une surface}
-    On projette sur $\R^2$, le contour apparent est l'ensemble des points de la surface où $\frac{\partial f}{\partial z}=0$
-
-    \begin{thm}
-        Si $f$ est générique, alors:
-        \begin{enumerate}[<+->]
-            \item $ker(f)$ est une sous-variété de dimension deux (\alert{surface})
-            \item Son contour apparent $ker(f)\cap ker(\frac{\partial f}{\partial z})$ est une sous-variété de dimension un (\alert{courbe})
-            \item Tous les points sont des points-plis ou points-fronces, les points-fronces sont isolés
-        \end{enumerate}
-    \end{thm}
-
-    \pause[4]
-    \begin{proof}
-        Appliquer le théorème de transversalité à $j^1f: \R^3 \to J^2(\R^3,\R) \simeq \R^{13}$
-    \end{proof}
-\end{frame}
-
 \begin{frame}{Théorème de \textsc{Whitney}}
     On s'intéresse cette fois-ci aux fonctions $f: \R^2 \to \R^2$ (son graphe est une hypersurface de $\R^4$)
 
@@ -237,14 +272,14 @@
 \end{frame}
 
 \subsection{Les autres catastrophes}
-\begin{frame}{Autres catastrophes}
-    Théorème de classification complet:
+\begin{frame}{Le théorème de classification}
+    Si $f:\R^n\to\R$, il existe des coordonnées au voisinage d'un point critique telles que:
 
     $$\begin{cases}f  - f(a) = \pm x_1^{r+1} + \sum \pm x_i^2 & \text{pour } 1\leq r\leq 5 \\
     f - f(a) =  x_1^2x_2 \pm x_2^{r-1} + \sum \pm x_i^2 & \text{pour } r=4,5 \end{cases}$$
 
     \pause
-    \begin{description}[<+->][Ombilic hyperbolique]
+    \begin{description}[Ombilic hyperbolique]
         \item[Pli] $x^3$
         \item[Fronce] $\pm x^4$
         \item[Queue d'aronde] $x^5$
@@ -253,36 +288,6 @@
         \item[Ombilic elliptique] $x^2y-y^3$
         \item[Ombilic parabolique] $x^2y \pm y^4$
     \end{description}
-\end{frame}
-
-\section{Applications physiques}
-
-\subsection{La machine de \textsc{Zeeman}}
-\begin{frame}{Expérience}
-    \includegraphics<1>[width=\linewidth,height=\textheight,keepaspectratio]{images/montage_loq.jpg}
-    \includegraphics<2>[width=\linewidth,height=\textheight,keepaspectratio]{images/eq_haut_loq.jpg}
-    \includegraphics<3>[width=\linewidth,height=\textheight,keepaspectratio]{images/eq_bas_loq.jpg}
-\end{frame}
-
-\begin{frame}{Analyse théorique}
-    \begin{onlyenv}<1>
-        On change de coordonnées, $x=\theta+c$, un calcul donne:
-
-        $$E_p(x)  = \frac{1}{4}x^4+\frac{a}{2}x^2+bx$$
-
-
-        \alert{Points critiques} ou positions d'équilibre:
-
-        $$x^3+ax+b=0$$
-    \end{onlyenv}
-
-    \includegraphics<2>[width=\linewidth,height=0.8\textheight,keepaspectratio]{images/cusp_front.png}
-    \includegraphics<3>[width=\linewidth,height=0.8\textheight,keepaspectratio]{images/cusp_side.png}
-\end{frame}
-
-\subsection{Barre pesante}
-\begin{frame}{Un exemple de fronce}
-    \texttt{placeholder}
 \end{frame}
 
 \end{document}

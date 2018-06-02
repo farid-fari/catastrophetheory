@@ -8,10 +8,10 @@
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage{amsthm}
-\usepackage{titling}
+%\usepackage{titling}
 %\usepackage{pdfpages}
 
-\setlength{\droptitle}{-11em}
+%\setlength{\droptitle}{-11em}
 
 
 \renewcommand{\thesection}{\Roman{section}}
@@ -42,19 +42,18 @@
 
 \section{Introduction}
 
-La théorie des catastrophes est l'étude de variations soudaines -- ou discontinuités -- naissant de perturbations continues.
-Elle découle intuitivement de questionnements physiques, notamment du comportement de certains jouets \cite{bbcvid} mais aussi de problèmes concrets comme le roulis d'un navire \cite{poston} ou le flambage d'une poutre.
+La théorie des catastrophes est l'étude de variations soudaines -- ou discontinuités -- naissant de perturbations continues. Elle découle intuitivement de questionnements physiques, notamment du comportement de certains systèmes physiques comme le roulis d'un navire \cite{poston} ou le flambage d'une poutre.
 
-La théorie des catastrophes est née dans les années 60, quasiment entièrement du travail de \textbf{René Thom} puis \textbf{Christopher Zeeman}.
-Dans son livre \textit{Stabilité structurelle et morphogenèse} \cite{thom}, le théorème de classification de \textsc{Thom} est établi: sous certaines hypothèses (telles que la \textit{stabilité structurelle}), les singularités des familles d'au plus cinq applications peuvent être classifiées en \textbf{sept catégories}.
+La théorie des catastrophes est née dans les années 60, quasiment entièrement du travail de René \textsc{Thom} puis de Christopher \textsc{Zeeman}.
+Dans son livre \textit{Stabilité structurelle et morphogenèse} \cite{thom}, le \textit{théorème de classification de \textsc{Thom}} est établi: les singularités des applications à images dans un espace de dimension au plus cinq peuvent être classifiées en sept catégories.
 Il s'agit du pli, de la fronce, la queue d'aronde, la vague, le poil, le papillon et le champignon \cite{wikipedia}.
-Malgré les noms fantaisistes, il s'agit de catégories précises qui comprennent l'arité des fonctions et leur forme qualitative au voisinage de la singularité.
+Malgré les noms fantaisistes, il s'agit de catégories précises qui comprennent l'arité des fonctions et leur forme au voisinage de la singularité, à un changement de coordonnées près.
 
-Une des applications principales de cette théorie sont les simulations: de phénomènes physiques mais aussi sociaux (comportements durant des révoltes, ...) et économiques \cite{bbcvid} \cite{poston}.
-Son utilité pour la physique découle de ce que \textbf{Demazure} appelle `la philosophie de la théorie des catastrophes' \cite{demazure}: étudier ces variétés $\cinf$ peut être vu comme l'étude d'une fonction potentiel définie sur l'espace des états possibles d'un système physique.
+Une des applications principales de cette théorie sont les simulations: de phénomènes physiques mais aussi sociaux (comportements durant des révoltes, ...) et économiques \cite{poston} \cite{bbcvid}.
+Son utilité pour la physique découle de ce que Demazure appelle `\textit{la philosophie de la théorie des catastrophes}' \cite{demazure}: l'étude de fonctions de classe infinie peut être vue comme celle d'une fonction potentiel définie sur l'espace des états possibles d'un système physique.
+On s'intéresse dès lors aux états d'équilibre dudit système, et de leur stabilité; ce qui est précieux pour le physicien.
 
-Alors, l'étude d'une singularité devient celle d'un équilibre, et leur classification est précieuse pour le physicien.
-Cependant, nombre de ses applications sont controversées, notamment celles qui essaient d'expliquer un comportement humain par des mathématiques, pour des raisons éthiques et des questionnements de pertinence \cite{wikipedia}.
+Cependant, nombre de ses applications sont controversées, notamment celles qui essaient d'expliquer un comportement humain par des mathématiques, pour des raisons éthiques, ou du manque de pertinence d'une telle comparaison \cite{bbcvid} \cite{wikipedia}.
 
 \section{Catastrophes}
 
@@ -62,17 +61,17 @@ Cependant, nombre de ses applications sont controversées, notamment celles qui 
 
 Soit $f:E\to F$, de classe $\cun$.
 \begin{defn}
-	Un point critique pour $f$ est un point $a$ tel que $df_a$ ne soit pas surjective.
+	Un point critique pour $f$ est un point $a$ où $df_a$ n'est pas surjective.
 
 	Un point critique $a$ est dit non dégénéré si $\forall x, d^2f_a(x)$ est un isomorphisme, ou de manière équivalente si le déterminant Hessien de $f$ est non nul.
 \end{defn}
 
 La théorie des catastrophes s'intéresse aux points critiques d'une fonction -- mais pas n'importe laquelle.
-Il s'agit de travailler avec des fonctions définies sur des \textbf{sous-variétés}, qui sont la généralisation de `courbes' et `surfaces' aux dimensions supérieures.
+Il s'agit de travailler avec des fonctions définies sur des \textbf{sous-variétés}, qui sont la généralisation de courbes et surfaces aux dimensions supérieures.
 
 \begin{defn}
 	Une \textbf{sous-variété} $V$ de $\R^n$ est un ensemble qui est localement descriptible par un \textbf{système non dégénéré d'équations locales}.
-	Cela signifie qu'il existe pour tout point $a\in V$, $\Phi_1,...,\Phi_m$ telles que pour un voisinage $U$ de $a$, $U\cap\ker(\Phi_1,...,\Phi_m)=U\cap V$; et que $d\Phi_1,...,d\Phi_m$ forment un système libre de formes linéaires.
+	Cela signifie qu'il existe pour tout point $a\in V$ un voisinage $U$ et $\Phi_1,...,\Phi_m: U \to\R$ telles que $U\cap\{x\mid \Phi_1(x)=...=\Phi_m(x)=0\}=U\cap V$; et que $d\Phi_{1,x},...,d\Phi_{m,x}$ forment un système libre de formes linéaires.
 
 	$m$ s'appelle la codimension de la sous-variété, que l'on suppose être la même en tout point de $V$ par la suite (on peut supposer la variété connexe par exemple).
 \end{defn}
@@ -85,7 +84,7 @@ Il s'agit de travailler avec des fonctions définies sur des \textbf{sous-varié
 Une application définie sur un ensemble quelconque est dite de classe $\cinf$ si elle peut être prolongée en une fonction $\cinf$ sur un ouvert contenant cet ensemble. Soit $V$ une sous-variété et $F$ un espace vectoriel.
 
 \begin{defn}
-	Soit $f\in\cinf(V,F)$, elle est une \textbf{immersion} si $df_x$ est injective pour tout $x$ et est une \textbf{submersion} si $df_x$ est surjective pour tout $x$.
+	%Soit $f\in\cinf(V,F)$, elle est une \textbf{immersion} si $df_x$ est injective pour tout $x$ et est une \textbf{submersion} si $df_x$ est surjective pour tout $x$.
 
 	$f$ est un \textbf{plongement} si $f(V)$ est une sous-variété de $F$ et $f$ induit un ($\cinf$-)difféomorphisme $V\to f(V)$.
 \end{defn}
@@ -97,9 +96,9 @@ Ces notions nous permettent d'établir un cadre à l'étude de fonctions allant 
 La \textbf{transversalité} est une hypothèse sur l'intersection de deux objets permettant d'affirmer qu'elle est `non particulière' -- c'est ce que l'on pourrait abusivement appeller un ``positionnement général'', ce que l'on verra à travers les \textit{théorèmes de transversalité}.
 
 \begin{defn}
-	Deux sous-espaces vectoriels de $\R^n$ $F$ et $G$ sont dit \textbf{transverses} s'ils s'intersectent en un espace de dimension minimale, ou de manière équivalente si $F+G=\R^n$.
+	Deux sous-espaces vectoriels de $\R^n$ $F$ et $G$ sont dit \textbf{transverses} s'ils s'intersectent en un espace de dimension minimale ou, de manière équivalente, si $F+G=\R^n$.
 
-	On étend la définition aux familles finies par $codim(T_1\cap...\cap T_m)=codim(T_1)+...+codim(T_m)$.
+	%On étend la définition aux familles finies par $codim(T_1\cap...\cap T_m)=codim(T_1)+...+codim(T_m)$.
 \end{defn}
 
 On trouve en annexe des exemples d'intersections transverses et non transverses.
@@ -110,15 +109,15 @@ On constate que si la somme des dimensions est strictement inférieure à $n$, l
 Une autre condition de transversalité, cette fois-ci géométrique, est que pour toute famille d'espaces affines respectivement dirigés selon $T_1,...,T_m$, leur intersection n'est pas vide.
 
 On généralise ensuite la définition à deux variétés: elles sont transverses si leurs plans tangents sont transverses en tout point de leur intersection.
-Puisque les espaces tangents de la variété sont de même dimension que la variété, la somme des dimensions des variétés doit valoir au moins $n$ pour qu'elles soient transverses (là où elles s'intersectent).
+Puisque les espaces tangents de la variété sont de même dimension que la variété, la somme des dimensions des variétés doit valoir au moins $n$ pour qu'elles soient transverses (aux points où elles s'intersectent).
 
-On remarque de plus qu'une intersection de transverse de sous-variétés est une sous-variété, puisque l'espace tangent est justement l'intersection des noyaux des différentielles des coordonnées locales, et que la concaténation des systèmes de coordonnées locales en forme un si et seulement si cette intersection forme un espace de dimension minimale.
+On remarque de plus qu'une intersection transverse de sous-variétés est une sous-variété, puisque l'espace tangent est justement l'intersection des noyaux des différentielles des coordonnées locales, et que la concaténation des systèmes de coordonnées locales en forme un si et seulement si cette intersection forme un espace de dimension minimale.
 
-La transversalité est donc une condition forte permettant de `repérer' une sous-variété, par exemple dans une image:
+La transversalité est donc une condition forte permettant de `repérer' une sous-variété, par exemple pour une intersection mais aussi pour une image:
 
 \begin{thm}
 	Soient $V$ et $W$ deux variétés, $U$ un ouvert contenant $V$ et $f:U\to W$ de classe $\cinf$.
-	Si $a\in V$, $f(a)\in W$ et l'image de l'espace tangent à $V$ en $a$ par $df_a$ est transverse à l'espace tangent à $W$ en $f(a)$, alors $V\cap f^{-1}(W)$ est une sous-variété en $a$ de codimension $codim_a(V)+codim_{f(a)}(W)$.
+	Si $a\in V$, $f(a)\in W$ et l'image de l'espace tangent à $V$ en $a$ par $df_a$ est transverse à l'espace tangent à $W$ en $f(a)$, alors $V\cap f^{-1}(W)$ est une sous-variété en $a$ de codimension $codim_a(V) - codim_{f(a)}(W)$.
 \end{thm}
 
 %%%%%% WIP
@@ -132,9 +131,9 @@ La \textbf{stabilité structurelle} signifie plus généralement que le comporte
 \fi
 %%%%%% WIPend
 
-La version faible du théorème de transversalité s'énonce à partir d'une fonction $f: V\times\Lambda\to F$ de classe $\cinf$, où $\Lambda\in G$ est un ouvert d'un espace normé servant à `indicer' une famille de fonctions $V\to F$.
+La version faible du théorème de transversalité s'énonce à partir d'une fonction $f: \Lambda\times V\to F$ de classe $\cinf$, où $\Lambda\in G$ est un ouvert d'un espace normé servant à `indicer' une famille de fonctions $V\to F$.
 
-\begin{thm}[(de transversalité faible)]
+\begin{thm}[de transversalité faible]
 	Si $f$ est transverse à $W$, une sous-variété de $F$, alors l'ensemble des $\lambda\in\Lambda$ tels que $x\mapsto f(x,\lambda)$ soit transverse à $W$ est dense dans $\Lambda$ en tant que réunion dénombrable d'ouverts dense.
 \end{thm}
 
@@ -145,26 +144,30 @@ La transversalité est donc un `positionnement générique', dans le sens de la 
 \subsection{Réecriture au voisinage d'un point critique}
 
 La classification des points critiques demande une forme d'`équivalence' permettant de mettre les fonctions dans une forme commune au voisinage du point critique, les rendant comparables.
-On a pour cela à notre disposition un certain nombre de lemmes et théorèmes permettant des réecritures similaires.
+On a pour cela à notre disposition un certain nombre de lemmes et théorèmes permettant des réecritures semblables.
 
 Pour cela, on introduit une relation d'équivalence sur les couples $(a,f)$ où $f\in\cinf(U_f,F_f)$: $(a,f)$ et $(b,g)$ sont en relation si et seulement s'il existe un difféomorphisme $u$ d'un voisinage de $b$ vers un voisinage de $a$ tel que $(f-f(a))\circ u = (g-g(b))$.
 
 Cette équivalence permet donc de mettre en relation des applications au voisinage d'un point ``à un système de coordonnées locales près''.
 
+Par exemple, dans le cas de la dimension $1$, $\R\to\R$, si $f(0)=f'(0)=...=f^{(k-1)}=0$ et $f^{(k)}(0)\neq 0$ alors, il existe un voisinage de 0 et un changement de coordonnées dans lesquelles $f(x)=\pm x^k$ (qui est d'ailleurs un $+$ si $k$ est impair).
+
+Deux fonctions sont en relation si et seulement si leurs écritures en ces coordonnées $\pm x^k$ et $\pm x^l$ ont le même signe et indice ($k=l$). Ceci fournit une classification des points critiques en dimension 1, en fonction de leurs dérivées successives.
+
 Tout d'abord vient le fameux \textbf{théorème d'inversion locale}, qui permet de traiter les points non critiques d'une fonction. Soit $U$ un ouvert d'un espace vectoriel.
 
-\begin{thm}
-Si $f\in\cinf(U,\R^m)$, et que $df_a$ est bijective, alors f est un difféomorphisme local: elle est bijective d'un voisinage de $a$ vers un voisinage de $f(a)$, de réciproque $\cinf$.
+\begin{thm}[d'inversion locale]
+	Si $f\in\cinf(U,\R^m)$, et que $df_a$ est bijective, alors f est un difféomorphisme local: elle est bijective d'un voisinage de $a$ vers un voisinage de $f(a)$, de réciproque $\cinf$.
 
-On en déduit qu'au voisinage de $a$, il existe un système de coordonnées locales telles que $f(x)=f(a)+x$, soit $(a,f)$ est équivalent à $(0,Id)$.
+	On en déduit qu'au voisinage de $a$, il existe un système de coordonnées locales telles que $f(x)=f(a)+x$, soit $(a,f)$ est équivalent à $(0,Id)$.
 \end{thm}
 
 \begin{proof} Voir annexe. \end{proof}
 
 Le \textbf{lemme d'\textsc{Hadamard}} permet de faire intervenir les coordonnées de $f$ dans son écriture au voisinage de $0$, nous permettant de nous rapprocher d'une écriture standard.
 
-\begin{lemm}
-	Si $f$ est $\cinf$, alors il existe un voisinage de $0$ sur lequel $f$ peut s'écrire: $f(x)=x_1g_1(x)+...+x_ng_n(x)$ avec $g_i(0) = \frac{\partial f}{\partial x_i}(0)$.
+\begin{lemm}[d'\textsc{Hadamard}]
+	Si $f$ est $\cinf$ et s'annule en $0$, alors il existe un voisinage de $0$ sur lequel $f$ peut s'écrire: $f(x)=x_1g_1(x)+...+x_ng_n(x)$ avec $g_i(0) = \frac{\partial f}{\partial x_i}(0)$.
 
 	Si 0 est point critique, on peut réitérer cela et écrire (toujours sur un voisinage de 0):
 
@@ -175,7 +178,7 @@ Le \textbf{lemme d'\textsc{Hadamard}} permet de faire intervenir les coordonnée
 
 Ce dernier lemme permet de démontrer le \textbf{lemme de \textsc{Morse}}, qui donne une expression nettement plus simple au voisinage d'un point critique à condition qu'il soit non dégénéré.
 
-\begin{lemm}
+\begin{lemm}[de \textsc{Morse}]
 	Si $f\in\cinf(\R^n,\R)$ admet un point critique non dégénéré en $u$, alors il existe un voisinage de $u$ et un $\cinf$-difféomorphisme $y=(y_1,...,y_n)$ tel que:
 
 	$$f=f(u)+y_1^2+...+y_l^2-y_{l+1}^2-...-y_n^2$$
@@ -189,15 +192,11 @@ Ce dernier lemme permet de démontrer le \textbf{lemme de \textsc{Morse}}, qui d
 
 De plus, on note que si $f$ est \textit{0-saddle} alors $u$ est minimum local, et si $f$ est \textit{n-saddle}, alors $u$ est maximum local.
 Si $f$ est $k-saddle$ de \textsc{Morse} en $u$, c'est un point critique isolé, et puisqu'un changement de coordonnées conserve l'isolation, on en déduit que tout point critique non dégénéré est isolé.
-De plus, l'indice $k$ est invariant par changement de coordonnées, c'est une propriété intrinsèque à $f$.
-
-Dans le cas $n=1$, si $f(0)=f'(0)=...=f^{(k-1)}=0$ et $f^{(k)}(0)\neq 0$ alors, il existe un voisinage de 0 et un changement de coordonées pour lesquels $f(x)=\pm x^k$ (qui est un $+$ si $k$ est impair).
-
-Deux fonctions sont en relation si et seulement si leurs écritures en ces coordonnées $\pm x^k$ et $\pm x^l$ ont le même signes et $k=l$. Ceci fournit une classification des points critiques en dimension 1, en fonction de leurs dérivées successives.
+De plus, l'indice $k$ est invariant par changement de coordonnées, c'est une propriété intrinsèque à $f$ (ou plutôt à sa forme Hessienne).
 
 Vient enfin le \textbf{théorème de décomposition}, qui permet de traiter les cas où le point critique est dégénéré en appliquant le théorème de \textsc{Morse} à une partie des coordonnées de $f$.
 
-\begin{thm}
+\begin{thm}[de décomposition]
 	Si f admet 0 pour point critique et $H(f)_0$ est de rang $r$, alors $f$ est équivalente (au sens défini ci-dessus) au voisinage de 0 à une fonction de la forme:
 
 	$$g(x)= x_1^2+x_2^2+ ...+x_p^2-x_{p+1}^2 -...- x_r^2 + h(x_{r+1},...,x_n)$$
@@ -208,19 +207,17 @@ Vient enfin le \textbf{théorème de décomposition}, qui permet de traiter les 
 \subsection{Jets et espace des germes}
 
 \begin{defn}
-	Le \textit{k-jet} de $f$ en $y$ est le $(k+1)$-uplet associé aux $k$ premières dérivées successives de de $f$ en $y$.
-
-	$$(j^k_x f)(h) = f(x) + df_x(h)+...+\frac{df^k_x(h)(h)...(h)}{k!}$$
+	Le \textit{k-jet} de $f$ en $y$ est le $(k+1)$-uplet associé aux $k$ premières différentielles successives de de $f$ en $y$: $j^k_x f = \left(f(x), df_x, ..., df^k_x\right)$.
 
 	Le germe de $f$ en un point associé à $k\in\N^*$ est le couple $(x,j^k_x f)$. On note $J^r(U,F)$ l'\textbf{espace des germes}.
 \end{defn}
 
 L'espace des germes permet d'exprimer des relations entre les dérivées partielles des fonction (à un choix de base près) par exemple, et son couplage avec la notion de transversalité fournit des résultats puissants.
 
-On aboutit enfin au théorème de \textsc{Thom}, qui est l'outil principal de la classification des \textit{applications génériques} (c'est à dire qui appartiennent à une réunion d'ouverts denses).
+On aboutit enfin au \textbf{théorème de transversalité \textsc{Thom}}, qui est l'outil principal de la classification des \textit{applications génériques} (c'est à dire qui appartiennent à une réunion d'ouverts denses).
 
-\begin{thm}{de transversalité de \textsc{Thom}}
-	L'ensemble des $f\in\cinf(U,F)$ telles que $j^rf$ soit transverse à une sous-variété donnée de l'espace des germes est une partie dense.
+\begin{thm}[de transversalité de \textsc{Thom}]
+	L'ensemble des $f\in\cinf(U,F)$ telles que $j^rf$ soit transverse à une sous-variété donnée de l'espace des germes $J^r(E,F)$ est une partie dense.
 \end{thm}
 
 \section{Classification des catastrophes}
@@ -242,7 +239,7 @@ Sous sa forme géométrique, ce théorème dit que ...
 
 \subsection{Le pli et la fronce}
 
-On traite ici les deux cas $\R^2\to\R$ et $\R\to\R^3$ de manière plus détaillée.
+On traite ici les deux cas $\R^3\to\R$ et $\R^2\to\R^2$ de manière plus détaillée.
 
 \begin{thm}[de \textsc{Whitney}]
 	Une application générique $\R^2\to\R^2$ a ses points critiques formant une courbe composée de plis et de fronces, et les fronces sont des points isolés de cette courbe.
