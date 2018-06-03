@@ -2,17 +2,16 @@
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[french]{babel}
-\usepackage{cite}
 \usepackage{url}
 \usepackage{hyperref}
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage{amsthm}
-%\usepackage{titling}
+\usepackage{titling}
 %\usepackage{pdfpages}
+\usepackage[left=2.5cm,right=2.5cm]{geometry}
 
-%\setlength{\droptitle}{-11em}
-
+\setlength{\droptitle}{-11em}
 
 \renewcommand{\thesection}{\Roman{section}}
 \renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
@@ -36,24 +35,23 @@
 
 \title{Théorie des catastrophes}
 \author{Farid Arthaud}
-
+\date{\today}
 \maketitle
-\tableofcontents
 
 \section{Introduction}
 
-La théorie des catastrophes est l'étude de variations soudaines -- ou discontinuités -- naissant de perturbations continues. Elle découle intuitivement de questionnements physiques, notamment du comportement de certains systèmes physiques comme le roulis d'un navire \cite{poston} ou le flambage d'une poutre.
+La théorie des catastrophes est l'étude de variations soudaines -- ou discontinuités -- naissant de perturbations continues. Elle découle intuitivement de questionnements physiques, notamment du comportement de certains systèmes physiques comme le roulis d'un navire ou le flambage d'une poutre.
 
 La théorie des catastrophes est née dans les années 60, quasiment entièrement du travail de René \textsc{Thom} puis de Christopher \textsc{Zeeman}.
-Dans son livre \textit{Stabilité structurelle et morphogenèse} \cite{thom}, le \textit{théorème de classification de \textsc{Thom}} est établi: les singularités des applications à images dans un espace de dimension au plus cinq peuvent être classifiées en sept catégories.
-Il s'agit du pli, de la fronce, la queue d'aronde, la vague, le poil, le papillon et le champignon \cite{wikipedia}.
+Dans son livre \textit{Stabilité structurelle et morphogenèse}, le \textit{théorème de classification de \textsc{Thom}} est établi: les singularités des applications à images dans un espace de dimension au plus cinq peuvent être classifiées en sept catégories.
+Il s'agit du pli, de la fronce, la queue d'aronde, la vague, le poil, le papillon et le champignon.
 Malgré les noms fantaisistes, il s'agit de catégories précises qui comprennent l'arité des fonctions et leur forme au voisinage de la singularité, à un changement de coordonnées près.
 
-Une des applications principales de cette théorie sont les simulations: de phénomènes physiques mais aussi sociaux (comportements durant des révoltes, ...) et économiques \cite{poston} \cite{bbcvid}.
-Son utilité pour la physique découle de ce que Demazure appelle `\textit{la philosophie de la théorie des catastrophes}' \cite{demazure}: l'étude de fonctions de classe infinie peut être vue comme celle d'une fonction potentiel définie sur l'espace des états possibles d'un système physique.
+Une des applications principales de cette théorie sont les simulations: de phénomènes physiques mais aussi sociaux (comportements durant des révoltes, ...) et économiques.
+Son utilité pour la physique découle de ce que \textsc{Demazure} appelle `\textit{la philosophie de la théorie des catastrophes}': l'étude de fonctions de classe infinie peut être vue comme celle d'une fonction potentiel définie sur l'espace des états possibles d'un système physique.
 On s'intéresse dès lors aux états d'équilibre dudit système, et de leur stabilité; ce qui est précieux pour le physicien.
 
-Cependant, nombre de ses applications sont controversées, notamment celles qui essaient d'expliquer un comportement humain par des mathématiques, pour des raisons éthiques, ou du manque de pertinence d'une telle comparaison \cite{bbcvid} \cite{wikipedia}.
+Cependant, nombre de ses applications sont controversées, notamment celles qui essaient d'expliquer un comportement humain par des mathématiques, pour des raisons éthiques, ou du manque de pertinence d'une telle comparaison.
 
 \section{Catastrophes}
 
@@ -117,19 +115,8 @@ La transversalité est donc une condition forte permettant de `repérer' une sou
 
 \begin{thm}
 	Soient $V$ et $W$ deux variétés, $U$ un ouvert contenant $V$ et $f:U\to W$ de classe $\cinf$.
-	Si $a\in V$, $f(a)\in W$ et l'image de l'espace tangent à $V$ en $a$ par $df_a$ est transverse à l'espace tangent à $W$ en $f(a)$, alors $V\cap f^{-1}(W)$ est une sous-variété en $a$ de codimension $codim_a(V) - codim_{f(a)}(W)$.
+	Si $a\in V$, $f(a)\in W$ et l'image de l'espace tangent à $V$ en $a$ par $df_a$ est transverse à l'espace tangent à $W$ en $f(a)$, alors $V\cap f^{-1}(W)$ est une sous-variété en $a$ de codimension $codim_a(V) + codim_{f(a)}(W)$.
 \end{thm}
-
-%%%%%% WIP
-\iffalse
-\begin{defn}
-	Une application $f$ est dite \textbf{structurellement stable} si pour toute application $p$ suffisament proche de 0 (et infiniment continue), $f+p$ a le même type de point critique que $f$ à translation près.
-\end{defn}
-
-Un point critique est en fait structurellement stable si et seulement si il est non dégénéré.
-La \textbf{stabilité structurelle} signifie plus généralement que le comportement qualitatif ne change pas malgré une perturbation suffisament petite.
-\fi
-%%%%%% WIPend
 
 La version faible du théorème de transversalité s'énonce à partir d'une fonction $f: \Lambda\times V\to F$ de classe $\cinf$, où $\Lambda\in G$ est un ouvert d'un espace normé servant à `indicer' une famille de fonctions $V\to F$.
 
@@ -139,7 +126,7 @@ La version faible du théorème de transversalité s'énonce à partir d'une fon
 
 Ainsi, étant donnée une famille de fonctions $f_\lambda: V\to F$ avec des hypothèses de régularité sur la dépendance en $V$ et en $\Lambda$, on peut affirmer que l'on peut approximer un $f_\lambda$ arbitrairement bien par des applications $f_{\lambda'}$ transverses à $W$.
 
-La transversalité est donc un `positionnement générique', dans le sens de la densité. On verra une version plus forte de ce théorème lors de l'étude du théorème de \textsc{Thom}.
+La transversalité est donc un `positionnement générique', dans le sens de la densité. On verra une version plus forte de ce théorème lors de l'étude du théorème de classification de \textsc{Thom}.
 
 \subsection{Réecriture au voisinage d'un point critique}
 
@@ -159,11 +146,12 @@ Tout d'abord vient le fameux \textbf{théorème d'inversion locale}, qui permet 
 \begin{thm}[d'inversion locale]
 	Si $f\in\cinf(U,\R^m)$, et que $df_a$ est bijective, alors f est un difféomorphisme local: elle est bijective d'un voisinage de $a$ vers un voisinage de $f(a)$, de réciproque $\cinf$.
 
-	On en déduit qu'au voisinage de $a$, il existe un système de coordonnées locales telles que $f(x)=f(a)+x$, soit $(a,f)$ est équivalent à $(0,Id)$.
+	On en déduit qu'au voisinage de $a$, il existe un système de coordonnées locales telles que $f(x)=f(a)+x$, ou encore que $(a,f)$ est équivalent à $(0,Id)$.
 \end{thm}
 
 \begin{proof} Voir annexe. \end{proof}
 
+Ce théorème est équivalent à celui des \textit{fonctions implicites}, dont on trouve l'énoncé et la preuve en annexe.
 Le \textbf{lemme d'\textsc{Hadamard}} permet de faire intervenir les coordonnées de $f$ dans son écriture au voisinage de $0$, nous permettant de nous rapprocher d'une écriture standard.
 
 \begin{lemm}[d'\textsc{Hadamard}]
@@ -221,7 +209,63 @@ On aboutit enfin au \textbf{théorème de transversalité \textsc{Thom}}, qui es
 \end{thm}
 
 \section{Classification des catastrophes}
-\subsection{Théorèmes de Sard et de Whitney}
+\subsection{Surfaces de $\R^3$}
+
+On prend $f: \R^3\to\R$ de classe $\cinf$, et on s'intéresse à l'ensemble de $\R^3$ défini par $V=\{x\mid f(x)=0\}$.
+Il est clair qu'on ne peut rien dire dans le cas général, puisque $V$ peut alors être quelconque (en particulier, tout sous-espace vectoriel est envisageable).
+
+Cependant, lorsqu'on impose que $f$ soit générique, il devient possible de commenter la forme de $V$.
+Spécifiquement, on s'intéresse à la projection de $V$ sur le plan $(x,y)$.
+
+Un point où $\frac{\partial f}{\partial z}\neq 0$ se manifeste par le fait que sa projection est un simple changement de coordonnées locales: c'est le théorème des \textit{fonctions implicites}.
+Il reste donc à traiter le cas des points où cette dérivée partielle s'annule, qui sont des points critiques particuliers de $f$.
+On appelle \textit{contour apparent} l'ensemble des points où $f(x,y,z)=0$ et $\frac{\partial f}{\partial z}(x,y,z)=0$, cette notion est illustrée en annexe.
+
+\begin{defn}
+	$a$ est un \textbf{point-pli} s'il existe des coordonnées locales dans lesquelles
+	$$\pm f(x, y, z) = z^2 - y$$
+
+	$a$ est un \textbf{point-fronce} s'il existe des coordonnées locales dans lesquelles
+	$$f(x,y,z) = z^3 - xz - y$$
+\end{defn}
+
+\begin{thm}
+	Pour $f$ générique:
+	\begin{enumerate}
+		\item $\{f=0\}$ est une sous-variété de dimension deux (ou une \textbf{surface})
+		\item Son contour apparent $\{f=0\}\cap \{\frac{\partial f}{\partial z}=0\}$ est une sous-variété de dimension un (ou une \textbf{courbe})
+		\item Tous les points critiques sont des points-plis ou points-fronces, et les points-fronces sont isolés
+	\end{enumerate}
+\end{thm}
+
+\begin{proof}[Démonstration (deux premiers points)] Voir annexe. \end{proof}
+
+On obtient donc une classification des points de $V$: étant partis d'un ensemble pouvant être quelconque, on s'est ramenés au cas intuitif d'une surface dans $\R^3$ ayant un contour naturel lorsqu'elle est visionée depuis une direction particulière.
+
+\subsection{Le théorème de \textsc{Whitney}}
+
+On traite ici le cas des points critiques d'une application $\R^2\to\R^2$, où l'on obtient un résultat analogue au précédent.
+Au voisinage d'un point ordinaire (non critique), il existe des coordonnées $(x',y')$ en $f(a)$ dans lesquelles $x' = x, y' = y$ (à l'aide du théorème \textit{inversion locale}), on définit donc encore deux `points-types' pour classifier les points critiques.
+
+\begin{defn}
+	$a$ est un \textbf{point-pli} s'il existe des coordonnées $(x',y')$ en $f(a)$ dans lesquelles $x' = x, y' = y^2$.
+
+	$a$ est un \textbf{point-fronce} s'il existe des coordonnées $(x',y')$ en $f(a)$ dans lesquelles $x' = x, y' = y^3 - xy$.
+\end{defn}
+
+\begin{thm}[de \textsc{Whitney}]
+	Une application générique $\R^2\to\R^2$ a ses points critiques le long d'une courbe composée de plis et de fronces, et les fronces sont des points isolés de cette courbe.
+\end{thm}
+
+\end{document}
+
+\begin{defn}
+	Une application $f$ est dite \textbf{structurellement stable} si pour toute application $p$ suffisament proche de 0 (et infiniment continue), $f+p$ a le même type de point critique que $f$ à translation près.
+\end{defn}
+
+Un point critique est en fait structurellement stable si et seulement si il est non dégénéré.
+La \textbf{stabilité structurelle} signifie plus généralement que le comportement qualitatif ne change pas malgré une perturbation suffisament petite.
+
 
 Ces deux théorèmes, dont les énoncés généraux sont admis, permettent de ...
 
@@ -236,28 +280,3 @@ Ces deux théorèmes, dont les énoncés généraux sont admis, permettent de ..
 \begin{proof}{($E=F=\R$)} Voir annexe. \end{proof}
 
 Sous sa forme géométrique, ce théorème dit que ...
-
-\subsection{Le pli et la fronce}
-
-On traite ici les deux cas $\R^3\to\R$ et $\R^2\to\R^2$ de manière plus détaillée.
-
-\begin{thm}[de \textsc{Whitney}]
-	Une application générique $\R^2\to\R^2$ a ses points critiques formant une courbe composée de plis et de fronces, et les fronces sont des points isolés de cette courbe.
-\end{thm}
-
-...
-
-\iffalse
-%%%% WIP
-On note qu'une variété de dimension $1$ est négligeable dans un espace de dimension deux: on en déduit le théorème de \textsc{Sard} dans ce cas particulier.
-\fi
-
-\subsection{Les autres catastrophes}
-
-\section{Bibliographie}
-
-\renewcommand\refname{\vskip -1cm}
-\bibliography{sources}
-\bibliographystyle{unsrt}
-
-\end{document}

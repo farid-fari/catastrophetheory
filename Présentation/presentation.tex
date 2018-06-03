@@ -10,6 +10,7 @@
 \useinnertheme{default}
 \useoutertheme{miniframes}
 \usecolortheme{beaver}
+\usefonttheme[onlymath]{serif}
 \setbeamercovered{transparent}
 \setbeamertemplate{section in toc}[sections numbered]
 
@@ -100,7 +101,7 @@
 
 \subsection{Surface en trois dimensions}
 \begin{frame}{Points-pli et points-fronce}
-    On considère $f:\R^3\to\R, \cinf$ et on s'intéresse à la surface $V=\{x\mid f(x)=0\}\subseteq \R^3$
+    On considère $f:\R^3\to\R, \cinf$ et on s'intéresse à la surface $V=\{(x,y,z)\mid f(x,y,z)=0\}\subseteq \R^3$
 
     \begin{columns}[T]
         \begin{column}{5cm}
@@ -134,7 +135,7 @@
         \begin{enumerate}[<+->]
             \item $\{f=0\}$ est une sous-variété de dimension deux (\alert{surface})
             \item Son contour apparent $\{f=0\}\cap \{\frac{\partial f}{\partial z}=0\}$ est une sous-variété de dimension un (\alert{courbe})
-            \item Tous les points ``particuliers'' sont des points-plis ou points-fronces, les points-fronces sont isolés
+            \item Tous les points ``particuliers'' sont des points-plis ou points-fronces, et les points-fronces sont isolés
         \end{enumerate}
     \end{thm}
 \end{frame}
@@ -302,7 +303,7 @@
 
 Soit $g:V\to W, \cinf$
     \begin{thm}
-        Si $a\in g^{-1}(W)$ et $g$ transverse à $W$ en $a$, alors $g^{-1}(W)$ est sous-variété en $a$ de dimension $dim_a(V)-codim_{g(a)}(W)$.
+        Si $a\in g^{-1}(W)$ et $g$ transverse à $W$ en $a$, alors $g^{-1}(W)$ est sous-variété en $a$ de dimension $dim_a(V)+codim_{g(a)}(W)$.
     \end{thm}
 
 \subsection{Germes et jets}

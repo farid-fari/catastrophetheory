@@ -8,8 +8,8 @@
 \usepackage{amsthm}
 \usepackage{hyperref}
 
-\renewcommand{\thesection}{\Roman{section}}
-\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+%\renewcommand{\thesection}{\Roman{section}}
+%\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
 
 \newcommand{\cont}{\mathcal{C}^0}
 \newcommand{\cun}{\mathcal{C}^1}
@@ -17,11 +17,156 @@
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\N}{\mathbb{N}}
 
+\newtheorem{thm}{Théorème}
+\newtheorem{lemm}{Lemme}
+\theoremstyle{definition}
+\newtheorem{defn}{Définition}
+
 \begin{document}
 \title{Annexes}
 \author{Farid Arthaud}
 \maketitle
 \tableofcontents
+
+\section{Bibliographie}
+
+\begin{enumerate}
+	\item \textit{Stabilité structurelle et morphogenèse}, René \textsc{Thom} (\textit{1974})
+	\item \textit{Catastrophes et bifuractions}, Michel \textsc{De Mazure} (\textit{1989})
+	\item \textit{Catastrophe theory and its applications}, Tim \textsc{Poston}, Ian \textsc{Stewart} (\textit{1978})
+\end{enumerate}
+
+\section{Inversion locale, fonctions implicites}
+
+\subsection{Théorème d'inversion locale}
+
+\setcounter{thm}{3}
+\begin{thm}[d'inversion locale]
+	Si $f\in\cinf(U,\R^m)$, et que $df_a$ est bijective, alors f est un difféomorphisme local: elle est bijective d'un voisinage de $a$ vers un voisinage de $f(a)$, de réciproque $\cinf$.
+
+	On en déduit qu'au voisinage de $a$, il existe un système de coordonnées locales telles que $f(x)=f(a)+x$, ou encore que $(a,f)$ est équivalent à $(0,Id)$.
+\end{thm}
+\begin{proof}
+	On se ramène à un voisinage de 0 où $df_0=Id_E$ (et donc $F=E$) en prenant pour fonction $df_a^{-1}(f(a+x)-f(a))$ que l'on notera $f$.
+	Sur $B_r$, on a $\Vert df_x-Id_E \Vert \leq \frac{1}{2}$. On peut alors écrire $df_x=Id_E-u$ et donc avoir $df_x^{-1}=Id_E+u+u^2+...$ (ça converge puisque la norme est subordonnée).
+
+	On pose, pour $y$ fixé de $B_{\frac{r}{2}}$, $h:x\mapsto x+y-f(x)$. On a par les acroissements finis sur $B_r, \Vert h(x) - h(x')\Vert\leq\frac{\Vert x-x' \Vert}{2}$, donc h contractante.
+	Elle est de plus à images dans $B_r$ donc y admet un unique point fixe: $y$ admet un antécédent unique par $f$ dans $B_r$. $f$ est donc bijective $f^{-1}(B_\frac{r}{2}) \cap B_r \to B_{\frac{r}{2}}$.
+
+	Quant à la continuité de la réciproque, on pose $g:x\mapsto x-f(x)$. \textit{L'inégalité des accroissements finis} donne $\Vert x-x' \Vert\leq 2\Vert f(x) - f(x')\Vert$ et donc en appliquant à $f^{-1}(y)$ et $f^{-1}(y')$ on obtient $f^{-1}$ 2-lipschitzienne.
+
+	Enfin, pour la différentiabilité, on choisit $k$ proche de 0 et on montre $\Vert f^{-1}(y+k)-f^{-1}(y)-(df_x)^{-1}(k) \Vert=o(k)$ en posant $h=f^{-1}(y+k)-f^{-1}(y)$ puis en constatant $f(x+h)=y+k$ et $h=o(k)$.
+\end{proof}
+
+%\textit{Corollaire classique}: si $f\in\cinf$ est injective et $df_a$ est inversible, alors il existe un voisinage de $a$ dont l'image par $f$ est un ouvert, et $f$ est un difféomorphisme local.
+
+\subsection{Théorème des fonctions implicites}
+
+%Si $f\in\cinf(\R^n\times\R^m,\R^p)$, et que le noyau de $df_{(x,y)}$ est localement le graphe d'une fonction $y=g(x)$, alors le noyau de $f$ est localement le graphe d'une application $y=h(x)$.
+
+Plus formellement, si l'on note $f_2(y) = f(x_0, y)$, et que $df_{2,y_0}$ est difféomorphisme local (donc $f_2$ est localement inversible), alors il existe une application $\phi_c$ telle que $f(x,\phi_c(x))=c$ sur un voisinage de $(x_0,y_0)$, et ce pour tout $c$ au voisinage de $f(x_0,y_0)$.
+
+Cela signifie que $c$ admet un unique antécédent par $y\mapsto f(x,y)$ pour $x$ suffisament proche de $x_0$.
+
+\bigskip
+
+On notera que ces deux théorèmes restent valables sous des hypothèses moins fortes de régularité, et que ces hypothèses sont héritées par $\phi$ et $f^{-1}$ dans ces cas.
+De plus, les démonstrations de chacun de ces théorèmes se déduisent facilement de l'énoncé de l'autre: les énoncés sont équivalents.
+
+\section{Lemmes d'\textsc{Hadamard}, de \textsc{Morse}}
+
+\subsection{Lemme d'\textsc{Hadamard}}
+
+\begin{lemm}[d'\textsc{Hadamard}]
+	Si $f$ est $\cinf$ et s'annule en $0$, alors il existe un voisinage de $0$ sur lequel $f$ peut s'écrire: $f(x)=x_1g_1(x)+...+x_ng_n(x)$ avec $g_i(0) = \frac{\partial f}{\partial x_i}(0)$.
+
+	Si 0 est point critique, on peut réitérer cela et écrire (toujours sur un voisinage de 0):
+
+	$$f(x)=\sum_{1\leq i,j \leq n} x_ix_jh_{ij}(x)$$
+\end{lemm}
+
+\subsection{Lemme de \textsc{Morse}}
+
+\begin{lemm}[de \textsc{Morse}]
+	Si $f\in\cinf(\R^n,\R)$ admet un point critique non dégénéré en $u$, alors il existe un voisinage de $u$ et un $\cinf$-difféomorphisme $y=(y_1,...,y_n)$ tel que:
+
+	$$f=f(u)+y_1^2+...+y_l^2-y_{l+1}^2-...-y_n^2$$
+\end{lemm}
+
+\begin{proof}
+On montre par récurrence sur $r$ que $f$ s'écrit $$f(x)=\pm u_1^2 \pm...\pm u_{r-1}^2 + \sum_{i,j\geq r} u_iu_jH_{ij}(u)$$
+
+Le rang 0 se déduit du \textit{lemme d'\textsc{Hadamard}}. On peut de plus rendre $H_{ij}$ symétrique en $i$ et $j$. On pose alors $$u_r' =\sqrt{\mid H_{rr}\mid}\big(u_r+\sum_{i>r}u_i\frac{H_{ir}}{H_{rr}}\big)$$
+
+On peut supposer $H_{rr}\neq 0$ par un changement de coordonées comme vu en \textit{1.1}. Il s'agit bien d'un difféomorphisme selon le \textit{théorème d'inversion locale}, et donc il s'agit bien d'un changement de coordonnées. On réécrit alors $f$ comme précédemment mais en allant jusqua'au rang $v_r$ au lieu de $u_{r-1}$ (attention, $(u_r')^2$ donne un reste à ajouter pour former de nouveaux $H_{ij}$).
+\end{proof}
+
+\section{Théorème de décomposition}
+
+\begin{thm}[de décomposition]
+	Si f admet 0 pour point critique et $H(f)_0$ est de rang $r$, alors $f$ est équivalente (au sens défini ci-dessus) au voisinage de 0 à une fonction de la forme:
+
+	$$g(x)= x_1^2+x_2^2+ ...+x_p^2-x_{p+1}^2 -...- x_r^2 + h(x_{r+1},...,x_n)$$
+\end{thm}
+
+\begin{proof}
+On suppose $H(f)_0$ de rang 1.
+Via un changement de base, on peut supposer $\frac{\partial f}{\partial x}(0,0) \neq 0$. On applique alors le \textit{théorème des fonctions implicites} à $\frac{\partial f}{\partial x}$ pour obtenir $\varphi$ telle que $\frac{\partial f}{\partial x}(\varphi(y), y)=0$ pour tout $y$ proche de 0.
+
+Le difféomorphisme local $\Phi: (x,y) \mapsto (x+\varphi(y), y)$ permet de poser $F(u,v) = f\circ\Phi(u,v)$ vérifiant $\frac{\partial F}{\partial u}=\frac{\partial f}{\partial x}$ et $\frac{\partial F}{\partial u}=0 \iff u=0$.
+
+Le \textit{lemme d'\textsc{Hadamard}} nous permet alors d'écrire $F(u,v)=\alpha(v)+u^2\beta(u, v)$ (car ?)
+\end{proof}
+
+\begin{proof}
+	On travaille dans $\cinf$.
+	Alors $H(f)_0$ peut être mise sous la forme d'un bloc diagonal de 1 et de -1 de format $r\times r$ par un changement de base (selon le \textit{lemme de Morse}) et des 0 partout ailleurs.
+	On applique le \textit{théorème des fonctions implicites} en (0,0) (d'image 0) à
+	$$(x_1,...,x_r),(x_{r+1},...,x_n)\mapsto \big(\frac{\partial f}{\partial x_1}(x), ..., \frac{\partial f}{\partial x_r}(x)\big)$$
+
+	On obtient alors $g$ telle que $(g(x_{r+1},...,x_n),x_{r+1},...,x_{r})$ soit l'ensemble des points pour lesquels l'image de la fonction précendente soit nulle. Notons alors $F: x\mapsto ((x_1,...,x_r)+g(x_{r+1},...,x_n),x_{r+1},...,x_{r})$ qui correspond à $f$ à un changement de coordonées près, puisque
+
+	Tout a était fait afin que F
+\end{proof}
+
+\section{Densité, négligeablité}
+
+\subsection{Généricité}
+\begin{defn}
+	Une propriété sur des éléments d'un espace topologique $E$ est dité \textbf{générique} si elle est vérifiée sur une intersection d'ouverts denses.
+\end{defn}
+
+\begin{defn}
+	Un ensemble est dit negligeable s'il est contenu dans une ré
+\end{defn}
+
+\subsection{Théorème de Baire}
+\begin{thm}{de Baire}
+	Dans un espace complet, une intersection d'ouverts denses est dense.
+\end{thm}
+
+\section{Courbes de $\R^3$}
+
+\begin{thm}
+	Pour $f$ générique:
+	\begin{enumerate}
+		\item $\{f=0\}$ est une sous-variété de dimension deux (ou une \textbf{surface})
+		\item Son contour apparent $\{f=0\}\cap \{\frac{\partial f}{\partial z}=0\}$ est une sous-variété de dimension un (ou une \textbf{courbe})
+		\item Tous les points critiques sont des points-plis ou points-fronces, et les points-fronces sont isolés
+	\end{enumerate}
+\end{thm}
+
+\begin{proof}[Démonstration (deux premiers points)]
+	Il est clair que $\{f=0\}$, $\{f=\frac{\partial f}{\partial z}=0\}$ et $\{f=\frac{\partial f}{\partial z}=\frac{\partial^2 f}{\partial z^2}=0\}$ sont des sous-variétés de l'espace des germes $J^2(\R^3,\R)$ de codimensions $1$, $2$ et $3$: on applique donc le théorème de transversalité de \textsc{Thom} ainsi que celui sur la dimension d'une image réciproque pour obtenir les deux premiers points.
+
+	On obtient donc que $\{f=0\}$ est une variété de codimension $1$ (une surface, éventuellement vide), $\{f=\}=\frac{\partial f}{\partial z}=0\}$ est une sous-variété de codimension $2$ (une courbe, éventuellement vide) et que $\{f=\frac{\partial f}{\partial z}=\frac{\partial^2 f}{\partial z^2}=0\}$ est une sous-variété de codimension $0$, soit un ensemble discret de points de $\R^3$.
+
+	En réitérant ceci avec les germes troisièmes, on constate que les points où les trois premières dérivées de $z \mapsto f(x,y,z)$ s'annulent est vide.
+
+	Quant à la réecriture au voisinage d'un point critique, il faut distinguer les cas selon $\frac{\partial^2 f}{\partial z^2}$ nul ou non, et utiliser la remarque précédente et le théorème de décomposition.
+\end{proof}
+
+\end{document}
 
 \section{Classification des formes quadratiques}
 
@@ -103,71 +248,3 @@ Deux fonctions appartenant à la même catégorie de noyau ont la même expressi
 
 	Par changement de coordonées, on est donc ramené à l'un des cas: $(Lx+My)(x^2-y^2)$ ou $(Lx+My)x^2$ ou $(Lx+My)(x^2+y^2)$. Le premier de ces cas nous ramène soit aux trois droites, soit au second cas (selon si $(Lx+My)$ est multiple de $(x-y)$ ou $(x+y)$ ou non). Le second cas mène soit à $x^3$ (si $M=0$) ou $xy^2$. Le troisième est $(x^2+y^2)y$ (soit $LM=0$, ou on procède à une \textit{rotation des axes} $(x',y')=\frac{1}{\sqrt{L^2+M^2}}(Ly-Mx,Lx+My)$).
 \end{proof}
-
-\section{Inversion locale, fonctions implicites}
-
-\subsection{Théorème d'inversion locale}
-
-\begin{proof}
-	On se ramène à un voisinage de 0 où $df_0=Id_E$ (et donc $F=E$) en prenant pour fonction $df_a^{-1}(f(a+x)-f(a))$ que l'on notera $f$.
-	Sur $B_r$, on a $\Vert df_x-Id_E \Vert \leq \frac{1}{2}$. On peut alors écrire $df_x=Id_E-u$ et donc avoir $df_x^{-1}=Id_E+u+u^2+...$ (ça converge puisque la norme est subordonnée).
-
-	On pose, pour $y$ fixé de $B_{\frac{r}{2}}$, $h:x\mapsto x+y-f(x)$. On a par les acroissements finis sur $B_r, \Vert h(x) - h(x')\Vert\leq\frac{\Vert x-x' \Vert}{2}$, donc h contractante.
-	Elle est de plus à images dans $B_r$ donc y admet un unique point fixe: $y$ admet un antécédent unique par $f$ dans $B_r$. $f$ est donc bijective $f^{-1}(B_\frac{r}{2}) \cap B_r \to B_{\frac{r}{2}}$.
-
-	Quant à la continuité de la réciproque, on pose $g:x\mapsto x-f(x)$. \textit{L'inégalité des accroissements finis} donne $\Vert x-x' \Vert\leq 2\Vert f(x) - f(x')\Vert$ et donc en appliquant à $f^{-1}(y)$ et $f^{-1}(y')$ on obtient $f^{-1}$ 2-lipschitzienne.
-
-	Enfin, pour la différentiabilité, on choisit $k$ proche de 0 et on montre $\Vert f^{-1}(y+k)-f^{-1}(y)-(df_x)^{-1}(k) \Vert=o(k)$ en posant $h=f^{-1}(y+k)-f^{-1}(y)$ puis en constatant $f(x+h)=y+k$ et $h=o(k)$.
-
-\end{proof}
-
-\textit{Corollaire classique}: si $f\in\cinf$ est injective et $df_a$ est inversible, alors il existe un voisinage de $a$ dont l'image par $f$ est un ouvert, et $f$ est un difféomorphisme local.
-
-\subsection{Théorème des fonctions implicites}
-
-Si $f\in\cinf(\R^n\times\R^m,\R^p)$, et que le noyau de $df_{(x,y)}$ est localement le graphe d'une fonction $y=g(x)$, alors le noyau de $f$ est localement le graphe d'une application $y=h(x)$.
-
-Plus formellement, si l'on note $f_2(y) = f(x_0, y)$, et que $df_{2,y_0}$ est difféomorphisme local (donc $f_2$ est localement inversible), alors on a une application $\phi$ telle que $f(x,\phi(x))=c$ sur un voisinage de $(x_0,y_0)$, et ce pour tout $c$ au voisinage de $f(x_0,y_0)$.
-
-Cela signifie que $c$ admet un unique antécédent par $y\mapsto f(x,y)$ pour $x$ suffisament proche de $x_0$.
-
-\bigskip
-
-On notera que ces deux théorèmes restent valables sous des hypothèses moins fortes de régularité, et que ces hypothèses sont héritées par $\phi$ et $f^{-1}$ dans ce cas. De plus, le lien entre ceux-ci est fort: l'un peut se déduire de l'autre.
-
-\section{Lemme de \textsc{Morse}}
-
-\begin{proof}
-On montre par récurrence sur $r$ que $f$ s'écrit $$f(x)=\pm u_1^2 \pm...\pm u_{r-1}^2 + \sum_{i,j\geq r} u_iu_jH_{ij}(u)$$
-
-Le rang 0 se déduit du \textit{lemme d'\textsc{Hadamard}}. On peut de plus rendre $H_{ij}$ symétrique en $i$ et $j$. On pose alors $$u_r' =\sqrt{\mid H_{rr}\mid}\big(u_r+\sum_{i>r}u_i\frac{H_{ir}}{H_{rr}}\big)$$
-
-On peut supposer $H_{rr}\neq 0$ par un changement de coordonées comme vu en \textit{1.1}. Il s'agit bien d'un difféomorphisme selon le \textit{théorème d'inversion locale}, et donc il s'agit bien d'un changement de coordonnées. On réécrit alors $f$ comme précédemment mais en allant jusqua'au rang $v_r$ au lieu de $u_{r-1}$ (attention, $(u_r')^2$ donne un reste à ajouter pour former de nouveaux $H_{ij}$).
-\end{proof}
-
-\section{Théorème de décomposition}
-
-\begin{proof}
-On suppose $H(f)_0$ de rang 1.
-Via un changement de base, on peut supposer $\frac{\partial f}{\partial x}(0,0) \neq 0$. On applique alors le \textit{théorème des fonctions implicites} à $\frac{\partial f}{\partial x}$ pour obtenir $\varphi$ telle que $\frac{\partial f}{\partial x}(\varphi(y), y)=0$ pour tout $y$ proche de 0.
-
-Le difféomorphisme local $\Phi: (x,y) \mapsto (x+\varphi(y), y)$ permet de poser $F(u,v) = f\circ\Phi(u,v)$ vérifiant $\frac{\partial F}{\partial u}=\frac{\partial f}{\partial x}$ et $\frac{\partial F}{\partial u}=0 \iff u=0$.
-
-Le \textit{lemme d'\textsc{Hadamard}} nous permet alors d'écrire $F(u,v)=\alpha(v)+u^2\beta(u, v)$ (car ?)
-\end{proof}
-
-\begin{proof}
-	On travaille dans $\cinf$.
-	Alors $H(f)_0$ peut être mise sous la forme d'un bloc diagonal de 1 et de -1 de format $r\times r$ par un changement de base (selon le \textit{lemme de Morse}) et des 0 partout ailleurs.
-	On applique le \textit{théorème des fonctions implicites} en (0,0) (d'image 0) à
-	$$(x_1,...,x_r),(x_{r+1},...,x_n)\mapsto \big(\frac{\partial f}{\partial x_1}(x), ..., \frac{\partial f}{\partial x_r}(x)\big)$$
-
-	On obtient alors $g$ telle que $(g(x_{r+1},...,x_n),x_{r+1},...,x_{r})$ soit l'ensemble des points pour lesquels l'image de la fonction précendente soit nulle. Notons alors $F: x\mapsto ((x_1,...,x_r)+g(x_{r+1},...,x_n),x_{r+1},...,x_{r})$ qui correspond à $f$ à un changement de coordonées près, puisque
-
-	Tout a était fait afin que F
-\end{proof}
-
-\section{Densité, négligeablité}
-\section{Théorème de Baire}
-
-\end{document}
