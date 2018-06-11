@@ -80,29 +80,38 @@
 \end{frame}
 
 \begin{frame}{Analyse théorique}
-    \begin{onlyenv}<1-2>
-        \includegraphics<1-2>[width=\linewidth,height=0.8\textheight,keepaspectratio]{images/zeeman_sketch.jpg}
-
-        On change de coordonnées, $x=\theta+c$, un calcul donne:
-
-        $$E_p(a, b, x)  = \frac{1}{4}x^4+\frac{a}{2}x^2+bx$$
-
-        \alert{Points critiques} ou positions d'équilibre:
-
-        $$x^3+ax+b=0$$
+    \begin{onlyenv}<1-4>
+        \includegraphics<1-4>[width=\linewidth,height=0.8\textheight,keepaspectratio]{images/zeeman_sketch.jpg}
 
         \pause
-        \textit{Remarque}: $1$ ou $3$ positions d'équilibre pour chaque $(a,b)$
+        A l'aide de l'approximation des \alert{petits angles} (justifiée par le lemme de \textsc{Morse}), on a:
+
+        $$E_p(a, b, \theta)  = \Lambda \times (\frac{1}{4}\theta^4+\frac{a}{2}x^2+bx) + E_{p,0} + O(\theta^4)$$
+
+        \pause
+        \alert{Points critiques} ou positions d'équilibre:
+
+        $$\theta^3+a\theta+b=0$$
+
+        \pause
+        \textit{Remarque}: $1$ ou $3$ positions d'équilibre pour chaque couple $(a,b)$
     \end{onlyenv}
 
-    \includegraphics<3>[width=\linewidth,height=0.8\textheight,keepaspectratio]{images/cusp_zeeman.png}
-    \includegraphics<4>[width=\linewidth,height=0.8\textheight,keepaspectratio]{images/cusp_zeeman_top.png}
+    \includegraphics<5>[width=\linewidth,height=0.8\textheight,keepaspectratio]{images/cusp_zeeman.png}
+    \includegraphics<6>[width=\linewidth,height=0.8\textheight,keepaspectratio]{images/cusp_zeeman_top.png}
 \end{frame}
 
 \subsection{Surface en trois dimensions}
-\begin{frame}{Points-pli et points-fronce}
+\begin{frame}{Projection sur le plan}
     On considère $f:\R^3\to\R, \cinf$ et on s'intéresse à la surface $V=\{(x,y,z)\mid f(x,y,z)=0\}\subseteq \R^3$
 
+    \pause
+    On va regarder ce qu'il se passe lorsqu'on projette cette surface sur le plan $\{(x,y)\} = \R^2$
+
+    Le contour apparent est l'ensemble des points de la surface où $\frac{\partial f}{\partial z} = 0$
+\end{frame}
+
+\begin{frame}{Points-pli et points-fronce}
     \begin{columns}[T]
         \begin{column}{5cm}
             \alert{Point-pli}
@@ -126,10 +135,6 @@
 \end{frame}
 
 \begin{frame}{Contour d'une surface}
-    On va regarder ce qu'il se passe lorsqu'on projette cette surface sur le plan $\{(x,y)\} = \R^2$
-
-    Le contour apparent est l'ensemble des points de la surface où $\frac{\partial f}{\partial z} = 0$
-
     \begin{thm}
         Si $f$ est choisie ``au hasard'', alors:
         \begin{enumerate}[<+->]
@@ -185,7 +190,7 @@
     \begin{thm}
         Une variété de dimension $p$ admet en tout point un \alert{espace tangent} de dimension $p$.
 
-        C'est en fait l'intersection \alert{transverse} des $Im(d\phi_{1,a}),...,Im(d\phi_{m,a})$.
+        C'est l'intersection \alert{transverse} des $ker(d\phi_{1,a}),...,ker(d\phi_{m,a})$.
     \end{thm}
 \end{frame}
 
@@ -200,8 +205,8 @@
             \pause
             Caractérisations:
             \begin{enumerate}
-                \item<2-> Intersection minimale
-                \item<2-> Tous sous-espaces affines parallèles s'intersectent
+                \item<2-> Si $dim(F)+dim(G) \geq n$, intersection minimale
+                \item<2-> Toutes translations des espaces s'intersectent
                 \item<3-> $dim(F\cap G)=dim(F)+dim(G)-dim(E)$
                 \item<3-> $codim(F\cap G)=codim(F)+codim(G)$
             \end{enumerate}}
@@ -221,11 +226,11 @@
 
     \pause
     \begin{defn}
-        Une propriété sur un ensemble $E$ est dite \textbf{générique} si elle est vraie sur une réunion d'ouverts denses.
+        Une propriété sur un ensemble $E$ est dite \textbf{générique} si elle est vraie sur une intersection d'ouverts denses.
     \end{defn}
 
     \pause
-    \begin{thm}{(de transversalité faible)}
+    \begin{thm}[de transversalité faible]
         Si $X$ est une sous-variété de $W$, une application $V\to W$ choisie ``au hasard'' (par généricité) sera transverse à $W$.
     \end{thm}
 \end{frame}
@@ -234,23 +239,31 @@
 
 \subsection{Théorème de transversalité de \textsc{Thom}}
 \begin{frame}{Espace des germes}
-    \begin{defn}
-        Un \textbf{$k$-jet} de $f$ en $x$ correspond aux premiers termes du développement de Taylor d'une fonction:
-        $$j^k_x f = \left(f(x), df_x,...,df^k_x\right)$$
+    \begin{onlyenv}<1-2>
+        \begin{defn}
+            Un \textbf{$k$-jet} de $f$ en $x$ correspond aux premiers termes du développement de Taylor d'une fonction:
+            $$j^k_x f = \left(f(x), df_x,...,df^k_x\right)$$
 
-        L'\textbf{espace des germes} $J^r(E,F)$ correspond aux couples $(a, j^r_af)$
-    \end{defn}
+            L'\textbf{espace des germes} $J^r(E,F)$ correspond aux couples $(a, j^r_af)$
+        \end{defn}
 
-    \pause
+    \pause[2]
     Permet d'exprimer des \textit{équations différentielles} comme des variétés:
     $$f'(x)=f(x) \iff (x,j^1_xf) \in \{(a,b,c) \mid b=c \} \subseteq J^1(\R,\R) \simeq \R^3$$
+    \end{onlyenv}
+
+    \only<3-4>{\alt<3>{$$\{(a,b,c) \mid b=c \} \subseteq J^1(\R,\R) \simeq \R^3$$}{$$j^1_x(exp) =  (x, e^x, e^x) \in \{(a,b,c) \mid b=c \}$$}}
+
+    \begin{figure}\includegraphics<3>[width=\linewidth, height=0.6\textheight, keepaspectratio]{images/equadiff.png}
+    \includegraphics<4>[width=\linewidth, height=0.6\textheight, keepaspectratio]{images/exponential.png}\end{figure}
 \end{frame}
+
 \begin{frame}{Le théorème de transversalité de \textsc{Thom}}
-    \begin{thm}{(de transversalité de \textsc{Thom})}
+    \begin{thm}[de transversalité de \textsc{Thom}]
         Pour une sous-variété $W$ d'un espace des germes $J^r(E,F)$ donnée, une fonction $f$ choisie ``au hasard'' (générique) aura $j^rf$ transverse à $W$.
     \end{thm}
 
-    \uncover<2>{\textbf{Exemple 1}: $\{\frac{\partial f}{\partial z}=0\}$ est une variété de codimension $1$ de $J^1(\R,\R)$}
+    \uncover<2>{\textbf{Exemple 1}: $\{\frac{\partial f}{\partial z}=0\}$ est une variété de codimension $1$ de $J^1(\R^3,\R) \simeq \R^7$}
 
     \pause[3]
     \textbf{Exemple 2}: $\{(a,b,c) \mid b=c \}$ est une sous-variété de dimension $2$ de $J^1(\R,\R)$ décrivant $f'=f$
@@ -283,7 +296,7 @@
 \end{frame}
 
 \begin{frame}{Classfication des points}
-    \begin{thm}{(de \textsc{Whitney})}
+    \begin{thm}[de \textsc{Whitney}]
         Si $f$ est choisie ``au hasard'', alors:
         \begin{enumerate}[<+->]
             \item Les points critiques de $f$ forment une sous-variété de dimension une (\alert{courbe})
@@ -297,7 +310,7 @@
 
 \subsection{Réecriture au voisinage d'un point critique}
 \begin{frame}{Lemmes d'\textsc{Hadamard}, de \textsc{Morse}, inversion locale}
-    \begin{thm}{(inversion locale)}
+    \begin{thm}[inversion locale]
         Si $a$ n'est pas un point critique, il existe des coordonnées locales telles que $f(x)=f(a)+x$.
     \end{thm}
     \begin{lemm}{(de \textsc{Hadamard})}
