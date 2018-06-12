@@ -1,4 +1,4 @@
-\documentclass[compress]{beamer}
+\documentclass[compress, usepdftitle=false]{beamer}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
@@ -21,13 +21,15 @@
 \newcommand{\N}{\mathbb{N}}
 
 \newtheorem{thm}{Théorème}
+\newtheorem{cor}{Corollaire}
 \newtheorem{lemm}{Lemme}
 \theoremstyle{definition}
 \newtheorem{defn}{Définition}
 
 \author{Farid Arthaud}
 \title{Théorie des Catastrophes}
-\date{\today}
+\date{}
+\institute{TIPE 2018}
 
 \begin{document}
 \section*{Introduction}
@@ -70,7 +72,7 @@
     \end{columns}
 \end{frame}
 
-\section{Premiers exemples}
+\section[Exemples]{Premiers exemples}
 
 \subsection{La machine de \textsc{Zeeman}}
 \begin{frame}{Expérience}
@@ -80,16 +82,16 @@
 \end{frame}
 
 \begin{frame}{Analyse théorique}
-    \begin{onlyenv}<1-4>
-        \includegraphics<1-4>[width=\linewidth,height=0.8\textheight,keepaspectratio]{images/zeeman_sketch.jpg}
+    \begin{onlyenv}<1-3>
+        \includegraphics<1-3>[width=\linewidth,height=0.8\textheight,keepaspectratio]{images/zeeman_sketch.jpg}
+
+        Un calcule donne une \alert{énergie potentielle} de la forme:
+
+        $$E_p(a, b, \theta)  = \Lambda \times (\frac{1}{4}\theta^4+\frac{a}{2}\theta^2+b\theta) + E_{p,0} + g(\theta)$$
+        où $g(0)=g'(0)=g''(0)=g^{(3)}(0)=g^{(4)}(0)=0$.
 
         \pause
-        A l'aide de l'approximation des \alert{petits angles} (justifiée par le lemme de \textsc{Morse}), on a:
-
-        $$E_p(a, b, \theta)  = \Lambda \times (\frac{1}{4}\theta^4+\frac{a}{2}x^2+bx) + E_{p,0} + O(\theta^4)$$
-
-        \pause
-        \alert{Points critiques} ou positions d'équilibre:
+        \alert{Positions d'équilibre} ou points critiques:
 
         $$\theta^3+a\theta+b=0$$
 
@@ -97,18 +99,18 @@
         \textit{Remarque}: $1$ ou $3$ positions d'équilibre pour chaque couple $(a,b)$
     \end{onlyenv}
 
-    \includegraphics<5>[width=\linewidth,height=0.8\textheight,keepaspectratio]{images/cusp_zeeman.png}
-    \includegraphics<6>[width=\linewidth,height=0.8\textheight,keepaspectratio]{images/cusp_zeeman_top.png}
+    \includegraphics<4>[width=\linewidth,height=0.8\textheight,keepaspectratio]{images/cusp_zeeman.png}
+    \includegraphics<5>[width=\linewidth,height=0.8\textheight,keepaspectratio]{images/cusp_zeeman_top.png}
 \end{frame}
 
-\subsection{Surface en trois dimensions}
+\subsection{Surfaces en trois dimensions}
 \begin{frame}{Projection sur le plan}
-    On considère $f:\R^3\to\R, \cinf$ et on s'intéresse à la surface $V=\{(x,y,z)\mid f(x,y,z)=0\}\subseteq \R^3$
+    On considère $f:\R^3\to\R, \cinf$ et la surface $V = \{ (x,y,z)\mid f(x,y,z)=0 \} \subseteq \R^3$
 
     \pause
-    On va regarder ce qu'il se passe lorsqu'on projette cette surface sur le plan $\{(x,y)\} = \R^2$
+    Projection de cette surface sur le plan $\{(x,y)\} = \R^2$
 
-    Le contour apparent est l'ensemble des points de la surface où $\frac{\partial f}{\partial z} = 0$
+    Le \alert{contour apparent} est l'ensemble des points $x$ tels que $\frac{\partial f}{\partial z}(x) = 0$
 \end{frame}
 
 \begin{frame}{Points-pli et points-fronce}
@@ -139,7 +141,7 @@
         Si $f$ est choisie ``au hasard'', alors:
         \begin{enumerate}[<+->]
             \item $\{f=0\}$ est une sous-variété de dimension deux (\alert{surface})
-            \item Son contour apparent $\{f=0\}\cap \{\frac{\partial f}{\partial z}=0\}$ est une sous-variété de dimension un (\alert{courbe})
+            \item Son contour apparent $\{f=0\}\cap \left\{\frac{\partial f}{\partial z}=0\right\}$ est une sous-variété de dimension un (\alert{courbe})
             \item Tous les points ``particuliers'' sont des points-plis ou points-fronces, et les points-fronces sont isolés
         \end{enumerate}
     \end{thm}
@@ -149,41 +151,36 @@
 
 \subsection{Variétés et points critiques}
 \begin{frame}{Points critiques}
-    Soit $f: E \to F, \cinf$
-    \begin{defn}
-        Un point critique pour $f$ est un point $a$ où $df_a$ n'est \alert{pas surjective}.
+    \begin{onlyenv}<1-3>
+        Soit $f: E \to F, \cun$
+        \begin{defn}
+            Un point critique pour $f$ est un point $a$ où $df_a$ n'est \alert{pas surjective}.
+        \end{defn}
 
-	    Un point critique $a$ est dit \textbf{non dégénéré} si $\forall x, d^2f_a(x)$ est un \alert{isomorphisme}, ou de manière équivalente si le déterminant Hessien de $f$ est non nul.
-    \end{defn}
+        \pause
+        \alert{Exemples:}
+        \begin{description}[<+->]
+            \item[$\R\to\R$:] $a$ point critique $\iff f'(a) = 0$
+            \item[$\R^n\to\R$:] $a$ point critique $\iff \forall k, \frac{\partial f}{\partial x_k}(a) = 0$
+        \end{description}
+    \end{onlyenv}
 
-    \pause
-    \begin{columns}[T]
-        \begin{column}{5cm}
-            En \textbf{dimension 1}: $a$ point critique $\iff f'(a) = 0$
+    \only<4-5>{\alt<4>{$$f:x\mapsto x^2$$}{$$f:(x,y)\mapsto x^2+y^2$$}}
 
-            $a$ point critique dégénéré $\iff f'(a) =f''(a) = 0$
-
-            \only<3-4>{\alert{Exemples}:}
-
-            \only<3>{$f:x\mapsto x^2$}
-            \only<4>{$f:x\mapsto x^3$}
-        \end{column}
-        \begin{column}{5cm}
-            \includegraphics<3>[width=5cm,keepaspectratio]{images/x_deux.png}
-            \includegraphics<4>[width=5cm,keepaspectratio]{images/x_trois.png}
-        \end{column}
-    \end{columns}
+    \begin{figure}\includegraphics<4>[width=5cm,keepaspectratio]{images/x_deux.png}
+    \includegraphics<5>[width=5cm,keepaspectratio]{images/x_deux_y_deux.png}\end{figure}
 \end{frame}
 
 \begin{frame}{Sous-variétés}
     \begin{defn}
         Une \textbf{sous-variété} $V$ de $\R^n$ est un ensemble qui est localement descriptible par un \alert{système non dégénéré d'équations locales}, soit $m$ équations indépendantes.
         \begin{enumerate}[<+->]
-            \item pour un voisinage $U$ de $a$, $U\cap\{x\mid\Phi_1(x)=...=\Phi_m(x)=0\}=U\cap V$
+            \item pour un voisinage de $a$, $x\in V \iff \Phi_1(x)=...=\Phi_m(x)=0$
             \item $d\Phi_{1,a},...,d\Phi_{m,a}$ forment un système libre de formes linéaires.
         \end{enumerate}
+
         \pause[3]
-        $m$ s'appelle la \textbf{codimension} de la sous-variété, que l'on suppose être la même en tout point de $V$ par la suite (on peut supposer la variété connexe par exemple).
+        $m$ est la \textbf{codimension} de la sous-variété, supposée être la même en tout point de $V$ par la suite
     \end{defn}
 
     \pause
@@ -196,53 +193,59 @@
 
 \subsection{Transversalité et généricité}
 \begin{frame}{Intersections transverses}
-    \begin{onlyenv}<1-3,7>
-        \uncover<1-3>{
+    \begin{onlyenv}<1-2,6>
+        \uncover<1-2>{
             \begin{defn}
                 Deux sous-espaces $F$ et $G$ sont dits d'\textbf{intersection transverse} si $F+G=E$.
             \end{defn}
 
             \pause
-            Caractérisations:
-            \begin{enumerate}
-                \item<2-> Si $dim(F)+dim(G) \geq n$, intersection minimale
-                \item<2-> Toutes translations des espaces s'intersectent
-                \item<3-> $dim(F\cap G)=dim(F)+dim(G)-dim(E)$
-                \item<3-> $codim(F\cap G)=codim(F)+codim(G)$
-            \end{enumerate}}
+            \alert{Caractérisation}: Toutes translations des espaces s'intersectent}
 
-        \uncover<7>{Pour des \textbf{variétés et des fonctions}, transversalité si les \alert{espaces tangents} sont transverses en tout point de l'intersection}
+        \uncover<6>{Pour des \textbf{variétés et des fonctions}, transversalité si les \alert{espaces tangents} sont transverses en tout point de l'intersection}
     \end{onlyenv}
 
-    \includegraphics<4>[width=\linewidth,height=0.8\textheight,keepaspectratio]{images/2DTransverse.png}
-    \includegraphics<5>[width=\linewidth,height=0.8\textheight,keepaspectratio]{images/3D_trans.png}
-    \includegraphics<6>[width=\linewidth,height=0.8\textheight,keepaspectratio]{images/3D_non_trans.png}
+    \includegraphics<3>[width=\linewidth,height=0.8\textheight,keepaspectratio]{images/2DTransverse.png}
+    \includegraphics<4>[width=\linewidth,height=0.8\textheight,keepaspectratio]{images/3D_trans.png}
+    \includegraphics<5>[width=\linewidth,height=0.8\textheight,keepaspectratio]{images/3D_non_trans.png}
 \end{frame}
 
-\begin{frame}{Théorèmes de transversalité}
-    \begin{thm}
-        Une intersection transverse de sous-variétés est une sous-variété.
-    \end{thm}
+\begin{frame}{Généricité, Théorèmes de transversalité}
+    \begin{onlyenv}<1-3,6>
+        \begin{uncoverenv}<1-3>
+            Comment définir le \alert{``hasard''} sur des ensembles de fonctions?
 
-    \pause
-    \begin{defn}
-        Une propriété sur un ensemble $E$ est dite \textbf{générique} si elle est vraie sur une intersection d'ouverts denses.
-    \end{defn}
+            \pause
+            \begin{defn}
+                Une propriété sur un ensemble $E$ est dite \textbf{générique} si elle est vraie sur une intersection d'ouverts denses.
+            \end{defn}
 
-    \pause
-    \begin{thm}[de transversalité faible]
-        Si $X$ est une sous-variété de $W$, une application $V\to W$ choisie ``au hasard'' (par généricité) sera transverse à $W$.
-    \end{thm}
+            $f$ choisie ``au hasard'' $\iff$ $f$ vérifie une \alert{propriété générique}
+
+            \pause
+            \begin{thm}
+                Une intersection transverse de sous-variétés est une sous-variété.
+            \end{thm}
+        \end{uncoverenv}
+
+        \uncover<6>{\begin{thm}[de transversalité faible]
+            Si $X$ est une sous-variété de $W$, une application $V\to W$ choisie ``au hasard'' (par généricité) sera transverse à $W$.
+        \end{thm}}
+    \end{onlyenv}
+
+    \begin{figure}\includegraphics<4>[width=\linewidth, height=0.8\textheight, keepaspectratio]{images/var_trans.png}
+    \includegraphics<5>[width=\linewidth, height=0.8\textheight, keepaspectratio]{images/var_non_trans.png}
+    \includegraphics<7>[width=\linewidth, height=0.8\textheight, keepaspectratio]{images/var_non_trans.png}\end{figure}
 \end{frame}
 
-\section{Théorèmes de classification}
+\section[Classification]{Théorème de classification}
 
 \subsection{Théorème de transversalité de \textsc{Thom}}
 \begin{frame}{Espace des germes}
     \begin{onlyenv}<1-2>
         \begin{defn}
             Un \textbf{$k$-jet} de $f$ en $x$ correspond aux premiers termes du développement de Taylor d'une fonction:
-            $$j^k_x f = \left(f(x), df_x,...,df^k_x\right)$$
+            $$j^k_x f = \left(f(x), df_x,...,d^kf_x\right)$$
 
             L'\textbf{espace des germes} $J^r(E,F)$ correspond aux couples $(a, j^r_af)$
         \end{defn}
@@ -263,51 +266,37 @@
         Pour une sous-variété $W$ d'un espace des germes $J^r(E,F)$ donnée, une fonction $f$ choisie ``au hasard'' (générique) aura $j^rf$ transverse à $W$.
     \end{thm}
 
-    \uncover<2>{\textbf{Exemple 1}: $\{\frac{\partial f}{\partial z}=0\}$ est une variété de codimension $1$ de $J^1(\R^3,\R) \simeq \R^7$}
-
-    \pause[3]
-    \textbf{Exemple 2}: $\{(a,b,c) \mid b=c \}$ est une sous-variété de dimension $2$ de $J^1(\R,\R)$ décrivant $f'=f$
+    \pause
+    \textbf{Exemple}: $\{(a,b,c) \mid b=c \}$ est une sous-variété de dimension $2$ de $J^1(\R,\R)$ décrivant $f'=f$
 
     \pause
     Espace tangent en $(a,b,b)$: $\left((1,0,0), (0,1,1)\right)$
 
-    Espace tangent de $j^1f$ en $j^1_xf$: $(1,f'(x),f''(x))\notin\left((1,0,0), (0,1,1)\right)$
+    Espace tangent de $j^1f$ en $j^1_xf$: $(1,f'(x),f''(x)) \notin \left((1,0,0), (0,1,1)\right)$
 
     \pause
     Une fonction $f$ choisie ``au hasard'' en chaque point soit: ne vérifie pas $f'(x)=f(x)$, soit le vérifie en un point isolé
 \end{frame}
 
 \subsection{Théorème de \textsc{Whitney}}
-\begin{frame}{Points ordinaires, plis et fronces}
-    On s'intéresse cette fois-ci aux points critiques de $f: \R^2 \to \R^2$
+\begin{frame}{Retour au cas des surfaces}
+    On revient au cas de $V = \{ (x,y,z)\mid f(x,y,z)=0 \} \subseteq \R^3$
 
     \pause
-    \alert{Point ordinaire} (non critique): il existe des coordonnées $(x',y')$ en $f(a)$ dans lesquelles $f$ est décrite par $x' = x, y' = y$ (\alert{inversion locale})
-
-    \pause[7]
-    \alert{Point-pli}: il existe des coordonnées $(x',y')$ en $f(a)$ dans lesquelles $f$ est décrite par $x' = x, y' = y^2$
+    \begin{itemize}
+        \item $\{ f=0 \}$ est une variété de codimension $1$ de $J^1(\R^3,\R) \simeq \R^7$
+        \item $\{ f=0 \}\cap \left\{ \frac{\partial f}{\partial z}=0 \right\}$ est une variété de codimension $2$
+    \end{itemize}
 
     \pause
-    \alert{Point-fronce}: il existe des coordonnées $(x',y')$ en $f(a)$ dans lesquelles $f$ est décrite par $x' = x, y' = y^3 - xy$
-
-    \begin{figure}\includegraphics<2>[height=3cm,keepaspectratio]{images/ord_rot3.png}
-    \includegraphics<3>[height=3cm,keepaspectratio]{images/ord_rot4.png}
-    \includegraphics<4>[height=3cm,keepaspectratio]{images/ord_rot5.png}
-    \includegraphics<5>[height=3cm,keepaspectratio]{images/ord_rot6.png}
-    \includegraphics<6>[height=3cm,keepaspectratio]{images/ord_rot7.png}
-    \includegraphics<7>[width=8cm,keepaspectratio]{images/4_fold.jpg}
-    \includegraphics<8>[width=8cm,keepaspectratio]{images/4_cusp.jpg}\end{figure}
-\end{frame}
-
-\begin{frame}{Classfication des points}
-    \begin{thm}[de \textsc{Whitney}]
+    \begin{cor}[\textsc{Whitney}]
         Si $f$ est choisie ``au hasard'', alors:
-        \begin{enumerate}[<+->]
-            \item Les points critiques de $f$ forment une sous-variété de dimension une (\alert{courbe})
-            \item Les points critiques sont des plis et des fronces
-            \item Les fronces sont isolées
+        \begin{enumerate}
+            \item $\{f=0\}$ est une sous-variété de \textbf{codimension un} (\alert{surface})
+            \item Son contour apparent $\{f=0\}\cap \left\{\frac{\partial f}{\partial z}=0\right\}$ est une sous-variété de \textbf{codimension deux} (\alert{courbe})
+            \item Tous les points \textbf{critiques} sont des points-plis ou points-fronces, et les points-fronces sont isolés
         \end{enumerate}
-    \end{thm}
+    \end{cor}
 \end{frame}
 
 \end{document}
