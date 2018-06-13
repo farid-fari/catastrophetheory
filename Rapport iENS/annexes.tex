@@ -8,12 +8,12 @@
 \usepackage{amsthm}
 \usepackage{hyperref}
 \usepackage{graphicx}
-\usepackage{titling}
-\usepackage{tocloft}
+%\usepackage{titling}
+%\usepackage{tocloft}
 \usepackage{float}
 
-\setlength{\droptitle}{-10em}
-\setlength{\cftsecnumwidth}{7mm}
+%\setlength{\droptitle}{-10em}
+%\setlength{\cftsecnumwidth}{7mm}
 
 \renewcommand{\thesection}{\Roman{section}}
 \renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
@@ -158,6 +158,15 @@ De plus, les démonstrations de chacun de ces théorèmes se déduisent facileme
 \end{proof}
 
 \section{Surfaces dans $\R^3$}
+\subsection{Points-plis et points-fronce}
+\begin{figure}[H]\includegraphics[width=8cm, keepaspectratio]{images/fold_front.png}\caption{Point-pli avec les contours apparents en noir}\end{figure}
+\begin{figure}[H]\includegraphics[width=8cm, keepaspectratio]{images/cusp_side.png}\caption{Point-fronce avec les countours apparents en noir}\end{figure}
+
+Dans cette dernière illustration, la courbe de contour apparents (en noir) correspond à des points-plis excepté le point à l'extrémité, ou le point de rebroussement est en fait un point-fronce.
+
+Ceci illustre l'énoncé du théorème suivant, puisque les points-plis forment une courbe le long d'une surface, et le point-fronce est isolé le long de cette courbe.
+
+\subsection{Théorème}
 \setcounter{thm}{6}
 \begin{thm}
 	Pour $f$ générique:
@@ -179,6 +188,7 @@ De plus, les démonstrations de chacun de ces théorèmes se déduisent facileme
 
 \end{document}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Classification des formes quadratiques}
 
 \subsection{Généralités}
