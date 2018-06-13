@@ -99,8 +99,8 @@
         \textit{Remarque}: $1$ ou $3$ positions d'équilibre pour chaque couple $(a,b)$
     \end{onlyenv}
 
-    \includegraphics<4>[width=\linewidth,height=0.8\textheight,keepaspectratio]{images/cusp_zeeman.png}
-    \includegraphics<5>[width=\linewidth,height=0.8\textheight,keepaspectratio]{images/cusp_zeeman_top.png}
+    \begin{figure}\includegraphics<4>[width=\linewidth,height=0.8\textheight,keepaspectratio]{images/cusp_zeeman.png}
+    \includegraphics<5>[width=\linewidth,height=0.8\textheight,keepaspectratio]{images/cusp_zeeman_top.png}\end{figure}
 \end{frame}
 
 \subsection{Surfaces en trois dimensions}
@@ -185,7 +185,7 @@
 
     \pause
     \begin{thm}
-        Une variété de dimension $p$ admet en tout point un \alert{espace tangent} de dimension $p$.
+        Une sous-variété de dimension $p$ admet en tout point un \alert{espace tangent} de dimension $p$.
 
         C'est l'intersection \alert{transverse} des $ker(d\phi_{1,a}),...,ker(d\phi_{m,a})$.
     \end{thm}
@@ -235,7 +235,7 @@
 
     \begin{figure}\includegraphics<4>[width=\linewidth, height=0.8\textheight, keepaspectratio]{images/var_trans.png}
     \includegraphics<5>[width=\linewidth, height=0.8\textheight, keepaspectratio]{images/var_non_trans.png}
-    \includegraphics<7>[width=\linewidth, height=0.8\textheight, keepaspectratio]{images/var_non_trans.png}\end{figure}
+    \includegraphics<7>[width=\linewidth, height=0.8\textheight, keepaspectratio]{images/trans_fun.png}\end{figure}
 \end{frame}
 
 \section[Classification]{Théorème de classification}
@@ -250,9 +250,9 @@
             L'\textbf{espace des germes} $J^r(E,F)$ correspond aux couples $(a, j^r_af)$
         \end{defn}
 
-    \pause[2]
-    Permet d'exprimer des \textit{équations différentielles} comme des variétés:
-    $$f'(x)=f(x) \iff (x,j^1_xf) \in \{(a,b,c) \mid b=c \} \subseteq J^1(\R,\R) \simeq \R^3$$
+        \pause[2]
+        Permet d'exprimer des \textit{équations différentielles} comme des sous-variétés:
+        $$f'(x)=f(x) \iff (x,j^1_xf) \in \{(a,b,c) \mid b=c \} \subseteq J^1(\R,\R) \simeq \R^3$$
     \end{onlyenv}
 
     \only<3-4>{\alt<3>{$$\{(a,b,c) \mid b=c \} \subseteq J^1(\R,\R) \simeq \R^3$$}{$$j^1_x(exp) =  (x, e^x, e^x) \in \{(a,b,c) \mid b=c \}$$}}
@@ -262,20 +262,24 @@
 \end{frame}
 
 \begin{frame}{Le théorème de transversalité de \textsc{Thom}}
-    \begin{thm}[de transversalité de \textsc{Thom}]
-        Pour une sous-variété $W$ d'un espace des germes $J^r(E,F)$ donnée, une fonction $f$ choisie ``au hasard'' (générique) aura $j^rf$ transverse à $W$.
-    \end{thm}
+    \begin{onlyenv}<1-4>
+        \begin{thm}[de transversalité de \textsc{Thom}]
+            Pour une sous-variété $W$ d'un espace des germes $J^r(E,F)$ donnée, une fonction $f$ choisie ``au hasard'' (générique) aura $j^rf$ transverse à $W$.
+        \end{thm}
 
-    \pause
-    \textbf{Exemple}: $\{(a,b,c) \mid b=c \}$ est une sous-variété de dimension $2$ de $J^1(\R,\R)$ décrivant $f'=f$
+        \pause
+        \textbf{Exemple}: $\{(a,b,c) \mid b=c \}$ est une sous-variété de dimension $2$ de $J^1(\R,\R)$ décrivant $f'=f$
 
-    \pause
-    Espace tangent en $(a,b,b)$: $\left((1,0,0), (0,1,1)\right)$
+        \pause
+        Espace tangent en $(a,b,b)$: $\left((1,0,0), (0,1,1)\right)$
 
-    Espace tangent de $j^1f$ en $j^1_xf$: $(1,f'(x),f''(x)) \notin \left((1,0,0), (0,1,1)\right)$
+        Espace tangent de $j^1f$ en $j^1_xf$: $(1,f'(x),f''(x)) \notin \left((1,0,0), (0,1,1)\right)$
 
-    \pause
-    Une fonction $f$ choisie ``au hasard'' en chaque point soit: ne vérifie pas $f'(x)=f(x)$, soit le vérifie en un point isolé
+        \pause
+        Une fonction $f$ choisie ``au hasard'' en chaque point soit: ne vérifie pas $f'(x)=f(x)$, soit le vérifie en un point isolé
+    \end{onlyenv}
+
+    \begin{figure}\includegraphics<5>[width=\linewidth, height=0.8\textheight, keepaspectratio]{images/equadiff.png}\end{figure}
 \end{frame}
 
 \subsection{Théorème de \textsc{Whitney}}
@@ -284,8 +288,8 @@
 
     \pause
     \begin{itemize}
-        \item $\{ f=0 \}$ est une variété de codimension $1$ de $J^1(\R^3,\R) \simeq \R^7$
-        \item $\{ f=0 \}\cap \left\{ \frac{\partial f}{\partial z}=0 \right\}$ est une variété de codimension $2$
+        \item $\{ f=0 \}$ est une sous-variété de codimension $1$ de $J^1(\R^3,\R) \simeq \R^7$
+        \item $\{ f=0 \}\cap \left\{ \frac{\partial f}{\partial z}=0 \right\}$ est une sous-variété de codimension $2$
     \end{itemize}
 
     \pause

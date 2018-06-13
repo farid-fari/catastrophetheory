@@ -7,11 +7,13 @@
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage{amsthm}
-\usepackage{titling}
+%\usepackage{titling}
 %\usepackage{pdfpages}
 \usepackage[left=3cm,right=3cm]{geometry}
+\usepackage{graphicx}
+\usepackage{float}
 
-\setlength{\droptitle}{-10em}
+%\setlength{\droptitle}{-10em}
 
 \renewcommand{\thesection}{\Roman{section}}
 \renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
@@ -60,7 +62,7 @@ Soit $f:E\to F$, de classe $\cun$.
 \begin{defn}
 	Un point critique pour $f$ est un point $a$ où $df_a$ n'est pas surjective.
 
-	Un point critique $a$ est dit non dégénéré si $\forall x, d^2f_a(x)$ est un isomorphisme ou, de manière équivalente, si le déterminant Hessien de $f$ est non nul.
+	Un point critique $a$ est dit non dégénéré si le déterminant Hessien de $f$ en $a$ est non nul.
 \end{defn}
 
 La théorie des catastrophes s'intéresse aux points critiques d'une fonction -- mais pas n'importe laquelle.
@@ -216,18 +218,16 @@ On appelle \textit{contour apparent} l'ensemble des points où $f(x,y,z)=0$ et $
 
 On obtient donc une classification des points de $V$: étant partis d'un ensemble pouvant être quelconque, on s'est ramenés au cas intuitif d'une surface dans $\R^3$ ayant un contour naturel lorsqu'elle est vue depuis une direction particulière.
 
-\subsection{Le théorème de \textsc{Whitney}}
+\subsection{La machine à catastrophes de \textsc{Zeeman}}
+Cette expérience classique, imaginée par Cristopher \textsc{Zeeman}, permet d'illustrer ce théorème dans un cas particulier.
+On imagine un disque tournant sans frottement autour de son axe, ayant un point d'attache relié par deux élastiques à un point fixe (ou point d'ancrage) et à un point de contrôle que le manipulateur peut déplacer librement.
+Les notations sont illustrées ci-dessous.
 
-On traite ici le cas des points critiques d'une application $\R^2\to\R^2$, où l'on obtient un résultat analogue au précédent.
-Au voisinage d'un point ordinaire (non critique), il existe des coordonnées $(x',y')$ en $f(a)$ dans lesquelles $x' = x, y' = y$ (à l'aide du théorème \textit{inversion locale}), on définit donc encore deux `points-types' pour classifier les points critiques.
-\begin{defn}
-	$a$ est un \textbf{point-pli} s'il existe des coordonnées $(x',y')$ en $f(a)$ dans lesquelles $x' = x, y' = y^2$.
+\begin{figure}[H]\centering \includegraphics[width=10cm, keepaspectratio]{images/zeeman_sketch.jpg}\caption{Illustration de la machine de \textsc{Zeeman}}\end{figure}
 
-	$a$ est un \textbf{point-fronce} s'il existe des coordonnées $(x',y')$ en $f(a)$ dans lesquelles $x' = x, y' = y^3 - xy$.
-\end{defn}
-\begin{thm}[de \textsc{Whitney}]
-	Une application générique $\R^2\to\R^2$ a ses points critiques le long d'une courbe composée de plis et de fronces, et les fronces sont des points isolés de cette courbe.
-\end{thm}
+On observe que pour certaines positions de contrôle, un léger déplacement du point de contrôle donne des variations soudaines de l'angle $\theta$ -- un ``saut'' du disque.
+
+%\includepdf{annexe.pdf}
 
 \end{document}
 
@@ -250,3 +250,16 @@ Ces deux théorèmes, dont les énoncés généraux sont admis, permettent de ..
 \begin{proof}{($E=F=\R$)} Voir annexe. \end{proof}
 
 Sous sa forme géométrique, ce théorème dit que ...
+
+\subsection{Théorème de \textsc{Whitney}}
+
+On traite ici le cas des points critiques d'une application $\R^2\to\R^2$, où l'on obtient un résultat analogue au précédent.
+Au voisinage d'un point ordinaire (non critique), il existe des coordonnées $(x',y')$ en $f(a)$ dans lesquelles $x' = x, y' = y$ (à l'aide du théorème \textit{inversion locale}), on définit donc encore deux `points-types' pour classifier les points critiques.
+\begin{defn}
+	$a$ est un \textbf{point-pli} s'il existe des coordonnées $(x',y')$ en $f(a)$ dans lesquelles $x' = x, y' = y^2$.
+
+	$a$ est un \textbf{point-fronce} s'il existe des coordonnées $(x',y')$ en $f(a)$ dans lesquelles $x' = x, y' = y^3 - xy$.
+\end{defn}
+\begin{thm}[de \textsc{Whitney}]
+	Une application générique $\R^2\to\R^2$ a ses points critiques le long d'une courbe composée de plis et de fronces, et les fronces sont des points isolés de cette courbe.
+\end{thm}
