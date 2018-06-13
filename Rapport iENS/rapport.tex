@@ -60,7 +60,7 @@ Soit $f:E\to F$, de classe $\cun$.
 \begin{defn}
 	Un point critique pour $f$ est un point $a$ où $df_a$ n'est pas surjective.
 
-	Un point critique $a$ est dit non dégénéré si $\forall x, d^2f_a(x)$ est un isomorphisme, ou de manière équivalente si le déterminant Hessien de $f$ est non nul.
+	Un point critique $a$ est dit non dégénéré si $\forall x, d^2f_a(x)$ est un isomorphisme ou, de manière équivalente, si le déterminant Hessien de $f$ est non nul.
 \end{defn}
 
 La théorie des catastrophes s'intéresse aux points critiques d'une fonction -- mais pas n'importe laquelle.
@@ -78,9 +78,7 @@ Il s'agit de travailler avec des fonctions définies sur des \textbf{sous-varié
 
 Une application définie sur un ensemble quelconque est dite de classe $\cinf$ si elle peut être prolongée en une fonction $\cinf$ sur un ouvert contenant cet ensemble. Soit $V$ une sous-variété et $F$ un espace vectoriel.
 \begin{defn}
-	%Soit $f\in\cinf(V,F)$, elle est une \textbf{immersion} si $df_x$ est injective pour tout $x$ et est une \textbf{submersion} si $df_x$ est surjective pour tout $x$.
-
-	$f$ est un \textbf{plongement} si $f(V)$ est une sous-variété de $F$ et $f$ induit un ($\cinf$-)difféomorphisme $V\to f(V)$.
+	$f$ est un \textbf{plongement} si $f(V)$ est une sous-variété de $F$ et $f$ induit un ($\cinf$-) difféomorphisme $V\to f(V)$.
 \end{defn}
 
 Ces notions nous permettent d'établir un cadre à l'étude de fonctions allant d'une variété vers une autre.
@@ -90,16 +88,14 @@ Ces notions nous permettent d'établir un cadre à l'étude de fonctions allant 
 La \textbf{transversalité} est une hypothèse sur l'intersection de deux objets permettant d'affirmer qu'elle est `non particulière' -- c'est ce que l'on pourrait abusivement appeller un ``positionnement général'', ce que l'on verra à travers les \textit{théorèmes de transversalité}.
 \begin{defn}
 	Deux sous-espaces vectoriels de $\R^n$ $F$ et $G$ sont dit \textbf{transverses} si $F+G=\R^n$.
-
-	%On étend la définition aux familles finies par $codim(T_1\cap...\cap T_m)=codim(T_1)+...+codim(T_m)$.
 \end{defn}
 
 On trouve en annexe des exemples d'intersections transverses et non transverses.
 
-Une première condition de transversalité est: $F$ et $G$ sont transverses si et seulement si $dim(F\cap G)=dim(F)+dim(G)-n$ ou encore $codim(F\cap G)=codim(F)+codim(G)$.
+Une première condition de transversalité est: $F$ et $G$ sont transverses si et seulement si $dim(F\cap G)\leq dim(F)+dim(G)-n$ ou encore $codim(F\cap G)\geq codim(F)+codim(G)$.
 On constate que si la somme des dimensions est strictement inférieure à $n$, les espaces ne peuvent être transverses: la transversalité dépend fortement de l'espace dans lequel on travaille.
 
-Une autre condition de transversalité, cette fois-ci géométrique, est que toute famille d'espaces affines respectivement parallèles à $T_1,...,T_m$ soit d'intersection non vide.
+Une autre condition de transversalité, cette fois-ci géométrique, est que tous espaces affines parallèles à $F$ et $G$ soient d'intersection non vide.
 Si la somme des dimensions vaut au moins $n$, une condition de transversalité est que l'intersection soit de dimension minimale.
 
 On généralise ensuite la définition à deux variétés: elles sont transverses si leurs plans tangents sont transverses en tout point de leur intersection.
@@ -107,7 +103,7 @@ Puisque les espaces tangents de la variété sont de même dimension que la vari
 
 On remarque de plus qu'une intersection transverse de sous-variétés est une sous-variété, puisque l'espace tangent est justement l'intersection des noyaux des différentielles des coordonnées locales, et que la concaténation des systèmes de coordonnées locales en forme un si et seulement si cette intersection forme un espace de dimension minimale.
 
-La transversalité est donc une condition forte permettant de `repérer' une sous-variété, par exemple pour une intersection mais aussi pour une image:
+La transversalité est donc une condition forte permettant de `repérer' une sous-variété, comme vu pour une intersection mais aussi pour une image:
 \begin{thm}
 	Soient $V$ et $W$ deux variétés, $U$ un ouvert contenant $V$ et $f:U\to W$ de classe $\cinf$.
 	Si $a\in V$, $f(a)\in W$ et l'image de l'espace tangent à $V$ en $a$ par $df_a$ est transverse à l'espace tangent à $W$ en $f(a)$, alors $V\cap f^{-1}(W)$ est une sous-variété en $a$ de codimension $codim_a(V) + codim_{f(a)}(W)$.
@@ -120,7 +116,8 @@ La version faible du théorème de transversalité s'énonce à partir d'une fon
 
 Ainsi, étant donnée une famille de fonctions $f_\lambda: V\to F$ avec des hypothèses de régularité sur la dépendance en $V$ et en $\Lambda$, on peut affirmer que l'on peut approcher un $f_\lambda$ arbitrairement bien par des applications $f_{\lambda'}$ transverses à $W$.
 
-La transversalité est donc un `positionnement générique', dans le sens de la densité. On verra une version plus forte de ce théorème lors de l'étude du théorème de classification de \textsc{Thom}.
+La transversalité est donc un `positionnement générique', dans le sens de la densité.
+On verra une version plus forte de ce théorème lors de l'étude du théorème de classification de \textsc{Thom}.
 
 \subsection{Réecriture au voisinage d'un point critique}
 
