@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass[a4paper]{article}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[french]{babel}
@@ -7,13 +7,13 @@
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage{amsthm}
-%\usepackage{titling}
-%\usepackage{pdfpages}
+\usepackage{titling}
+\usepackage{pdfpages}
 \usepackage[left=3cm,right=3cm]{geometry}
 \usepackage{graphicx}
 \usepackage{float}
 
-%\setlength{\droptitle}{-10em}
+\setlength{\droptitle}{-10em}
 
 \renewcommand{\thesection}{\Roman{section}}
 \renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
@@ -30,9 +30,7 @@
 \newtheorem{defn}{Définition}
 \begin{document}
 
-%\includepdf{pagedegarde.pdf}
-
-\setcounter{page}{1}
+\includepdf{pagedegarderemplie.pdf}
 
 \title{Théorie des catastrophes}
 \author{Farid Arthaud}
@@ -221,13 +219,12 @@ On obtient donc une classification des points de $V$: étant partis d'un ensembl
 \subsection{La machine à catastrophes de \textsc{Zeeman}}
 Cette expérience classique, imaginée par Cristopher \textsc{Zeeman}, permet d'illustrer ce théorème dans un cas particulier.
 On imagine un disque tournant sans frottement autour de son axe, ayant un point d'attache relié par deux élastiques à un point fixe (ou point d'ancrage) et à un point de contrôle que le manipulateur peut déplacer librement.
-Les notations sont illustrées ci-dessous.
+Les notations sont illustrées ci-dessous, et des images figurent en annexe.
 
-\begin{figure}[H]\centering \includegraphics[width=10cm, keepaspectratio]{images/zeeman_sketch.jpg}\caption{Illustration de la machine de \textsc{Zeeman}}\end{figure}
+\begin{figure}[H]\centering \includegraphics[width=14cm, keepaspectratio]{images/zeeman_sketch.jpg}\caption{Illustration de la machine de \textsc{Zeeman}}\end{figure}
 
 On observe que pour certaines positions de contrôle, un léger déplacement du point de contrôle donne des variations soudaines de l'angle $\theta$ -- un ``saut'' du disque.
-
-%\includepdf{annexe.pdf}
+Les positions d'équilibre se situent en fait sur une surface de l'espace des configurations $\left\{(a,b,\theta)\right\}$ qui correspond justement à une courbe de plis se rejoignant en une fronce (illustrée en annexe).
 
 \end{document}
 

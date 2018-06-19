@@ -8,12 +8,13 @@
 \usepackage{amsthm}
 \usepackage{hyperref}
 \usepackage{graphicx}
-%\usepackage{titling}
-%\usepackage{tocloft}
+\usepackage{titling}
+\usepackage[left=3cm,right=3cm]{geometry}
+\usepackage{tocloft}
 \usepackage{float}
 
-%\setlength{\droptitle}{-10em}
-%\setlength{\cftsecnumwidth}{7mm}
+\setlength{\droptitle}{-10em}
+\setlength{\cftsecnumwidth}{7mm}
 
 \renewcommand{\thesection}{\Roman{section}}
 \renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
@@ -32,6 +33,7 @@
 \newtheorem{defn}{Définition}
 
 \begin{document}
+\setcounter{page}{7}
 \title{Annexes}
 \author{Farid Arthaud}
 \maketitle
@@ -46,14 +48,17 @@
 
 \section{Intersections transverses}
 \begin{figure}[H]
+	\centering
 	\includegraphics[width=10cm,keepaspectratio]{images/2DTransverse.png}
 	\caption{Intersection transverse dans $\R^2$}
 \end{figure}
 \begin{figure}[H]
+	\centering
 	\includegraphics[width=8cm,keepaspectratio]{images/3D_trans.png}
 	\caption{Intersection transverse dans $\R^3$}
 \end{figure}
 \begin{figure}[H]
+	\centering
 	\includegraphics[width=8cm,keepaspectratio]{images/3D_non_trans.png}
 	\caption{Intersection non transverse dans $\R^3$}
 \end{figure}
@@ -84,23 +89,21 @@
 	Enfin, pour la différentiabilité, on choisit $k$ proche de 0 et on pose $h=f^{-1}(y+k)-f^{-1}(y)$.
 	On peut écrire $df_x=Id_E-u$ et donc avoir $df_x^{-1}=\sum_{k\geq0} u^k$ qui donne $\|df_x^{-1}\| \leq 2$.
 
-	On constate que $\|h\|\leq 2\|k\|)$, puis
+	On constate que $\|h\|\leq 2\|k\|$, puis
 	\begin{align*}\| f^{-1}(y+k)-f^{-1}(y)-(df_x)^{-1}(k) \| & = \|df_x^{-1}(f(x+h)-f(x)-df_x(h))\| \\ & \leq 2\| f(x+h)-f(x)-df_x(h) \| =o(h) \\ & = o(k)\end{align*}
 \end{proof}
 
-%\textit{Corollaire classique}: si $f\in\cinf$ est injective et $df_a$ est inversible, alors il existe un voisinage de $a$ dont l'image par $f$ est un ouvert, et $f$ est un difféomorphisme local.
 
 \subsection{Théorème des fonctions implicites}
 
 Soit $f\in\cinf(\R^n\times\R^m,\R^p)$ et on note $f_2(y) = f(x_0, y)$.
-Si $df_{2,y_0}$ est difféomorphisme local (donc $f_2$ localement inversible), alors il existe une application $\phi_c$ telle que $f(x,\phi_c(x))=c$ sur un voisinage de $(x_0,y_0)$, et ce pour tout $c$ au voisinage de $f(x_0,y_0)$.
+Si $df_{2,y_0}$ est bijective (donc $f_2$ localement inversible), alors il existe une application $\phi_c$ telle que $f(x,\phi_c(x))=c$ sur un voisinage de $(x_0,y_0)$, et ce pour tout $c$ au voisinage de $f(x_0,y_0)$.
 
 Cela signifie que $c$ admet un unique antécédent par $y\mapsto f(x,y)$ pour $x$ suffisament proche de $x_0$.
 
 \bigskip
 
-On notera que ces deux théorèmes restent valables sous des hypothèses moins fortes de régularité, et que ces hypothèses sont héritées par $\phi$ et $f^{-1}$ dans ces cas.
-De plus, les démonstrations de chacun de ces théorèmes se déduisent facilement de l'énoncé de l'autre.
+On notera que ces deux théorèmes restent valables sous des hypothèses moins fortes de régularité, et que $f^{-1}$ et $\phi$ sont alors du même niveau de régularité.
 
 \section{Lemmes d'\textsc{Hadamard}, de \textsc{Morse}}
 
@@ -134,12 +137,12 @@ De plus, les démonstrations de chacun de ces théorèmes se déduisent facileme
 	On pose alors $$u_r' =\sqrt{\mid H_{rr}\mid}\big(u_r+\sum_{i>r}u_i\frac{H_{ir}}{H_{rr}}\big)$$
 	$(u_1,...,u_{r-1},u'_r,u_{r+1},...,u_n)$ sont bien des coordonnées locales selon le \textit{théorème d'inversion locale}, et donc il s'agit bien d'un changement de coordonnées.
 
-	On réécrit alors $f$ comme précédemment mais en allant jusqua'au rang $u_r'$ au lieu de $u_{r-1}$ (attention, $(u_r')^2$ donne un reste à ajouter pour former de nouveaux $H_{ij}$).
+	On réécrit alors $f$ comme précédemment mais en allant jusqu'au rang $u_r'$ au lieu de $u_{r-1}$ (attention, $(u_r')^2$ donne un reste à ajouter pour former de nouveaux $H_{ij}$).
 \end{proof}
 
 \section{Généricité et Théorème de \textsc{Baire}}
 \begin{defn}
-	Une propriété sur des éléments d'un espace topologique $E$ est dité \textbf{générique} si elle est vérifiée sur une intersection dénombrable d'ouverts denses.
+	Une propriété sur des éléments d'un espace topologique $E$ est dite \textbf{générique} si elle est vérifiée sur une intersection dénombrable d'ouverts denses.
 \end{defn}
 
 \begin{thm*}[de \textsc{Baire}]
@@ -150,7 +153,7 @@ De plus, les démonstrations de chacun de ces théorèmes se déduisent facileme
 
 	On construit une suite de boules ouvertes $(B_n)_n$ de rayons au plus $2^{-n}$ vérifiant $\forall n\geq0, \oB_{n+1} \subseteq O_{n+1}\cap B_n$.
 
-	Pour $B_0$, on choisit une boule dans $O_0 \cap V$ ouvert non vide, de rayon au plus $1$ et de fermeture incluse dans $O_0 \cap V$ (quitte à réduire le rayon).
+	Pour $B_0$, on choisit une boule dans $O_0 \cap V$ ouvert non vide, de rayon au plus $1$ et de fermeture incluse dans $O_0 \cap V$.
 	Ensuite, si les $n\geq1$ premières boules sont construites, $O_{n} \cap B_n$ est un ouvert non vide par densité, dans lequel on peut donc choisir une boule $B_{n+1}$ vérifiant les propriétés précédentes.
 
 	Par complétude, on a $\cap_{n\geq0} B_n \neq \emptyset$: toute suite de points pris dans chaque boule constitue une suite de \textsc{Cauchy}.
@@ -159,12 +162,12 @@ De plus, les démonstrations de chacun de ces théorèmes se déduisent facileme
 
 \section{Surfaces dans $\R^3$}
 \subsection{Points-plis et points-fronce}
-\begin{figure}[H]\includegraphics[width=8cm, keepaspectratio]{images/fold_front.png}\caption{Point-pli avec les contours apparents en noir}\end{figure}
-\begin{figure}[H]\includegraphics[width=8cm, keepaspectratio]{images/cusp_side.png}\caption{Point-fronce avec les countours apparents en noir}\end{figure}
+\begin{figure}[H]\centering\includegraphics[width=8cm, keepaspectratio]{images/fold_front.png}\caption{Point-pli avec les contours apparents en noir}\end{figure}
+\begin{figure}[H]\centering\includegraphics[width=8cm, keepaspectratio]{images/cusp_side.png}\caption{Point-fronce avec les countours apparents en noir}\end{figure}
 
-Dans cette dernière illustration, la courbe de contour apparents (en noir) correspond à des points-plis excepté le point à l'extrémité, ou le point de rebroussement est en fait un point-fronce.
+Dans cette dernière illustration, la courbe de contour apparents (en noir) correspond à des points-plis excepté le point à l'extrémité, où le point de rebroussement est un point-fronce.
 
-Ceci illustre l'énoncé du théorème suivant, puisque les points-plis forment une courbe le long d'une surface, et le point-fronce est isolé le long de cette courbe.
+Ceci illustre l'énoncé du théorème suivant, puisque les points-plis forment une courbe contenue dans une surface, et le point-fronce est isolé le long de cette courbe.
 
 \subsection{Théorème}
 \setcounter{thm}{6}
@@ -179,12 +182,24 @@ Ceci illustre l'énoncé du théorème suivant, puisque les points-plis forment 
 \begin{proof}[Démonstration (deux premiers points)]
 	Il est clair que $\{f=0\}$, $\{f=\frac{\partial f}{\partial z}=0\}$ et $\{f=\frac{\partial f}{\partial z}=\frac{\partial^2 f}{\partial z^2}=0\}$ sont des sous-variétés de l'espace des germes $J^2(\R^3,\R)$ de codimensions $1$, $2$ et $3$: on applique donc le théorème de transversalité de \textsc{Thom} ainsi que celui sur la dimension d'une image réciproque pour obtenir les deux premiers points.
 
-	On obtient donc que $\{f=0\}$ est une variété de codimension $1$ (une surface, éventuellement vide), $\{f=\}=\frac{\partial f}{\partial z}=0\}$ est une sous-variété de codimension $2$ (une courbe, éventuellement vide) et que $\{f=\frac{\partial f}{\partial z}=\frac{\partial^2 f}{\partial z^2}=0\}$ est une sous-variété de codimension $0$, soit un ensemble discret de points de $\R^3$.
+	On obtient donc que $\{f=0\}$ est une variété de codimension $1$ (une surface, éventuellement vide), $\{f=\}=\frac{\partial f}{\partial z}=0\}$ est une sous-variété de codimension $2$ (une courbe, éventuellement vide) et que $\{f=0 \} \cap \left\{\frac{\partial f}{\partial z}=0\right\} \cap \left\{\frac{\partial^2 f}{\partial z^2}=0\right\}$ est une sous-variété de codimension $0$, soit un ensemble discret de points de $\R^3$.
 
 	En réitérant ceci avec les germes troisièmes, on constate que les points où les trois premières dérivées de $z \mapsto f(x,y,z)$ s'annulent est vide.
 
 	Quant à la réecriture au voisinage d'un point critique, il faut distinguer les cas selon $\frac{\partial^2 f}{\partial z^2}$ nul ou non, et utiliser la remarque précédente ainsi que le théorème de décomposition.
 \end{proof}
+
+\subsection{La machine à catastrophes de \textsc{Zeeman}}
+J'ai réalisé moi-même une machine de \textsc{Zeeman}, dont voici des exemples de manipulations.
+Les deux dernières images montrent que deux positions de contrôle proches donnant des équilibres distants, séparés d'un ``saut'' du disque lorsqu'on se déplace (même lentement) d'une position à l'autre.
+
+%\begin{figure}\centering\includegraphics[width=8cm,keepaspectratio]{images/montage_loq.jpg}\caption{Montage de la machine de Zeeman}\end{figure}
+\begin{figure}[H]\centering\includegraphics[width=8cm,keepaspectratio]{images/eq_haut_loq.jpg}\caption{Premier équilibre}\end{figure}
+\begin{figure}[H]\centering\includegraphics[width=8cm,keepaspectratio]{images/eq_bas_loq.jpg}\caption{Second équilibre, voisin}\end{figure}
+
+Une étude donne la surface suivante, illustrant les positions d'équilibre (après un changement de coordonnées en $\theta$).
+
+\begin{figure}[H]\centering\includegraphics[width=9cm,keepaspectratio]{images/cusp_zeeman.png}\caption{Surface des équilibres possibles en fonction de $(a,b)$}\label{fig:zeemsurf}\end{figure}
 
 \end{document}
 

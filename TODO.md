@@ -1,7 +1,20 @@
 # To-Do
 
- - Illustrations manquantes présentation
- - Illustrations manquantes annexe
+ - Rédiger machine Zeeman dans rapport
+ - Ajouter des rotations surface difficile à voir
+ - Illustrations manquantes variétés
+ - Faire illustration saddle non trans
+ - Scanner page de garde
+ - Concaténer PDF
+
+ - Téleverser rapport
+ - Téléverser présentation
+---
+ - Illustration manquante f' = f
+ - Approximation petits angles clarifier
+
+ - Générer PDF images ENS
+ - Imprimer code Mathematica
 
 # Echéances
 
@@ -10,3 +23,4 @@
  - 14/06: iENS, Rapport
  - 20/06: SCEI, Validation de l'enseignant
 
+ - ??/07: Présentation
