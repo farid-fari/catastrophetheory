@@ -1,0 +1,62 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[french]{babel}
+\usepackage{listings}
+
+\lstset{basicstyle=\ttfamily}
+
+\author{Farid Arthaud}
+\title{Théorie des catastrophes: code source}
+\date{}
+
+\begin{document}
+\maketitle
+
+Logiciel utilisé pour le tracé de courbes: \texttt{Wolfram Mathematica 11.2}.
+
+\section{Syntaxe générale}
+
+\begin{itemize}
+    \item \texttt{Plot} pour le tracé d'une fonction en 2D.
+    \item \texttt{ContourPlot3D} permet le tracé d'un ensemble défini par une équation.
+    \item \texttt{ParametricPlot3D} permet le tracé d'un ensemble paramétré par un ou deux paramètres.
+    \item \texttt{Sin}, \texttt{Exp}, \texttt{Power[x,y]} et autres fonctions mathématiques de base implémentées par défaut.
+\end{itemize}
+
+\section{Courbes particulières}
+
+\subsection{Fonction $x\mapsto x^3$}
+
+\begin{lstlisting}{language=Mathematica}
+    Plot[Power[x, 3], {x, -2, 2}]
+\end{lstlisting}
+
+\subsection{Selle de cheval}
+
+Il s'agit la surface $\{x^2=2y^2-3z\}$.
+
+\begin{lstlisting}{language=Mathematica}
+    r := 3
+    ContourPlot3D[Power[x, 2] == 2 Power[y, 2] - 3 z,
+        {x, -r, r}, {y, -r, r}, {z, -r, r}, AxesLabel -> {x, y, z}]
+\end{lstlisting}
+
+\subsection{Fronce}
+
+Il s'agit de la surface $\{x^3+yx+z=0\}$ superposée avec les courbes paramétriques $\{(-3t^2,2t^3,t)\}$ et $\{(-1,t-t^3,t)\}$.
+
+\begin{lstlisting}{language=Mathematica}
+    plis = ParametricPlot3D[{-3 Power[t,2], 2 Power[t,3], t},
+        {t, -3, 3}, PlotStyle -> {Black, Thick}]
+    courbeVerte = ParametricPlot3D[{-1, t - Power[t, 3], t},
+        {t, -3, 3}, PlotStyle -> {Green, Thick}]
+    fronce = ContourPlot3D[Power[x,3] + y*x + z == 0,
+        {x, -2, 2}, {y, -2, 2}, {z, -2, 2},
+        AxesLabel -> {x, y, z}]
+
+    Show[fronce, plis, courbeVerte]
+\end{lstlisting}
+
+\end{document}
